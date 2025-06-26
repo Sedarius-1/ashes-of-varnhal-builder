@@ -10,7 +10,7 @@ import SpecialRulesPage from './pages/SpecialRulesPage';
 
 function App() {
     return (
-        <Router>
+        <Router basename="/ashes-of-varnhal-builder">
             <Layout>
                 <Routes>
                     <Route path="/" element={<BuilderPage />} />
