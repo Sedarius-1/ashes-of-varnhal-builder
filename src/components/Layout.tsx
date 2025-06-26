@@ -1,6 +1,5 @@
 import Sidebar from './Sidebar';
 import Topbar from './Topbar';
-import type {Warband} from '../types/warband';
 
 const Layout = ({
                     children,
