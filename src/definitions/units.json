@@ -1,0 +1,621 @@
+{
+  "House Kaevaryn": [
+    {
+      "id": "",
+      "name": "Sable Trooper",
+      "type": "Troops",
+      "faction": "House Kaevaryn",
+      "cost": 50,
+      "baseCost": 50,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "6\"",
+        "defense": "3",
+        "vigor": 4,
+        "actions": 2,
+        "resolve": "2",
+        "morale": 5,
+        "power": 0,
+        "reactor": 0
+      },
+      "abilities": []
+    },
+    {
+      "id": "",
+      "name": "Grenadier",
+      "type": "Troops",
+      "faction": "House Kaevaryn",
+      "cost": 55,
+      "baseCost": 55,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "6\"",
+        "defense": "4",
+        "vigor": 4,
+        "actions": 2,
+        "resolve": "2",
+        "morale": 5,
+        "power": 0,
+        "reactor": 0
+      },
+      "abilities": [
+        {
+          "name": "Frontline Shock",
+          "description": "+1D on first melee attack after moving."
+        },
+        {
+          "name": "Blast Specialist",
+          "description": "Grenades have +1'' splash radius."
+        }
+      ]
+    },
+    {
+      "id": "",
+      "name": "Knight-Courier",
+      "type": "Elite",
+      "faction": "House Kaevaryn",
+      "cost": 60,
+      "baseCost": 60,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "7\"",
+        "defense": "3",
+        "vigor": 4,
+        "actions": 2,
+        "resolve": "2",
+        "morale": 6,
+        "power": 0,
+        "reactor": 0
+      },
+      "abilities": [
+        {
+          "name": "Swift Messenger",
+          "description": "Once per round, +2'' free Move before or after activation (Does not trigger opportunity attacks)."
+        },
+        {
+          "name": "Quick Reflexes",
+          "description": "+1D to Defense roll against Melee attacks."
+        }
+      ]
+    },
+    {
+      "id": "",
+      "name": "Scrivener-Ritesman",
+      "type": "Elite",
+      "faction": "House Kaevaryn",
+      "cost": 80,
+      "baseCost": 80,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "5\"",
+        "defense": "3",
+        "vigor": 3,
+        "actions": 2,
+        "resolve": "3",
+        "morale": 5,
+        "power": 2,
+        "reactor": 0
+      },
+      "abilities": [
+        {
+          "name": "Lorekeeper",
+          "description": "Aura of +1 Morale to allies within 6''."
+        },
+        {
+          "name": "Caster",
+          "description": "Has access to the following Powers."
+        }
+      ],
+      "powers": [
+        {
+          "name": "Sigil of Interdiction",
+          "flavor": "No passage but by oaths sealed. No action but by Name revoked.",
+          "baseEffect": "Target enemy within 12'' loses 1 Action on their next activation.",
+          "overdrive": [
+            "2+ Successes: Target enemy loses 1 Action more.",
+            "3+ Successes: Target’s Defense is also lowered by 1 until end of turn.",
+            "4+ Successes: Target’s Defense is also lowered by 1 until end of turn."
+          ],
+          "critFail": "Caster loses 1 Action next turn and suffers –1 Defense until end of turn per Critical Fail."
+        },
+        {
+          "name": "Archivist’s Doomscript",
+          "flavor": "Their fate was written before the ink dried.",
+          "baseEffect": "Target enemy takes 1 Wound.",
+          "overdrive": [
+            "2+: Target enemy takes additional 1 Wound",
+            "3+: Target enemy takes another additional 1 Wound",
+            "4+: Target also becomes Staggered"
+          ],
+          "critFail": "Caster suffers 1 Wound per Critical Fail."
+        },
+        {
+          "name": "Sealed Ordinance",
+          "flavor": "I inscribe prohibition: let no machine fire nor lash obey.",
+          "baseEffect": "Target enemy within 12'' suffers –1 Dice on their weapon attacks during their next activation.",
+          "overdrive": [
+            "2+ Successes: Target enemy suffers another –1 Dice.",
+            "3+ Successes: Target’s attacks lose all special traits (e.g., Brutal, Precise) this round.",
+            "4+ Successes: Weapon critical damage is also reduced by 1 (to a minimum of 1) until end of next activation."
+          ],
+          "critFail": "Caster suffers Wound (1) and cannot use any Rites until they successfully Rally per Critical Fail."
+        }
+      ]
+    },
+    {
+      "id": "",
+      "name": "Iron Caste Mechanist",
+      "type": "Elite",
+      "faction": "House Kaevaryn",
+      "cost": 110,
+      "baseCost": 110,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "6\"",
+        "defense": "4",
+        "vigor": 4,
+        "actions": 2,
+        "resolve": "3",
+        "morale": 7,
+        "power": 2,
+        "reactor": 0
+      },
+      "abilities": [
+        {
+          "name": "Repair Protocol",
+          "description": "Heal 1 Wound on a friendly unit within 4'' once per round."
+        },
+        {
+          "name": "Caster",
+          "description": "Has access to the following powers:"
+        }
+      ],
+      "powers": [
+        {
+          "name": "Rite of Binding Conduit",
+          "flavor": "Flesh is fault. Circuit is certainty.",
+          "baseEffect": "Select one friendly unit within 6''. That unit gains +1 Defense until the start of your next turn.",
+          "overdrive": [
+            "2+ successes: The unit also gains +1 Movement until the start of your next turn.",
+            "3+ successes: The unit gains +1 Action on its next activation.",
+            "4+ successes: The Mechanist may choose a second friendly unit within '' to also gain the base effect."
+          ],
+          "critFail": "For each Crit Fail, the Mechanist suffers –1 Action on their next activation."
+        },
+        {
+          "name": "Subsystem Reforge",
+          "flavor": "Systems corrupted—rerouting integrity.",
+          "baseEffect": "Remove 1 Condition (e.g., Blinded, Bleeding, Suppressed) from a friendly unit within 3''. That unit also heals 1 Resilience if it was affected by a Condition.",
+          "overdrive": [
+            "2+ successes: Remove up to 2 Conditions from the target.",
+            "3+ successes: The target gains +1 Action this activation (if they have not yet activated this round).",
+            "4+ successes: Target becomes immune to Conditions until the end of the round."
+          ],
+          "critFail": "For each Crit Fail, the Mechanist becomes Suppressed and cannot use Powers next round."
+        },
+        {
+          "name": "Electrostatic Field",
+          "flavor": "The unseen current binds and disrupts.",
+          "baseEffect": "Choose one enemy unit within 6''. That unit suffers –1 Action on its next activation and cannot use Reactions during that activation.",
+          "overdrive": [
+            "2+ successes: The target also suffers –1 Defense until the start of your next turn.",
+            "3+ successes: The Mechanist may select a second enemy unit within 4'' of the first target to suffer the same effects.",
+            "4+ successes: Enemies affected cannot benefit from cover until the start of your next turn."
+          ],
+          "critFail": "For each Crit Fail, the Mechanist becomes Staggered and loses 1 Action next turn."
+        }
+      ]
+    },
+    {
+      "id": "",
+      "name": "Bonded Framelet Knight",
+      "type": "Elite",
+      "faction": "House Kaevaryn",
+      "cost": 130,
+      "baseCost": 130,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "7\"",
+        "defense": "4",
+        "vigor": 6,
+        "actions": 2,
+        "resolve": "3",
+        "morale": 6,
+        "power": 0,
+        "reactor": 2
+      },
+      "abilities": [
+        {
+          "name": "Knight’s Resolve (Aura)",
+          "description": "Allies in 2'' gain +1 Morale & +1 Defense."
+        },
+        {
+          "name": "Heavy Strike",
+          "description": "+1 Damage on charging melee attacks."
+        },
+        {
+          "name": "Bonded Valor",
+          "description": "Once per round, when you roll a Critical Fail on Defense, a friendly unit within 2'' takes that Wound instead."
+        },
+        {
+          "name": "Weapon Overdrive",
+          "description": "May add up to (Reactor) Dice to Attack roll, but takes that many wounds when the first Critical Fail is rolled."
+        }
+      ]
+    }
+  ],
+  "Fangs of the Pale Hunger": [
+    {
+      "id": "",
+      "name": "Alpha",
+      "type": "Elite",
+      "faction": "Fangs of the Pale Hunger",
+      "cost": 105,
+      "baseCost": 105,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "6",
+        "defense": "5",
+        "vigor": 6,
+        "actions": 3,
+        "resolve": "2",
+        "morale": 6,
+        "power": 0,
+        "reactor": 0
+      }
+    },
+    {
+      "id": "",
+      "name": "Beastman Raider",
+      "type": "Troops",
+      "faction": "Fangs of the Pale Hunger",
+      "cost": 60,
+      "baseCost": 60,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "6",
+        "defense": "4",
+        "vigor": 5,
+        "actions": 2,
+        "resolve": "2",
+        "morale": 4,
+        "power": 0,
+        "reactor": 0
+      }
+    },
+    {
+      "id": "",
+      "name": "Beastman Harrier",
+      "type": "Troops",
+      "faction": "Fangs of the Pale Hunger",
+      "cost": 50,
+      "baseCost": 50,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "8",
+        "defense": "3",
+        "vigor": 4,
+        "actions": 2,
+        "resolve": "2",
+        "morale": 3,
+        "power": 0,
+        "reactor": 0
+      }
+    },
+    {
+      "id": "",
+      "name": "Beastman Ravager",
+      "type": "Elites",
+      "faction": "Fangs of the Pale Hunger",
+      "cost": 75,
+      "baseCost": 75,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "5",
+        "defense": "5",
+        "vigor": 6,
+        "actions": 2,
+        "resolve": "2",
+        "morale": 5,
+        "power": 0,
+        "reactor": 0
+      }
+    },
+    {
+      "id": "",
+      "name": "Beastman Shaman",
+      "type": "Elites",
+      "faction": "Fangs of the Pale Hunger",
+      "cost": 105,
+      "baseCost": 105,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "6",
+        "defense": "3",
+        "vigor": 5,
+        "actions": 2,
+        "resolve": "3",
+        "morale": 5,
+        "power": 2,
+        "reactor": 0
+      },
+      "abilities": [
+        {
+          "name": "Bloodsong of Rage",
+          "description": "Effect: Friendly unit within 8\" gains +1 Dice to melee attacks until end of turn.\n\nOverdrive:\n\n2+: +1 Die\n\n3+: Add Brutal to attacks\n\n4+: Unit gains +1 Action this turn\n\nBacklash: Target unit takes 1 Wound."
+        },
+        {
+          "name": "Fleshwarp Chant",
+          "description": "Effect: Target enemy within 8\" takes -1 Defense until end of next turn.\n\nOverdrive:\n\n2+: -1 Defense\n\n3+: Target cannot Evade or use Cover bonuses\n\n4+: Target suffers 1 Mortal Wound\n\nBacklash: Caster cannot Move next activation."
+        },
+        {
+          "name": "Beastmind Dissonance",
+          "description": "Effect: Target enemy suffers -1 Resolve and -1 Morale until end of game round.\n\nOverdrive:\n\n2+: -1 Resolve/Morale\n\n3+: Target must test Morale immediately\n\n4+: Also becomes Staggered\n\nBacklash: All Beastman units within 6\" test Morale immediately.\n\n"
+        }
+      ]
+    }
+  ],
+  "House Duresse": [
+    {
+      "id": "",
+      "name": "Silent Votary",
+      "type": "Troops",
+      "faction": "House Duresse",
+      "cost": 50,
+      "baseCost": 50,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "6\"",
+        "defense": "3",
+        "vigor": 4,
+        "actions": 2,
+        "resolve": "2",
+        "morale": 5,
+        "power": 0,
+        "reactor": 0
+      },
+      "abilities": [],
+      "powers": []
+    },
+    {
+      "id": "",
+      "name": "Aegis Suppressor",
+      "type": "Troops",
+      "faction": "House Duresse",
+      "cost": 60,
+      "baseCost": 60,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "5\"",
+        "defense": "4",
+        "vigor": 4,
+        "actions": 2,
+        "resolve": "3",
+        "morale": 6,
+        "power": 0,
+        "reactor": 0
+      },
+      "abilities": [
+        {
+          "name": "Bastion Field",
+          "description": "While this unit remains stationary, all friendly units within 3\" gain +1 Defense."
+        },
+        {
+          "name": "Shield Anchor",
+          "description": "Cannot be involuntarily moved by enemy effects or powers."
+        }
+      ],
+      "powers": []
+    },
+    {
+      "id": "",
+      "name": "Pallid Stalker",
+      "type": "Elite",
+      "faction": "House Duresse",
+      "cost": 65,
+      "baseCost": 65,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "7\"",
+        "defense": "3",
+        "vigor": 4,
+        "actions": 2,
+        "resolve": "1",
+        "morale": 5,
+        "power": 1,
+        "reactor": 0
+      },
+      "abilities": [
+        {
+          "name": "Bleed Forward",
+          "description": "If this unit causes a Wound in melee, it may move 2\" immediately after."
+        }
+      ],
+      "powers": [
+        {
+          "name": "Veilskin",
+          "flavor": "The world sees nothing but fog and shadow.",
+          "baseEffect": "This unit cannot be targeted by ranged attacks from over 12'' away unless the attacker is on Elevated terrain.",
+          "overdrive": [
+            "2+ successes: This unit gains +1 Defense until the start of your next turn.",
+            "3+ successes: This unit gains +2'' to move this turn.",
+            "4+ successes: This unit cannot be targeted by ranged attacks until the start of your next turn."
+          ],
+          "critFail": "The unit becomes visible to all enemy units, and can be targeted by attacks through Blocking terrain made by units within 12''."
+        }
+      ]
+    },
+    {
+      "id": "",
+      "name": "Hexbound Harmonist",
+      "type": "Elite",
+      "faction": "House Duresse",
+      "cost": 85,
+      "baseCost": 85,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "5\"",
+        "defense": "3",
+        "vigor": 3,
+        "actions": 2,
+        "resolve": "3",
+        "morale": 5,
+        "power": 2,
+        "reactor": 0
+      },
+      "abilities": [
+        {
+          "name": "Resonance Field",
+          "description": "Once per round, an allied unit within 6\" may re-roll 1 failed die."
+        }
+      ],
+      "powers": [
+        {
+          "name": "Chime of the Fractured Will",
+          "flavor": "A discordant toll unravels command.",
+          "baseEffect": "Choose one enemy unit within 8''. That unit suffers --1 Morale until the end of the round.",
+          "overdrive": [
+            "2+ successes: The target also suffers --1 Action on its next activation.",
+            "3+ successes: The target cannot contest Objectives this round.",
+            "4+ successes: The target must take a Morale Test immediately."
+          ],
+          "critFail": "Caster suffers --1 Morale until the start of your next turn."
+        },
+        {
+          "name": "Echoes of Harmony",
+          "flavor": "Let all things move in concert.",
+          "baseEffect": "Select one friendly unit within 6''. That unit gains +1 to all dice rolls for the duration of its next activation.",
+          "overdrive": [
+            "2+ successes: The target may reroll 1 failed die during its next activation.",
+            "3+ successes: The target gains +1 Defense until the end of the round.",
+            "4+ successes: The target also restores 1 Wound."
+          ],
+          "critFail": "The caster may not use further powers this round."
+        },
+        {
+          "name": "Binding Pulse",
+          "flavor": "Flesh and thought still in rhythm.",
+          "baseEffect": "Select an enemy unit within 6''. That unit is Slowed until the end of the round.",
+          "overdrive": [
+            "2+ successes: The target also suffers --1 Defense until its next activation.",
+            "3+ successes: The target cannot declare Charges this round.",
+            "4+ successes: The target immediately ends any current effects that grant extra Actions or Movement."
+          ],
+          "critFail": "The Harmonist suffers 1 Wound per Critical fail."
+        }
+      ]
+    },
+    {
+      "id": "",
+      "name": "Obsidian Chamberlain",
+      "type": "Elite",
+      "faction": "House Duresse",
+      "cost": 115,
+      "baseCost": 115,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "6\"",
+        "defense": "4",
+        "vigor": 5,
+        "actions": 2,
+        "resolve": "2",
+        "morale": 6,
+        "power": 1,
+        "reactor": 1
+      },
+      "abilities": [
+        {
+          "name": "Battlefield Mandate",
+          "description": "Once per game, you may interrupt initiative and activate (Reactor) friendly units out of sequence and take (Reactor) Wounds."
+        }
+      ],
+      "powers": [
+        {
+          "name": "Order: Strike True",
+          "flavor": "Precision guides the hand of all.",
+          "baseEffect": "Aura 6'': All friendly units within range gain +1 to hit on the Attack Rolls.",
+          "overdrive": [
+            "2+ successes: Allies also gain +1 Defense until the start of your next turn.",
+            "3+ successes: Allies may re-roll one failed attack die during that attack.",
+            "4+ successes: Aura radius increases to 8'' for this activation."
+          ],
+          "critFail": "Aura 6'': All friendly unit within range gain -[Critical Fails] dice to Attack Rolls"
+        }
+      ]
+    },
+    {
+      "id": "",
+      "name": "Judicator of the Vow",
+      "type": "Elite",
+      "faction": "House Duresse",
+      "cost": 135,
+      "baseCost": 135,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "6\"",
+        "defense": "5",
+        "vigor": 6,
+        "actions": 2,
+        "resolve": "3",
+        "morale": 6,
+        "power": 0,
+        "reactor": 2
+      },
+      "abilities": [
+        {
+          "name": "Unbreaking Frame",
+          "description": "Gains +1 Defense when within 3'' of any ally."
+        },
+        {
+          "name": "Seal of Dominion",
+          "description": "Cannot be suppressed or slowed by effects or terrain."
+        },
+        {
+          "name": "Order: Cast it Down",
+          "description": "Choose [Reactor] units within 6''. These units and Judicator then attack the same enemy unit simultaneously, regardless of their activation status. Take [Reactor] wounds on every unit if Critical fail is rolled on Attack Roll."
+        }
+      ],
+      "powers": []
+    }
+  ],
+  "Outclan Reclaimers": [
+    {
+      "id": "",
+      "name": "Scrapprince",
+      "type": "Boss",
+      "faction": "Outclan Reclaimers",
+      "cost": 35,
+      "baseCost": 35,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "",
+        "defense": "",
+        "vigor": 0,
+        "actions": 0,
+        "resolve": "",
+        "morale": 0,
+        "power": 0,
+        "reactor": 0
+      }
+    },
+    {
+      "id": "",
+      "name": "Junker",
+      "type": "Scavenger",
+      "faction": "Outclan Reclaimers",
+      "cost": 15,
+      "baseCost": 15,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "",
+        "defense": "",
+        "vigor": 0,
+        "actions": 0,
+        "resolve": "",
+        "morale": 0,
+        "power": 0,
+        "reactor": 0
+      }
+    }
+  ]
+}

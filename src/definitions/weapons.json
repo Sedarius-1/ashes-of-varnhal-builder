@@ -1,0 +1,373 @@
+{
+  "House Kaevaryn": [
+    {
+      "name": "Melee Weapon",
+      "range": "0\"",
+      "dice": 3,
+      "critEffect": "",
+      "critDmg": 1,
+      "abilities": [],
+      "type": "Melee",
+      "cost": 0,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Short Sword",
+      "range": "0\"",
+      "dice": 3,
+      "critEffect": "",
+      "critDmg": 1,
+      "abilities": [
+        "Flank Advantage"
+      ],
+      "type": "Melee",
+      "cost": 5,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Shotgun",
+      "range": "9\"",
+      "dice": 3,
+      "critEffect": "Scatter",
+      "critDmg": 2,
+      "abilities": [],
+      "type": "Ranged",
+      "cost": 10,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Grenades",
+      "range": "9\"",
+      "dice": 3,
+      "critEffect": "Area Splash 2",
+      "critDmg": 2,
+      "abilities": [
+        "One Use"
+      ],
+      "type": "Ranged",
+      "cost": 10,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Rad Pistol",
+      "range": "6\"",
+      "dice": 2,
+      "critEffect": "",
+      "critDmg": 4,
+      "abilities": [
+        "Irradiated"
+      ],
+      "type": "Ranged",
+      "cost": 20,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Laser Carbine",
+      "range": "12\"",
+      "dice": 3,
+      "critEffect": "",
+      "critDmg": 1,
+      "abilities": [
+        "Reliable"
+      ],
+      "type": "Ranged",
+      "cost": 10,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Crossbow",
+      "range": "10\"",
+      "dice": 3,
+      "critEffect": "Pinning 1+[Critical Hit]",
+      "critDmg": 2,
+      "abilities": [
+        "Pinning 1"
+      ],
+      "type": "Ranged",
+      "cost": 15,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Rad Pistol Pair",
+      "range": "6\"",
+      "dice": 4,
+      "critEffect": "",
+      "critDmg": 4,
+      "abilities": [
+        "Irradiated"
+      ],
+      "type": "Ranged",
+      "cost": 30,
+      "allowedFor": "elite"
+    },
+    {
+      "name": "Powered Sword",
+      "range": "0\"",
+      "dice": 4,
+      "critEffect": "",
+      "critDmg": 2,
+      "abilities": [
+        "Brutal"
+      ],
+      "type": "Melee",
+      "cost": 15,
+      "allowedFor": "elite"
+    },
+    {
+      "name": "Heavy Rifle",
+      "range": "15\"",
+      "dice": 4,
+      "critEffect": "",
+      "critDmg": 3,
+      "abilities": [
+        "Scoped"
+      ],
+      "type": "Ranged",
+      "cost": 25,
+      "allowedFor": "elite"
+    },
+    {
+      "name": "Plasma Lance",
+      "range": "1\"",
+      "dice": 5,
+      "critEffect": "Plasma Burst",
+      "critDmg": 3,
+      "abilities": [],
+      "type": "Melee",
+      "cost": 35,
+      "allowedFor": "elite"
+    },
+    {
+      "name": "Electro-whip",
+      "range": "2\"",
+      "dice": 3,
+      "critEffect": "Chain Hit",
+      "critDmg": 2,
+      "abilities": [],
+      "type": "Melee",
+      "cost": 20,
+      "allowedFor": "elite"
+    },
+    {
+      "name": "Sniper Rifle",
+      "range": "20\"",
+      "dice": 4,
+      "critEffect": "",
+      "critDmg": 4,
+      "abilities": [
+        "Scoped"
+      ],
+      "type": "Ranged",
+      "cost": 40,
+      "allowedFor": "elite"
+    },
+    {
+      "name": "Flamethrower",
+      "range": "6\"",
+      "dice": 4,
+      "critEffect": "Burning 1+[Critical Hit]",
+      "critDmg": 2,
+      "abilities": [
+        "Burning 1"
+      ],
+      "type": "Ranged",
+      "cost": 35,
+      "allowedFor": "elite"
+    },
+    {
+      "name": "Mechanist Toolkit",
+      "range": "0\"",
+      "dice": 6,
+      "critEffect": "Repair 1 Wound (self/ally)",
+      "critDmg": 0,
+      "abilities": [
+        "Support: May be used once per turn instead of an attack.",
+        "Cannot be used in melee."
+      ],
+      "type": "Tool",
+      "cost": 30,
+      "allowedFor": "elite"
+    }
+  ],
+  "Fangs of the Pale Hunger": [
+    {
+      "name": "Melee Weapon",
+      "range": "0\"",
+      "dice": 3,
+      "critEffect": "",
+      "critDmg": 1,
+      "cost": 0
+    },
+    {
+      "name": "Cleaver",
+      "range": "0\"",
+      "dice": 4,
+      "critEffect": "Brutal",
+      "critDmg": 2,
+      "cost": 15
+    },
+    {
+      "name": "Bow",
+      "range": "6\"",
+      "dice": 3,
+      "critEffect": "",
+      "critDmg": 1,
+      "cost": 5
+    },
+    {
+      "name": "Hammer",
+      "range": "0\"",
+      "dice": 5,
+      "critEffect": "Brutal",
+      "critDmg": 1,
+      "cost": 20
+    }
+  ],
+  "Outclan Reclaimers": [
+    {
+      "name": "Claws",
+      "range": "Melee",
+      "dice": 4,
+      "critEffect": "Bleed",
+      "critDmg": 4,
+      "cost": 12
+    }
+  ],
+  "House Duresse": [
+    {
+      "name": "Melee Weapon",
+      "range": "0\"",
+      "dice": 3,
+      "critEffect": "",
+      "critDmg": 1,
+      "abilities": [],
+      "type": "Melee",
+      "cost": 0,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Short Sword",
+      "range": "0\"",
+      "dice": 3,
+      "critEffect": "",
+      "critDmg": 1,
+      "abilities": [
+        "Flank Advantage"
+      ],
+      "type": "Melee",
+      "cost": 5,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Crossbow",
+      "range": "10\"",
+      "dice": 3,
+      "critEffect": "Pinning 1+[Critical Hit]",
+      "critDmg": 2,
+      "abilities": [
+        "Pinning 1"
+      ],
+      "type": "Ranged",
+      "cost": 15,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Laser Carbine",
+      "range": "12\"",
+      "dice": 3,
+      "critEffect": "",
+      "critDmg": 1,
+      "abilities": [
+        "Reliable"
+      ],
+      "type": "Ranged",
+      "cost": 10,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Suppressor Machine Gun",
+      "range": "10\"",
+      "dice": 3,
+      "critEffect": "Suppressive [Critical Hit]",
+      "critDmg": 2,
+      "abilities": [],
+      "type": "Ranged",
+      "cost": 15,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Hexlash Rod",
+      "range": "6\"",
+      "dice": 3,
+      "critEffect": "Disruptive Strike",
+      "critDmg": 1,
+      "abilities": [],
+      "type": "Hybrid",
+      "cost": 10,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Sniper Rifle",
+      "range": "20\"",
+      "dice": 4,
+      "critEffect": "",
+      "critDmg": 4,
+      "abilities": [
+        "Scoped"
+      ],
+      "type": "Ranged",
+      "cost": 40,
+      "allowedFor": "elite"
+    },
+    {
+      "name": "Silencer Pike",
+      "range": "2\"",
+      "dice": 4,
+      "critEffect": "Silence Protocol",
+      "critDmg": 2,
+      "abilities": [],
+      "type": "Melee",
+      "cost": 25,
+      "allowedFor": "elite"
+    },
+    {
+      "name": "Null Halo Projector",
+      "range": "8\"",
+      "dice": 3,
+      "critEffect": "",
+      "critDmg": 1,
+      "abilities": [
+        "Disruption Field"
+      ],
+      "type": "Ranged",
+      "cost": 30,
+      "allowedFor": "elite"
+    },
+    {
+      "name": "Chimeblade",
+      "range": "0\"",
+      "dice": 5,
+      "critEffect": "",
+      "critDmg": 1,
+      "abilities": [
+        "Lone Strike X"
+      ],
+      "type": "Melee",
+      "cost": 20,
+      "allowedFor": "elite"
+    },
+    {
+      "name": "Judicator Flail",
+      "range": "1\"",
+      "dice": 4,
+      "critEffect": "",
+      "critDmg": 3,
+      "abilities": [
+        "Momentum Blow"
+      ],
+      "type": "Melee",
+      "cost": 35,
+      "allowedFor": "elite"
+    }
+  ]
+}

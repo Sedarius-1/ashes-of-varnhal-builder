@@ -1,0 +1,48 @@
+{
+  "House Kaevaryn": {
+    "lore": [
+      "House Kaevaryn stands as one of the last bastions of feudal nobility in a crumbling world scorched by forgotten wars and riddled with relics no longer understood...",
+      "Descended from the highwardens of the Southern Arches..."
+    ],
+    "themesAndPlaystyle": {
+      "passiveTrait": {
+        "title": "Passive Faction Trait – Rite of Steel Unbroken",
+        "description": [
+          "At the end of each activation, if a House Kaevaryn unit did not suffer a Wound this turn, it gains +1 Morale (to a maximum of 7) until the start of its next activation.",
+          "In addition, whenever a friendly unit succeeds in a Morale Test, you may choose one House Kaevaryn unit within 6\" to reroll one Defense die the next time it is targeted this round."
+        ]
+      },
+      "leaderTrait": {
+        "title": "Leader Trait — Banner of Resolve",
+        "description": "Aura grants +1 Morale and one re-roll on attack dice per activation; once per turn, the first attack made by a unit within range may immediately be followed by a second attack (still only one attack per activation unless explicitly allowed)."
+      },
+      "tacticalDirectives": [
+        "Tactical Discipline: All friendly Troopers within 6\" of the Leader gain re-roll on all Attack rolls during Round 1.",
+        "Knight’s Gambit: Once per game, you may activate a second unit immediately after a Kaevaryn unit finishes its activation. That unit gains +1 Dice to all Attack rolls."
+      ]
+    },
+    "traitTable": [
+      {
+        "roll": 1,
+        "name": "Warden’s Step",
+        "description": "Once per game, this unit may Move again immediately after completing a successful charge (even if it made an attack). Cannot be used more than once per game."
+      },
+      {
+        "roll": 2,
+        "name": "Sacred Geometry",
+        "description": "While within 3\" of two or more friendly units, this unit gains +1 Defense due to ideal formation structure."
+      }
+    ],
+    "summary": [
+      "Mechanically, House Kaevaryn rewards careful positioning, leadership synergies, and incremental advantage...",
+      "Their casters are focused on offensive disruption—such as the Scrivener-Ritesman—or precise battlefield support like the Iron Caste Mechanist..."
+    ],
+    "playstyleBullets": [
+      "Orderly, synergistic formations",
+      "Tools for controlling enemy activations and limiting aggressive charges",
+      "Reliable and flexible firepower with elite melee support",
+      "A noble, tragic aesthetic where duty outweighs survival"
+    ],
+    "closingNote": "House Kaevaryn is not about wild plays or overwhelming aggression—they are the bulwark, the oathbound blade, and the last breath of civility in a collapsing world."
+  }
+}
