@@ -1,6 +1,5 @@
 import jsPDF from 'jspdf';
 import type { Unit } from '../types/unit';
-import type { Weapon } from '../types/weapon';
 
 export interface FateCard {
   name: string;
@@ -398,8 +397,6 @@ export const downloadKeywordsPDF = (abilities: WeaponAbility[]) => {
 
 export const generateWarbandPDF = (units: Unit[]) => {
   const pdf = new jsPDF('p', 'mm', 'a4');
-  const pageWidth = pdf.internal.pageSize.getWidth();
-  const pageHeight = pdf.internal.pageSize.getHeight();
   const margin = 15;
   const cardWidth = 90;
   const cardHeight = 60;
@@ -417,9 +414,9 @@ export const generateWarbandPDF = (units: Unit[]) => {
       pdf.addPage();
     }
     const pageUnits = units.slice(i, i + cardsPerPage);
-    pageUnits.forEach((unit, index) => {
-      const row = Math.floor(index / cardsPerRow);
-      const col = index % cardsPerRow;
+    pageUnits.forEach((unit, i) => {
+      const row = Math.floor(i / cardsPerRow);
+      const col = i % cardsPerRow;
       const x = margin + (col * (cardWidth + 10));
       const y = margin + (row * (cardHeight + 10));
       drawUnitCard(pdf, unit, x, y, cardWidth, cardHeight);
