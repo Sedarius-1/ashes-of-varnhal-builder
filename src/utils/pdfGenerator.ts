@@ -13,8 +13,6 @@ export interface WeaponAbility {
 
 export const generateFateCardsPDF = (cards: FateCard[]) => {
   const pdf = new jsPDF('p', 'mm', 'a4');
-  const pageWidth = pdf.internal.pageSize.getWidth();
-  const pageHeight = pdf.internal.pageSize.getHeight();
   const margin = 15;
   const cardWidth = 90;
   const cardHeight = 60;
@@ -259,10 +257,8 @@ export const testPDFGeneration = () => {
 
 export const generateKeywordsPDF = (abilities: WeaponAbility[]) => {
   const pdf = new jsPDF('p', 'mm', 'a4');
-  const pageWidth = pdf.internal.pageSize.getWidth();
-  const pageHeight = pdf.internal.pageSize.getHeight();
   const margin = 15;
-  const contentWidth = pageWidth - (margin * 2);
+  const contentWidth = pdf.internal.pageSize.getWidth() - (margin * 2);
   
   // Add title page first
   createKeywordsTitlePage(pdf, abilities.length);
@@ -274,9 +270,9 @@ export const generateKeywordsPDF = (abilities: WeaponAbility[]) => {
   let currentY = margin;
   let currentPage = 2; // Start from page 2 since title is page 1
   
-  abilities.forEach((ability, index) => {
+  abilities.forEach((ability) => {
     // Check if we need a new page
-    if (currentY > pageHeight - 30) {
+    if (currentY > pdf.internal.pageSize.getHeight() - 30) {
       pdf.addPage();
       currentPage++;
       currentY = margin;
@@ -285,7 +281,7 @@ export const generateKeywordsPDF = (abilities: WeaponAbility[]) => {
     // Add page number
     pdf.setFontSize(7);
     pdf.setTextColor(80, 80, 80);
-    pdf.text(`Page ${currentPage}`, pageWidth / 2, pageHeight - 8, { align: 'center' });
+    pdf.text(`Page ${currentPage}`, pdf.internal.pageSize.getWidth() / 2, pdf.internal.pageSize.getHeight() - 8, { align: 'center' });
     
     // Draw ability as simple text
     currentY = drawAbilityText(pdf, ability, margin, currentY, contentWidth);
