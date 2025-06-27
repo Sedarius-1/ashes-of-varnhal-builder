@@ -1,54 +1,89 @@
-# React + TypeScript + Vite
+# Ashes of Varnhal Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React/TypeScript web application for building warbands and managing game content for the "Ashes of Varnhal" tabletop wargame.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Warband Builder
+- Create and customize warbands with different factions
+- Add units with weapons and abilities
+- Save and load warband configurations
+- Point cost tracking and validation
 
-## Expanding the ESLint configuration
+### Game Content Management
+- **Faction Rules**: Detailed faction information, lore, and trait tables
+- **Fate Cards**: Complete deck of 32 Fate Cards with PDF generation
+- **Special Rules**: Comprehensive rules reference
+- **Combat**: Combat mechanics and calculations
+- **Campaigns**: Campaign management tools
+- **Scenarios**: Mission scenarios and objectives
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### PDF Generation
+- **Fate Cards PDF**: Generate print-ready PDF cards for physical use
+- Professional card layout with proper formatting
+- Print instructions and card count
+- Designed for standard poker card sleeves
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+1. Install dependencies:
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. Start the development server:
+```bash
+npm run dev
 ```
+
+3. Open your browser to the local development URL
+
+## PDF Features
+
+### Fate Cards PDF
+The application includes a sophisticated PDF generator for Fate Cards:
+
+- **Print-Ready Format**: Cards are sized for standard poker card sleeves
+- **Professional Layout**: Dark theme with proper typography and spacing
+- **Complete Deck**: All 32 official Fate Cards included
+- **Instructions**: Built-in printing and cutting instructions
+- **Multiple Formats**: Both PDF cards and text reference available
+
+To generate Fate Cards PDF:
+1. Navigate to the Fate Cards page
+2. Click "🃏 Download PDF Cards" button
+3. Print on cardstock (200-300gsm recommended)
+4. Cut along card borders
+5. Shuffle and use in games
+
+## Technology Stack
+
+- **React 18** with TypeScript
+- **Vite** for fast development and building
+- **Tailwind CSS** for styling
+- **jsPDF** for PDF generation
+- **React Router** for navigation
+
+## Project Structure
+
+```
+src/
+├── components/     # Reusable UI components
+├── pages/         # Page components
+├── types/         # TypeScript type definitions
+├── definitions/   # Game data (JSON files)
+├── utils/         # Utility functions (PDF generation)
+└── assets/        # Static assets
+```
+
+## Development
+
+This project uses:
+- ESLint for code linting
+- TypeScript for type safety
+- Vite for fast development server
+- Tailwind CSS for utility-first styling
+
+## License
+
+This project is for the "Ashes of Varnhal" tabletop wargame community.

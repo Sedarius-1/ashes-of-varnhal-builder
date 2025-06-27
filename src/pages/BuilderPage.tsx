@@ -12,6 +12,7 @@ import UnitList from "../components/UnitList";
 import UnitDetails from "../components/UnitDetails";
 import SaveWarbandButton from "../components/SaveWarbandButton";
 import LoadWarbandButton from "../components/LoadWarbandButton.tsx";
+import { downloadWarbandPDF } from '../utils/pdfGenerator';
 
 const weaponsData = weaponsJson as Record<Faction, Weapon[]>;
 const unitDefs = unitsJson as Record<Faction, Omit<Unit, 'id' | 'cost' | 'selectedWeapons'>[]>;
@@ -71,28 +72,28 @@ export default function BuilderPage() {
                 }}></div>
             </div>
 
-            <div className="max-w-7xl mx-auto p-8 relative z-10">
+            <div className="max-w-7xl mx-auto p-4 md:p-8 relative z-10">
                 {/* Header Section */}
                 <div className="mb-12 text-center">
                     <div className="relative">
-                        <h1 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-600 mb-4 tracking-wider">
+                        <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-600 mb-4 tracking-wider">
                             ⚔️ ASHES OF VARNHAL ⚔️
                         </h1>
                         <div className="absolute -top-2 -left-2 -right-2 -bottom-2 bg-gradient-to-r from-amber-400/20 via-orange-500/20 to-red-600/20 blur-xl rounded-full"></div>
                     </div>
-                    <h2 className="text-3xl font-bold text-slate-300 mb-4 tracking-wide">
+                    <h2 className="text-2xl md:text-3xl font-bold text-slate-300 mb-4 tracking-wide">
                         WARBAND BUILDER
                     </h2>
-                    <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-base md:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
                         Forge your warband from the ashes of a fallen world. Choose your faction, assemble your units, and prepare for battle in the ruins of civilization.
                     </p>
-                    <div className="w-48 h-1 bg-gradient-to-r from-amber-500 via-orange-500 to-red-600 mx-auto rounded-full mt-8 shadow-lg shadow-orange-500/50"></div>
+                    <div className="w-32 md:w-48 h-1 bg-gradient-to-r from-amber-500 via-orange-500 to-red-600 mx-auto rounded-full mt-8 shadow-lg shadow-orange-500/50"></div>
                 </div>
 
                 {/* Control Panel */}
-                <div className="mb-8 bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-6 border border-slate-700/50 backdrop-blur-sm">
-                    <div className="flex flex-wrap items-center gap-6 justify-between">
-                        <div className="flex items-center gap-6">
+                <div className="mb-8 bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-4 md:p-6 border border-slate-700/50 backdrop-blur-sm">
+                    <div className="flex flex-col md:flex-row flex-wrap items-center gap-6 justify-between">
+                        <div className="flex items-center gap-6 w-full md:w-auto">
                             <FactionSelector
                                 factions={factions}
                                 selectedFaction={selectedFaction}
@@ -100,9 +101,21 @@ export default function BuilderPage() {
                                 onAddUnit={() => setUnitModalOpen(true)}
                             />
                         </div>
-                        <div className="flex items-center gap-4">
+                        <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 w-full md:w-auto justify-end">
                             <SaveWarbandButton units={units} />
                             <LoadWarbandButton onLoad={(loadedUnits) => setUnits(loadedUnits)} />
+                            <button
+                                onClick={() => downloadWarbandPDF(units)}
+                                disabled={units.length === 0}
+                                className={`w-full md:w-auto mt-2 md:mt-0 px-6 py-3 rounded-xl font-black transition-all duration-200 flex items-center gap-2 tracking-wide
+                                    ${units.length > 0
+                                        ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white hover:from-emerald-700 hover:to-teal-700 shadow-lg hover:shadow-xl shadow-emerald-500/25 hover:shadow-emerald-500/40 transform hover:-translate-y-0.5 border border-emerald-500/50'
+                                        : 'bg-slate-700 text-slate-400 cursor-not-allowed border border-slate-600'}
+                                `}
+                            >
+                                <span className="text-lg">🖨️</span>
+                                DOWNLOAD WARBAND AS PDF
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -132,10 +145,10 @@ export default function BuilderPage() {
                                 }}
                             />
                         ) : (
-                            <div className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-12 border border-slate-700/50 backdrop-blur-sm text-center">
-                                <div className="text-8xl mb-6 text-slate-600">⚔️</div>
-                                <h3 className="text-3xl font-bold text-slate-300 mb-4 tracking-wide">SELECT A UNIT</h3>
-                                <p className="text-slate-400 max-w-md mx-auto leading-relaxed">
+                            <div className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-6 md:p-12 border border-slate-700/50 backdrop-blur-sm text-center">
+                                <div className="text-6xl md:text-8xl mb-6 text-slate-600">⚔️</div>
+                                <h3 className="text-2xl md:text-3xl font-bold text-slate-300 mb-4 tracking-wide">SELECT A UNIT</h3>
+                                <p className="text-slate-400 max-w-md mx-auto leading-relaxed text-base md:text-lg">
                                     Choose a unit from your warband to view and edit its details, weapons, and abilities. Forge your fighting force with precision.
                                 </p>
                             </div>
@@ -145,18 +158,18 @@ export default function BuilderPage() {
 
                 {/* Points Summary */}
                 {units.length > 0 && (
-                    <div className="mt-8 bg-gradient-to-r from-amber-600/90 via-orange-600/90 to-red-600/90 rounded-2xl shadow-2xl p-6 border border-amber-500/50 backdrop-blur-sm">
-                        <div className="flex items-center justify-between">
+                    <div className="mt-8 bg-gradient-to-r from-amber-600/90 via-orange-600/90 to-red-600/90 rounded-2xl shadow-2xl p-4 md:p-6 border border-amber-500/50 backdrop-blur-sm">
+                        <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-0">
                             <div className="flex items-center gap-4">
-                                <div className="text-4xl">⚡</div>
+                                <div className="text-3xl md:text-4xl">⚡</div>
                                 <div>
-                                    <h3 className="text-2xl font-bold text-white tracking-wide">WARBAND SUMMARY</h3>
-                                    <p className="text-amber-100">Your assembled fighting force</p>
+                                    <h3 className="text-xl md:text-2xl font-bold text-white tracking-wide">WARBAND SUMMARY</h3>
+                                    <p className="text-amber-100 text-sm md:text-base">Your assembled fighting force</p>
                                 </div>
                             </div>
                             <div className="text-right">
-                                <div className="text-5xl font-black text-white tracking-wider">{totalPoints}</div>
-                                <div className="text-amber-100 font-semibold tracking-wide">TOTAL POINTS</div>
+                                <div className="text-3xl md:text-5xl font-black text-white tracking-wider">{totalPoints}</div>
+                                <div className="text-amber-100 font-semibold tracking-wide text-sm md:text-base">TOTAL POINTS</div>
                             </div>
                         </div>
                     </div>

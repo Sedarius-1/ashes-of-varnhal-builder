@@ -17,7 +17,7 @@ const Layout = ({
             <Topbar />
             <div className="flex flex-1 overflow-hidden relative z-10">
                 <Sidebar />
-                <main className="flex-1 overflow-y-auto p-4">
+                <main className="flex-1 overflow-y-auto p-4 md:p-8 max-w-full w-full min-w-0">
                     {children}
                 </main>
             </div>

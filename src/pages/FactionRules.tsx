@@ -43,12 +43,12 @@ const FactionRules: React.FC = () => {
 
                 {/* Tabs Navigation */}
                 <div className="flex justify-center mb-10">
-                    <div className="inline-flex rounded-2xl bg-slate-800/80 border border-slate-700/60 shadow-lg overflow-hidden">
+                    <div className="inline-flex flex-wrap md:flex-nowrap rounded-2xl bg-slate-800/80 border border-slate-700/60 shadow-lg overflow-x-auto w-full md:w-auto">
                         {TABS.map(tab => (
                             <button
                                 key={tab.key}
                                 onClick={() => setActiveTab(tab.key)}
-                                className={`px-8 py-3 font-black text-lg tracking-wide flex items-center gap-2 transition-all duration-200 border-r border-slate-700/40 last:border-r-0
+                                className={`px-4 md:px-8 py-2 md:py-3 font-black text-base md:text-lg tracking-wide flex items-center gap-2 transition-all duration-200 border-r border-slate-700/40 last:border-r-0
                                     ${activeTab === tab.key
                                         ? 'bg-gradient-to-r from-amber-600 to-orange-700 text-white shadow-xl shadow-amber-900/30'
                                         : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-amber-300'}
@@ -64,48 +64,48 @@ const FactionRules: React.FC = () => {
                 {/* Tab Panels */}
                 <div>
                     {activeTab === 'lore' && (
-                        <section className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-8 border border-slate-700/50 backdrop-blur-sm mb-10">
-                            <h2 className="text-3xl font-black text-slate-200 mb-6 flex items-center tracking-wide">
+                        <section className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-4 md:p-8 border border-slate-700/50 backdrop-blur-sm mb-10">
+                            <h2 className="text-2xl md:text-3xl font-black text-slate-200 mb-6 flex items-center tracking-wide">
                                 <span className="text-amber-400 mr-3">📖</span>
                                 LORE
                             </h2>
                             <div className="space-y-4 text-slate-300 leading-relaxed">
                                 {faction.lore.map((para, i) => (
-                                    <p key={i} className="text-lg">{para}</p>
+                                    <p key={i} className="text-base md:text-lg">{para}</p>
                                 ))}
                             </div>
                         </section>
                     )}
 
                     {activeTab === 'themes' && (
-                        <section className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-8 border border-slate-700/50 backdrop-blur-sm mb-10">
-                            <h2 className="text-3xl font-black text-slate-200 mb-8 flex items-center tracking-wide">
+                        <section className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-4 md:p-8 border border-slate-700/50 backdrop-blur-sm mb-10">
+                            <h2 className="text-2xl md:text-3xl font-black text-slate-200 mb-8 flex items-center tracking-wide">
                                 <span className="text-orange-400 mr-3">⚔️</span>
                                 THEMES AND PLAYSTYLE
                             </h2>
                             {/* Passive Trait */}
-                            <div className="mb-8 p-6 bg-gradient-to-r from-blue-900/50 to-indigo-900/50 rounded-xl border-l-4 border-blue-500">
-                                <h3 className="text-2xl font-black text-blue-300 mb-4 tracking-wide">
+                            <div className="mb-8 p-4 md:p-6 bg-gradient-to-r from-blue-900/50 to-indigo-900/50 rounded-xl border-l-4 border-blue-500">
+                                <h3 className="text-xl md:text-2xl font-black text-blue-300 mb-4 tracking-wide">
                                     {faction.themesAndPlaystyle.passiveTrait.title}
                                 </h3>
                                 <div className="space-y-3">
                                     {faction.themesAndPlaystyle.passiveTrait.description.map((p, i) => (
-                                        <p key={i} className="text-slate-300 leading-relaxed">{p}</p>
+                                        <p key={i} className="text-slate-300 leading-relaxed text-base md:text-lg">{p}</p>
                                     ))}
                                 </div>
                             </div>
                             {/* Leader Trait */}
-                            <div className="mb-8 p-6 bg-gradient-to-r from-purple-900/50 to-pink-900/50 rounded-xl border-l-4 border-purple-500">
-                                <h3 className="text-2xl font-black text-purple-300 mb-4 tracking-wide">
+                            <div className="mb-8 p-4 md:p-6 bg-gradient-to-r from-purple-900/50 to-pink-900/50 rounded-xl border-l-4 border-purple-500">
+                                <h3 className="text-xl md:text-2xl font-black text-purple-300 mb-4 tracking-wide">
                                     {faction.themesAndPlaystyle.leaderTrait.title}
                                 </h3>
-                                <p className="text-slate-300 leading-relaxed">
+                                <p className="text-slate-300 leading-relaxed text-base md:text-lg">
                                     {faction.themesAndPlaystyle.leaderTrait.description}
                                 </p>
                             </div>
                             {/* Tactical Directives */}
-                            <div className="p-6 bg-gradient-to-r from-amber-900/50 to-orange-900/50 rounded-xl border-l-4 border-amber-500">
-                                <h3 className="text-2xl font-black text-amber-300 mb-4 flex items-center tracking-wide">
+                            <div className="p-4 md:p-6 bg-gradient-to-r from-amber-900/50 to-orange-900/50 rounded-xl border-l-4 border-amber-500">
+                                <h3 className="text-xl md:text-2xl font-black text-amber-300 mb-4 flex items-center tracking-wide">
                                     <span className="mr-2">🎯</span>
                                     TACTICAL DIRECTIVES
                                 </h3>
@@ -113,7 +113,7 @@ const FactionRules: React.FC = () => {
                                     {faction.themesAndPlaystyle.tacticalDirectives.map((directive, i) => (
                                         <li key={i} className="flex items-start">
                                             <span className="text-amber-400 font-black mr-3 mt-1">•</span>
-                                            <span className="text-slate-300 leading-relaxed">{directive}</span>
+                                            <span className="text-slate-300 leading-relaxed text-base md:text-lg">{directive}</span>
                                         </li>
                                     ))}
                                 </ul>
@@ -122,31 +122,31 @@ const FactionRules: React.FC = () => {
                     )}
 
                     {activeTab === 'traits' && (
-                        <section className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-8 border border-slate-700/50 backdrop-blur-sm mb-10">
-                            <h2 className="text-3xl font-black text-slate-200 mb-8 flex items-center tracking-wide">
+                        <section className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-4 md:p-8 border border-slate-700/50 backdrop-blur-sm mb-10">
+                            <h2 className="text-2xl md:text-3xl font-black text-slate-200 mb-8 flex items-center tracking-wide">
                                 <span className="text-red-400 mr-3">🎲</span>
                                 {factionName.toUpperCase()}: FACTION TRAIT TABLE (1D6)
                             </h2>
-                            <div className="overflow-hidden rounded-xl border border-slate-600">
-                                <table className="w-full">
+                            <div className="overflow-x-auto rounded-xl border border-slate-600">
+                                <table className="w-full min-w-[400px] text-sm md:text-base">
                                     <thead className="bg-gradient-to-r from-slate-700 to-slate-800">
                                         <tr>
-                                            <th className="px-6 py-4 text-left text-white font-black text-lg tracking-wide">ROLL</th>
-                                            <th className="px-6 py-4 text-left text-white font-black text-lg tracking-wide">TRAIT (NAME AND EFFECT)</th>
+                                            <th className="px-2 md:px-6 py-2 md:py-4 text-left text-white font-black text-base md:text-lg tracking-wide">ROLL</th>
+                                            <th className="px-2 md:px-6 py-2 md:py-4 text-left text-white font-black text-base md:text-lg tracking-wide">TRAIT (NAME AND EFFECT)</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-slate-600">
                                         {faction.traitTable.map((trait: FactionTrait) => (
                                             <tr key={trait.roll} className="hover:bg-slate-700/50 transition-colors">
-                                                <td className="px-6 py-4 text-center">
-                                                    <span className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 text-white font-black text-lg rounded-full shadow-lg shadow-red-500/25">
+                                                <td className="px-2 md:px-6 py-2 md:py-4 text-center">
+                                                    <span className="inline-flex items-center justify-center w-8 h-8 md:w-12 md:h-12 bg-gradient-to-r from-red-500 to-red-600 text-white font-black text-base md:text-lg rounded-full shadow-lg shadow-red-500/25">
                                                         {trait.roll}
                                                     </span>
                                                 </td>
-                                                <td className="px-6 py-4">
+                                                <td className="px-2 md:px-6 py-2 md:py-4">
                                                     <div className="space-y-2">
-                                                        <h4 className="font-black text-slate-200 text-lg tracking-wide">{trait.name}</h4>
-                                                        <p className="text-slate-300 leading-relaxed">{trait.description}</p>
+                                                        <h4 className="font-black text-slate-200 text-base md:text-lg tracking-wide">{trait.name}</h4>
+                                                        <p className="text-slate-300 leading-relaxed text-base md:text-lg">{trait.description}</p>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -158,14 +158,14 @@ const FactionRules: React.FC = () => {
                     )}
 
                     {activeTab === 'summary' && (
-                        <section className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-8 border border-slate-700/50 backdrop-blur-sm mb-10">
+                        <section className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-4 md:p-8 border border-slate-700/50 backdrop-blur-sm mb-10">
                             <div className="space-y-6 text-slate-300 leading-relaxed">
                                 {faction.summary.map((para, i) => (
-                                    <p key={i} className="text-lg">{para}</p>
+                                    <p key={i} className="text-base md:text-lg">{para}</p>
                                 ))}
                             </div>
-                            <div className="mt-8 p-6 bg-gradient-to-r from-emerald-900/50 to-teal-900/50 rounded-xl border-l-4 border-emerald-500">
-                                <h3 className="text-2xl font-black text-emerald-300 mb-4 flex items-center tracking-wide">
+                            <div className="mt-8 p-4 md:p-6 bg-gradient-to-r from-emerald-900/50 to-teal-900/50 rounded-xl border-l-4 border-emerald-500">
+                                <h3 className="text-xl md:text-2xl font-black text-emerald-300 mb-4 flex items-center tracking-wide">
                                     <span className="mr-2">⭐</span>
                                     IDEAL FOR
                                 </h3>
@@ -173,13 +173,13 @@ const FactionRules: React.FC = () => {
                                     {faction.playstyleBullets.map((item, i) => (
                                         <li key={i} className="flex items-start">
                                             <span className="text-emerald-400 font-black mr-3 mt-1">✓</span>
-                                            <span className="text-slate-300 leading-relaxed">{item}</span>
+                                            <span className="text-slate-300 leading-relaxed text-base md:text-lg">{item}</span>
                                         </li>
                                     ))}
                                 </ul>
                             </div>
-                            <div className="mt-8 p-6 bg-gradient-to-r from-slate-700/50 to-gray-700/50 rounded-xl border-l-4 border-slate-500">
-                                <p className="text-slate-300 leading-relaxed italic text-lg">{faction.closingNote}</p>
+                            <div className="mt-8 p-4 md:p-6 bg-gradient-to-r from-slate-700/50 to-gray-700/50 rounded-xl border-l-4 border-slate-500">
+                                <p className="text-slate-300 leading-relaxed italic text-base md:text-lg">{faction.closingNote}</p>
                             </div>
                         </section>
                     )}

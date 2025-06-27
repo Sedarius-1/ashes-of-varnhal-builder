@@ -9,7 +9,7 @@ interface Props {
 
 export default function FactionSelector({ factions, selectedFaction, setSelectedFaction, onAddUnit }: Props) {
     return (
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col md:flex-row md:items-center gap-4 w-full">
             <div className="flex flex-col">
                 <label className="block font-black text-amber-400 mb-2 text-sm uppercase tracking-widest">
                     🏰 SELECT FACTION
@@ -28,7 +28,7 @@ export default function FactionSelector({ factions, selectedFaction, setSelected
             <button
                 disabled={!selectedFaction}
                 onClick={onAddUnit}
-                className={`px-6 py-3 rounded-xl font-black transition-all duration-200 flex items-center gap-2 tracking-wide ${
+                className={`w-full md:w-auto mt-4 md:mt-0 px-6 py-3 rounded-xl font-black transition-all duration-200 flex items-center gap-2 tracking-wide ${
                     selectedFaction 
                         ? "bg-gradient-to-r from-amber-600 to-orange-600 text-white hover:from-amber-700 hover:to-orange-700 shadow-lg hover:shadow-xl shadow-amber-500/25 hover:shadow-amber-500/40 transform hover:-translate-y-0.5 border border-amber-500/50" 
                         : "bg-slate-700 text-slate-400 cursor-not-allowed border border-slate-600"
