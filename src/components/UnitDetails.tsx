@@ -239,29 +239,22 @@ export default function UnitDetails({unit, weapons, onUpdateUnit}: Props) {
                             <span className={`transition-transform duration-200 ${showSelectedWeapons ? 'rotate-180' : ''}`}>▼</span>
                         </button>
                         {showSelectedWeapons && (
-                            <div className="overflow-hidden rounded-lg border border-emerald-500/30 p-6 pt-0">
-                                <table className="w-full">
-                                    <thead className="bg-gradient-to-r from-emerald-700 to-teal-700">
-                                        <tr>
-                                            <th className="px-4 py-3 text-left text-white font-black tracking-wide">NAME</th>
-                                            <th className="px-4 py-3 text-center text-white font-black tracking-wide">RANGE</th>
-                                            <th className="px-4 py-3 text-center text-white font-black tracking-wide">DICE</th>
-                                            <th className="px-4 py-3 text-center text-white font-black tracking-wide">CRIT DMG</th>
-                                            <th className="px-4 py-3 text-center font-black text-emerald-400 tracking-wide">COST</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody className="divide-y divide-emerald-600">
-                                        {unit.selectedWeapons.map((weapon) => (
-                                            <tr key={weapon.name} className="hover:bg-emerald-800/30 transition-colors">
-                                                <td className="px-4 py-3 font-black text-slate-200 tracking-wide">{weapon.name.toUpperCase()}</td>
-                                                <td className="px-4 py-3 text-center text-slate-300">{weapon.range}</td>
-                                                <td className="px-4 py-3 text-center text-slate-300">{weapon.dice}</td>
-                                                <td className="px-4 py-3 text-center text-slate-300">{weapon.critDmg}</td>
-                                                <td className="px-4 py-3 text-center font-black text-emerald-400 tracking-wide">{weapon.cost} PTS</td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
+                            <div className="p-4 md:p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                                {unit.selectedWeapons.map((weapon) => (
+                                    <div key={weapon.name} className="bg-gradient-to-r from-emerald-800/60 to-teal-800/60 rounded-lg shadow-lg border border-emerald-500/30 p-4 flex flex-col items-center text-center">
+                                        <div className="font-black text-slate-200 text-base md:text-lg tracking-wide mb-2">{weapon.name.toUpperCase()}</div>
+                                        <div className="grid grid-cols-2 gap-2 w-full text-xs md:text-sm">
+                                            <div className="font-bold text-emerald-300 col-span-1">Range</div>
+                                            <div className="text-slate-200 col-span-1">{weapon.range}</div>
+                                            <div className="font-bold text-emerald-300 col-span-1">Dice</div>
+                                            <div className="text-slate-200 col-span-1">{weapon.dice}</div>
+                                            <div className="font-bold text-emerald-300 col-span-1">Crit Dmg</div>
+                                            <div className="text-slate-200 col-span-1">{weapon.critDmg}</div>
+                                            <div className="font-bold text-emerald-300 col-span-1">Cost</div>
+                                            <div className="text-emerald-400 font-black col-span-1">{weapon.cost} PTS</div>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         )}
                     </div>
