@@ -15,7 +15,7 @@ import FateCardsListPage from './pages/FateCardsListPage';
 
 function App() {
     return (
-        <Router basename="/ashes-of-varnhal-builder">
+        <Router basename="/">
             <Layout>
                 <Routes>
                     <Route path="/" element={<BuilderPage />} />
