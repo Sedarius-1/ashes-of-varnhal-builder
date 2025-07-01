@@ -13,7 +13,7 @@ import TurnStructurePage from './pages/TurnStructurePage';
 import GameSetupPage from './pages/GameSetupPage';
 import KeywordsPage from './pages/KeywordsPage';
 import FateCardsListPage from './pages/FateCardsListPage';
-import LorePage, { LoreFactionsPage, LoreTimelinePage, LoreArtifactsPage, LoreTermsPage, UniversalLorePage, EventsPage, LocationsPage, ArtifactsPage, TermsPage, PeoplePage } from './pages/Home';
+import LorePage, { LoreFactionsPage, LoreTimelinePage, LoreArtifactsPage, LoreTermsPage, EventsPage, LocationsPage, ArtifactsPage, TermsPage, PeoplePage } from './pages/Home';
 import LocationArticle from './components/LocationArticle';
 import EventArticle from './components/EventArticle';
 import PeopleArticle from './components/PeopleArticle';
@@ -40,8 +40,6 @@ function App() {
                     <Route path="/lore/people/:personName" element={<PeopleArticle />} />
                     <Route path="/lore/characters/:personName" element={<PeopleArticle />} />
                     <Route path="/lore/timeline" element={<LoreTimelinePage />} />
-                    <Route path="/lore/:category" element={<UniversalLorePage />} />
-                    <Route path="/lore/:category/:item" element={<UniversalLorePage />} />
                     <Route path="/scenarios" element={<ScenariosPage />} />
                     <Route path="/campaigns" element={<CampaignsPage />} />
                     <Route path="/combat" element={<CombatPage />} />
