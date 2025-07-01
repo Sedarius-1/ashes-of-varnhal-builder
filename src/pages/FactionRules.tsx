@@ -6,7 +6,7 @@ import type {FactionTrait} from "../types/factionTrait.ts";
 
 function renderWithLinks(textOrArray: string | string[]) {
     // Accepts either a string or an array of strings (paragraphs)
-    const renderParagraph = (text: string, key?: number) => {
+    const renderParagraph = (text: string) => {
         // Regex to match [label](url)
         const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
         const parts = [];
@@ -79,16 +79,7 @@ const FactionRules: React.FC = () => {
 
     // Clean layout for all factions with wiki content
     if (faction.wiki && faction.wiki.length > 0) {
-        const [showRecent, setShowRecent] = useState(false);
         // Sort wiki articles by lastEdited (desc), fallback to order
-        const sortedWiki = [...faction.wiki].sort((a, b) => {
-            if (a.lastEdited && b.lastEdited) {
-                return new Date(b.lastEdited).getTime() - new Date(a.lastEdited).getTime();
-            }
-            if (a.lastEdited) return -1;
-            if (b.lastEdited) return 1;
-            return 0;
-        });
         return (
             <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
                 <div className="max-w-5xl mx-auto p-4 md:p-8 relative z-10">

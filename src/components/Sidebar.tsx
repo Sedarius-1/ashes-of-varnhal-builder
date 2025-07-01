@@ -1,19 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
-import type { Faction } from '../types/faction';
 
-const factions: Faction[] = [
-    'House Kaevaryn',
-    'Fangs of the Pale Hunger',
-    'House Duresse',
-    'Ash-Brethren',
-];
 
 const Sidebar = () => {
     const location = useLocation();
-    const [coreRulesExpanded, setCoreRulesExpanded] = useState(true);
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [loreExpanded, setLoreExpanded] = useState(false);
 
     // Sidebar content as a function for reuse
     const sidebarContent = (

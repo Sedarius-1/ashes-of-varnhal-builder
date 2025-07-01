@@ -1,7 +1,6 @@
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import factionsData from '../definitions/factions.json';
 import type { FactionData } from '../types/factionData';
-import { useState } from 'react';
 
 const TIMELINE = [
   { year: 0, text: 'The Silencing — all signals from Varnhal went dark.' },
