@@ -1,0 +1,83 @@
+{
+  "The Silencing": {
+    "title": "The Silencing",
+    "subtitle": "\"There once was an age when Humankind sailed the stars.\"",
+    "type": "Catastrophic Event",
+    "date": "Year 0",
+    "duration": "Several hours",
+    "location": "Planet-wide",
+    "casualties": "Millions",
+    "factions": ["All Pre-Silencing factions"],
+    "significance": "End of interstellar civilization",
+    "overview": [
+      "We flew mighty ships across the galaxy and unveiled the unknown. One such frontier was the planet named [Varnhal](/lore/locations/Varnhal)—a world eerily reminiscent of the legendary Earth, with its temperate skies and bountiful lands.",
+      "And so we settled it, raising breathtaking skyscrapers and encircling the heavens with orbital rings. Cargo streamed along elevators that pierced the sky, while merchants from distant systems came and went. Varnhal quickly became a central hub—a jewel in Humanity's crown.",
+      "Yet pride comes before the fall—so came the Silencing."
+    ],
+    "timeline": [
+      {
+        "phase": "The Fall",
+        "description": "There were no warning signs. No guns roared. At first, there was only silence. Then the ships began to fall, as if the skies themselves rained fire upon Varnhal. Orbital elevators shattered. Spaceport algorithms glitched. Dozens of vessels collided midair or plummeted from the atmosphere. All contact with other worlds ceased. No one answered our pleas for help. It was as if a veil had fallen over the entire planet."
+      
+      }
+    ],
+    "impact": [
+      {
+        "title": "Catastrophical",
+        "content": [
+          "The Silencing harrowed our world two centuries ago. And all that remains of the old Varnhal... are ashes. Two centuries have passed since the Silencing, and Varnhal remains in the dark—no ship has left, no vessel has arrived. A vast array of satellites litters the sky, their blinking lights vainly trying to send messages. Monumental orbital rings, fractured and adrift in the upper atmosphere, rotate aimlessly. Gigantic arcologies lie in ruin, haunted by rogue machine intelligences."
+        ]
+      }
+    ],
+    "survivors": [
+      {
+        "title": "Bio-constructs",
+        "content": [
+          "On the plains, [tribes of degenerated bio‑constructs](/lore/factions/Fangs%20of%20the%20Pale%20Hunger) ravage the wasteland. Created in arco‑labs to serve Humankind, they have since devolved into bestial human hybrids. Still obeying their long‑lost commands, these monsters hunt anyone unfortunate enough to wander into their territory."
+        ]
+      },
+      {
+        "title": "Human Adaptation",
+        "content": [
+          "As always, humans adapted and survived. Once ruled by a Planetary Governor, [Varnhal](/lore/locations/Varnhal) has fractured into feudal domains, each presided over by a self‑styled queen or king. These societies mirror the old order, treating techno‑rites as religious sacraments to preserve fragments of ancient technology. As a whole, they have regressed into medieval structures, with each domain fending for itself. Where there is no law, there is only strength—nobles keep their subjects in line by gun and sword. Some Houses still employ Artificial Intelligence; others field massive [Frames](/lore/units/Frames)—war mechs two to three times the size of a man."
+        ]
+      }
+    ],
+    "currentState": [
+      {
+        "title": "Declining Infrastructure",
+        "content": [
+          "Yet each decade the planet grows weaker. Power grids flicker. Automated farms fail, forcing peasants back into the fields. Huge stretches of the surface are off‑limits, their weather‑control fields dead. A handful of enclaves still maintain vital systems—factories, water purifiers, defense grids—and so a few [Noble Houses](/lore/factions) hold an edge above the rest."
+        ]
+      },
+      {
+        "title": "Relics of the Past",
+        "content": [
+          "Across the ruins lie the silent remnants of the old world: dormant AI cores, tech vaults sealed by lost codes, rogue agents bound to their final directives. These relics are the starkest symbols of Paradise Lost—a world that once thrived."
+        ]
+      }
+    ],
+    "legacy": [
+      "The Silencing marked the end of interstellar civilization on [Varnhal](/lore/locations/Varnhal) and the beginning of a new dark age. It serves as the foundational event that shaped all subsequent history, creating the fractured feudal society that exists today."
+    ],
+    "relatedEvents": [
+      {
+        "name": "The First Conclave of Iron",
+        "description": "The formation of the first post-Silencing faction",
+        "link": "/lore/events/The%20First%20Conclave%20of%20Iron"
+      },
+      {
+        "name": "The Scarlet Schism",
+        "description": "The ideological split that created House Duresse",
+        "link": "/lore/events/The%20Scarlet%20Schism"
+      }
+    ],
+    "keyFigures": [
+      {
+        "name": "Unknown",
+        "role": "Unknown",
+        "status": "Unknown"
+      }
+    ]
+  }
+} 

@@ -72,10 +72,37 @@ const FactionRules: React.FC = () => {
     const [activeTab, setActiveTab] = useState('lore');
     const navigate = useNavigate();
     
-    if (!factionName) return <p>No faction specified</p>;
+    if (!factionName) {
+        return (
+            <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
+                <div className="max-w-3xl mx-auto p-4 md:p-8 relative z-10">
+                    <div className="text-center text-slate-300 text-2xl">No faction specified.</div>
+                </div>
+            </div>
+        );
+    }
     
     const faction: FactionData | undefined = (factionsData as Record<string, FactionData>)[factionName];
-    if (!faction) return <p>Faction data not found for "{factionName}"</p>;
+    if (!faction) {
+        return (
+            <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
+                <div className="max-w-3xl mx-auto p-4 md:p-8 relative z-10">
+                    <button
+                        onClick={() => navigate(-1)}
+                        className="mb-6 md:mb-8 px-3 md:px-4 py-2 rounded-lg bg-slate-800 text-slate-200 hover:bg-slate-700 font-bold border border-slate-600 shadow text-sm md:text-base"
+                    >
+                        ← Back
+                    </button>
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-600 mb-8 md:mb-10 tracking-wider text-center">
+                        {factionName}
+                    </h1>
+                    <div className="text-center text-slate-300 text-lg md:text-2xl">
+                        Faction not found.
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     // Clean layout for all factions with wiki content
     if (faction.wiki && faction.wiki.length > 0) {

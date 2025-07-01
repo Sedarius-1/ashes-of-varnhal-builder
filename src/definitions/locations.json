@@ -1,0 +1,84 @@
+{
+  "Circadia Arcology": {
+    "title": "Circadia Arcology",
+    "subtitle": "\"The Crown is cracked, yet its iron heart still beats.\"",
+    "type": "Arcology",
+    "faction": "[House Kaevaryn](/lore/factions/House%20Kaevaryn)",
+    "status": "Partially Restored",
+    "location": "[Central Highlands](/lore/locations/Central%20Highlands)",
+    "coordinates": "N/A",
+    "established": "[Pre-Silencing](/lore/events/The%20Silencing)",
+    "currentRuler": "[Queen Aurelia Kaevaryn](/lore/characters/Queen%20Aurelia%20Kaevaryn)",
+    "overview": [
+      "Once the beating heart of [Varnhal](/lore/locations/Varnhal)'s planetary commerce, Circadia Arcology stood as a triumph of pre-Silencing ambition — a vertical city-state stretching into the clouds, woven with orbital tethers, sunward gardens, and cascading neon arteries. It was the tallest of Varnhal's arcologies, and the first to fall."
+    ],
+    "history": [
+      {
+        "title": "The Fall",
+        "content": [
+          "When [the Silencing](/lore/events/The%20Silencing) struck, Circadia was mid-cycle in planetary realignment. Thousands of transport vessels hovered in tethered docking lanes, and orbital data-streams threaded directly through its comm-cores. The impact was catastrophic. Elevators snapped. Defense grids misfired. Entire sectors of the arcology sheared away, crashing into the surrounding districts like falling gods. Circadia became a cratered scar, its upper spires embedded sideways into the ruined megablocks below.",
+          "And yet, some part of it endured."
+        ]
+      },
+      {
+        "title": "The Rise of Castle Kaevaryn",
+        "content": [
+          "Decades after the fall, amidst the flicker of sun across ferroglass wreckage, the survivors began to return. From scavenger enclaves and fractured nobility, a lineage reasserted itself — the remnants of [House Kaevaryn](/lore/factions/House%20Kaevaryn), once system-guardians and orbital envoys. They did not rebuild Circadia. They crowned its corpse.",
+          "[Castle Kaevaryn](/lore/locations/Castle%20Kaevaryn) was constructed atop the broken superstructure of the arcology's central spire — a jagged throne of twisted steel and sanctified stone. Carved banners drape across collapsed walls; armored courtyards perch atop old loading gantries; its central hall is a fusion of knightly honor and rusting machine-code etched into glass.",
+          "Here, [the Kaevaryn](/lore/factions/House%20Kaevaryn) high lords hold court, surrounded by reborn banners and relic-servitors. The castle is both fortress and memory — a declaration that the old order did not die, it simply adapted."
+        ]
+      }
+    ],
+    "currentStatus": [
+      {
+        "title": "Present-Day Circadia",
+        "content": [
+          "The lower tiers of Circadia remain choked in shadow, riddled with smog, fallen systems, and roving salvage guilds. Power conduits still thrum with erratic life, and data ghosts are said to whisper from broken terminals. Beneath [Castle Kaevaryn](/lore/locations/Castle%20Kaevaryn) lies the [Reliquary Vault](/lore/locations/Reliquary%20Vault) — a secured archive of [pre-Silencing](/lore/events/The%20Silencing) blueprints, lost oaths, and war machines too volatile to awaken.",
+          "Though [House Kaevaryn](/lore/factions/House%20Kaevaryn) claims the arcology as sovereign domain, numerous factions still raid its depths:"
+        ]
+      }
+    ],
+    "factions": [
+      {
+        "faction": "[Iron Caste](/lore/factions/Iron%20Caste)",
+        "activity": "Expeditions seek long-buried schematics",
+        "icon": "⚙️"
+      },
+      {
+        "faction": "[Outclan Scavengers](/lore/factions/Outclan%20Scavengers)",
+        "activity": "Operate in the lower sublevels, bartering information for safe passage",
+        "icon": "🏴"
+      },
+      {
+        "faction": "[Fangs of the Pale Hunger](/lore/factions/Fangs%20of%20the%20Pale%20Hunger)",
+        "activity": "Rumors persist of incursions, slipping through ancient maintenance veins in search of biotech relics",
+        "icon": "🦷"
+      }
+    ],
+    "significance": [
+      "To [House Kaevaryn](/lore/factions/House%20Kaevaryn), Circadia is more than home — it is a living symbol, a monument to survival, and a forge of legacy."
+    ],
+    "features": [
+      {
+        "title": "Castle Kaevaryn",
+        "description": "The seat of [House Kaevaryn](/lore/factions/House%20Kaevaryn)'s power, built atop the arcology's central spire",
+        "icon": "🏰"
+      },
+      {
+        "title": "Reliquary Vault",
+        "description": "A secured archive of pre-Silencing blueprints, lost oaths, and war machines",
+        "icon": "🗄️"
+      },
+      {
+        "title": "Lower Tiers",
+        "description": "Shadow-choked depths with roving salvage guilds and data ghosts",
+        "icon": "🌑"
+      },
+      {
+        "title": "Power Conduits",
+        "description": "Erratic but still functional energy systems from the [pre-Silencing](/lore/events/The%20Silencing) era",
+        "icon": "⚡"
+      }
+    ]
+  }
+} 

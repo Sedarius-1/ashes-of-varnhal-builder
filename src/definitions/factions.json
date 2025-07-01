@@ -93,12 +93,12 @@
           {
             "title": "Central Highland Bastion",
             "icon": "⛰️",
-            "text": "House Kaevaryn commands the [Central Highland Bastion](/lore/locations/Central%20Highland%20Bastion), a fortified plateau stretching across the remnants of [Old Circadia](/lore/locations/Old%20Circadia)—the once-radiant hub of trade, now a haunted carcass of broken infrastructure and ash-blasted ruins."
+            "text": "House Kaevaryn commands the [Central Highland Bastion](/lore/locations/Central%20Highland%20Bastion), a fortified plateau stretching across the remnants of [Old Circadia](/lore/locations/Circadia%20Arcology)—the once-radiant hub of trade, now a haunted carcass of broken infrastructure and ash-blasted ruins."
           },
           {
             "title": "Old Circadia's Skeleton",
             "icon": "🏛️",
-            "text": "The throne-city of Kaevaryn rises from the scorched framework of [Old Circadia's core](/lore/locations/Old%20Circadia). Great plazas of collapsed arcologies, rust-choked data towers, and ossified transit rails form the bones of the realm. The Throne-Mnemos, seat of Kaevaryn's neural sovereignty, lies at its center, embedded deep within the vault-complex known as the Crownhold."
+            "text": "The throne-city of Kaevaryn rises from the scorched framework of [Old Circadia's core](/lore/locations/Circadia%20Arcology). Great plazas of collapsed arcologies, rust-choked data towers, and ossified transit rails form the bones of the realm. The Throne-Mnemos, seat of Kaevaryn's neural sovereignty, lies at its center, embedded deep within the vault-complex known as the Crownhold."
           },
           {
             "title": "Ring-Spire Ridge",
@@ -153,7 +153,7 @@
           {
             "title": "The Echo-Works",
             "icon": "⚙️",
-            "text": "Crumbling facilities in the [Circadian shell](/lore/locations/Old%20Circadia) produce rudimentary parts for firearms, energy capacitors, and pressure systems—nothing close to the glories of the Old Days. Weapon maintenance has become a craft of ritual precision and superstition."
+            "text": "Crumbling facilities in the [Circadian shell](/lore/locations/Circadia%20Arcology) produce rudimentary parts for firearms, energy capacitors, and pressure systems—nothing close to the glories of the Old Days. Weapon maintenance has become a craft of ritual precision and superstition."
           },
           {
             "title": "Reclaimant Vats",
@@ -194,7 +194,7 @@
           "Founded in Year 36 in the smoldering aftermath of [the Silencing](/lore/events/The%20Silencing), [the First Conclave of Iron](/lore/events/The%20First%20Conclave%20of%20Iron) swore blood‑oaths beneath the shattered Ring‑Spire to reclaim order from the chaos. Rejecting the defunct orbital networks and crumbling arc‑labs, they pledged instead to guard humanity's last bastions with steel, ritual, and unwavering honor.",
           "At their helm stands [Queen Aurelia Kaevaryn](/lore/characters/Queen%20Aurelia%20Kaevaryn)—dubbed 'Ironclad' after leading a daring rescue beneath the collapsed Circle of Flames at age sixteen. Under her stern gaze, novice knights are trained to the brink of death - only in flames may the steel be forged. Then may they don the crimson‑forged armor and earn the Black Lance of Varnhal.",
           "To don the Kaevaryn armor is to share your blood with it - figuratively and literally. Their [Frames](/lore/units/Frames) require a sacrifice of pilot's blood - otherwise they shall not operate. But that is the way - and it has always been for House Kaevaryn.",
-          "Though many Houses scoff at their adherence to archaic codes, Kaevaryn's squadrons remain among the most capable warriors on [Varnhal](/lore/locations/Varnhal). Internal dissent simmers, however, as [Iron Caste](/lore/factions/Iron%20Caste) chafe at martial superstition—portents of a fracture that could see the Iron‑Oath divided from its own machine cult. Their seat of power is [Old Circadia](/lore/locations/Old%20Circadia)."
+          "Though many Houses scoff at their adherence to archaic codes, Kaevaryn's squadrons remain among the most capable warriors on [Varnhal](/lore/locations/Varnhal). Internal dissent simmers, however, as [Iron Caste](/lore/factions/Iron%20Caste) chafe at martial superstition—portents of a fracture that could see the Iron‑Oath divided from its own machine cult. Their seat of power is [Circadia Arcology](/lore/locations/Circadia%20Arcology)."
         ]
       },
       {
@@ -206,7 +206,7 @@
       {
         "title": "Territorial Control",
         "content": [
-          "Kaevaryn holds the central highlands around [Circadia Arcology](/lore/locations/Old%20Circadia%20Arcology), including the partially restored [Ring‑Spire Watchtower](/lore/locations/Ring‑Spire%20Watchtower) and three key weather‑field nodes. Their domains span fertile valleys that still yield grain under manual tilling, and they control the only functional orbital elevator segment within a thousand kilometers."
+          "Kaevaryn holds the central highlands around [Circadia Arcology](/lore/locations/Circadia%20Arcology), including the partially restored [Ring‑Spire Watchtower](/lore/locations/Ring‑Spire%20Watchtower) and three key weather‑field nodes. Their domains span fertile valleys that still yield grain under manual tilling, and they control the only functional orbital elevator segment within a thousand kilometers."
         ]
       },
       {
@@ -353,7 +353,7 @@
               {
                 "title": "The Circadian Wall",
                 "icon": "🧱",
-                "text": "A reinforced ruin-line surrounding the capital stronghold. Originally part of [Old Circadia's](/lore/locations/Old%20Circadia) civic architecture, now fortified with steel plates, fused-glass towers, and laser-fused trenchwork."
+                "text": "A reinforced ruin-line surrounding the capital stronghold. Originally part of [Old Circadia's](/lore/locations/Circadia%20Arcology) civic architecture, now fortified with steel plates, fused-glass towers, and laser-fused trenchwork."
               },
               {
                 "title": "Generator Shrines",

@@ -1,5 +1,10 @@
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import factionsData from '../definitions/factions.json';
+import eventsData from '../definitions/events.json';
+import locationsData from '../definitions/locations.json';
+import artifactsData from '../definitions/artifacts.json';
+import termsData from '../definitions/terms.json';
+import peopleData from '../definitions/people.json';
 import type { FactionData } from '../types/factionData';
 
 const TIMELINE = [
@@ -22,34 +27,39 @@ const TIMELINE = [
 
 export function LoreTermsPage() {
   const navigate = useNavigate();
+  const { termName } = useParams<{ termName: string }>();
   
-  // Sample terms data - this could be moved to a separate JSON file later
-  const TERMS = [
-    {
-      name: "The Creed of Continuance",
-      category: "Philosophy",
-      description: "A state doctrine upheld by House Kaevaryn that teaches the sacred duty of maintaining the surviving infrastructure of Old Varnhal. It is not a religion in the traditional sense, but a binding philosophy rooted in the belief that 'As long as the Systems endure, so too shall Humanity.'",
-      related: ["House Kaevaryn", "Iron Caste", "Sacred Stewardship"]
-    },
-    {
-      name: "The Silencing",
-      category: "Historical Event",
-      description: "The catastrophic event that occurred in Year 0 when all signals from Varnhal went dark. This marked the beginning of the post-collapse era and the end of orbital communication and automated systems.",
-      related: ["Varnhal", "Pre-Silencing", "Orbital Networks"]
-    },
-    {
-      name: "Blood Convergence",
-      category: "Ritual",
-      description: "A sacred rite performed during the Crimson Accord where a would-be ruler injects nanite-infused ancestral serum to allow compatibility with the Throne-Mnemos neural control matrix.",
-      related: ["Crimson Accord", "Throne-Mnemos", "House Kaevaryn"]
-    },
-    {
-      name: "Iron Caste",
-      category: "Organization",
-      description: "A techno-religious order within House Kaevaryn responsible for maintaining ancient systems, performing sacred diagnostics, and upholding the techno-rites that keep the realm's infrastructure functioning.",
-      related: ["House Kaevaryn", "Techno-rites", "Sacred Maintenance"]
-    }
-  ];
+  if (!termName) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
+        <div className="max-w-3xl mx-auto p-4 md:p-8 relative z-10">
+          <div className="text-center text-slate-300 text-2xl">No term specified.</div>
+        </div>
+      </div>
+    );
+  }
+  
+  const term: any = (termsData as Record<string, any>)[termName];
+  if (!term) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
+        <div className="max-w-3xl mx-auto p-4 md:p-8 relative z-10">
+          <button
+            onClick={() => navigate(-1)}
+            className="mb-6 md:mb-8 px-3 md:px-4 py-2 rounded-lg bg-slate-800 text-slate-200 hover:bg-slate-700 font-bold border border-slate-600 shadow text-sm md:text-base"
+          >
+            ← Back
+          </button>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 mb-8 md:mb-10 tracking-wider text-center">
+            {termName}
+          </h1>
+          <div className="text-center text-slate-300 text-lg md:text-2xl">
+            Term not found.
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
@@ -60,36 +70,34 @@ export function LoreTermsPage() {
         >
           ← Back
         </button>
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-600 mb-8 md:mb-10 tracking-wider text-center">
-          Terms & Concepts
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 mb-8 md:mb-10 tracking-wider text-center">
+          {termName}
         </h1>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {TERMS.map((term, idx) => (
-            <div key={idx} className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-6 border border-slate-700/50 backdrop-blur-sm hover:scale-105 transition-transform">
-              <div className="flex items-start justify-between mb-4">
-                <h2 className="text-xl md:text-2xl font-black text-amber-300 tracking-wide">{term.name}</h2>
-                <span className="px-3 py-1 bg-amber-600/20 text-amber-300 text-sm font-bold rounded-full border border-amber-500/30">
-                  {term.category}
-                </span>
-              </div>
-              
-              <div className="space-y-4 text-slate-300">
-                <p className="text-sm md:text-base leading-relaxed">{term.description}</p>
-                
-                <div>
-                  <h4 className="text-blue-300 font-bold text-sm mb-2">Related:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {term.related.map((item, itemIdx) => (
-                      <span key={itemIdx} className="px-2 py-1 bg-blue-900/30 text-blue-200 text-xs rounded border border-blue-700/40">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
+        <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-6 border border-slate-700/50 backdrop-blur-sm">
+          <div className="flex items-start justify-between mb-4">
+            <h2 className="text-xl md:text-2xl font-black text-cyan-300 tracking-wide">{term.title}</h2>
+            <span className="px-3 py-1 bg-cyan-600/20 text-cyan-300 text-sm font-bold rounded-full border border-cyan-500/30">
+              {term.category}
+            </span>
+          </div>
+          
+          <div className="space-y-4 text-slate-300">
+            <p className="text-sm md:text-base leading-relaxed">{term.description}</p>
+            
+            {term.related && (
+              <div>
+                <h4 className="text-blue-300 font-bold text-sm mb-2">Related:</h4>
+                <div className="flex flex-wrap gap-2">
+                  {term.related.map((item: string, itemIdx: number) => (
+                    <span key={itemIdx} className="px-2 py-1 bg-blue-900/30 text-blue-200 text-xs rounded border border-blue-700/40">
+                      {item}
+                    </span>
+                  ))}
                 </div>
               </div>
-            </div>
-          ))}
+            )}
+          </div>
         </div>
       </div>
     </div>
@@ -98,42 +106,39 @@ export function LoreTermsPage() {
 
 export function LoreArtifactsPage() {
   const navigate = useNavigate();
+  const { artifactName } = useParams<{ artifactName: string }>();
   
-  // Sample artifacts data - this could be moved to a separate JSON file later
-  const ARTIFACTS = [
-    {
-      name: "The Crimson Accord",
-      type: "Relic",
-      faction: "House Kaevaryn",
-      description: "A blood-red crystal that pulses with ancient power. Said to contain the memories and consciousness of every Kaevaryn ruler who has undergone the bonding ritual.",
-      location: "Circadia Palace",
-      effects: ["Memory transfer", "Consciousness preservation", "Blood magic amplification"]
-    },
-    {
-      name: "The Iron Codex",
-      type: "Tome",
-      faction: "Iron Caste",
-      description: "A massive tome bound in living metal that contains the sacred maintenance rituals and techno-rites of the Iron Caste priests.",
-      location: "The Forge Temple",
-      effects: ["Ritual knowledge", "System maintenance", "AI communion"]
-    },
-    {
-      name: "The Weather Shard",
-      type: "Fragment",
-      faction: "Various",
-      description: "A crystalline fragment from the failed weather-control field that unleashed acid storms across the northern continent.",
-      location: "Northern Wastes",
-      effects: ["Weather manipulation", "Environmental corruption", "Energy source"]
-    },
-    {
-      name: "The Archive Core",
-      type: "AI Fragment",
-      faction: "Pre-Silencing",
-      description: "A partially corrupted AI core containing fragments of pre-Silencing data and recordings that hint at the cataclysm's true cause.",
-      location: "Beneath Old Circadia",
-      effects: ["Historical data", "AI consciousness", "Truth revelation"]
-    }
-  ];
+  if (!artifactName) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
+        <div className="max-w-3xl mx-auto p-4 md:p-8 relative z-10">
+          <div className="text-center text-slate-300 text-2xl">No artifact specified.</div>
+        </div>
+      </div>
+    );
+  }
+  
+  const artifact: any = (artifactsData as Record<string, any>)[artifactName];
+  if (!artifact) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
+        <div className="max-w-3xl mx-auto p-4 md:p-8 relative z-10">
+          <button
+            onClick={() => navigate(-1)}
+            className="mb-6 md:mb-8 px-3 md:px-4 py-2 rounded-lg bg-slate-800 text-slate-200 hover:bg-slate-700 font-bold border border-slate-600 shadow text-sm md:text-base"
+          >
+            ← Back
+          </button>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-violet-500 to-indigo-600 mb-8 md:mb-10 tracking-wider text-center">
+            {artifactName}
+          </h1>
+          <div className="text-center text-slate-300 text-lg md:text-2xl">
+            Artifact not found.
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
@@ -144,47 +149,45 @@ export function LoreArtifactsPage() {
         >
           ← Back
         </button>
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-500 to-red-600 mb-8 md:mb-10 tracking-wider text-center">
-          Artifacts
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-violet-500 to-indigo-600 mb-8 md:mb-10 tracking-wider text-center">
+          {artifactName}
         </h1>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          {ARTIFACTS.map((artifact, idx) => (
-            <div key={idx} className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-6 border border-slate-700/50 backdrop-blur-sm hover:scale-105 transition-transform">
-              <div className="flex items-start justify-between mb-4">
-                <h2 className="text-xl md:text-2xl font-black text-amber-300 tracking-wide">{artifact.name}</h2>
-                <span className="px-3 py-1 bg-amber-600/20 text-amber-300 text-sm font-bold rounded-full border border-amber-500/30">
-                  {artifact.type}
-                </span>
+        <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-6 border border-slate-700/50 backdrop-blur-sm">
+          <div className="flex items-start justify-between mb-4">
+            <h2 className="text-xl md:text-2xl font-black text-purple-300 tracking-wide">{artifact.title}</h2>
+            <span className="px-3 py-1 bg-purple-600/20 text-purple-300 text-sm font-bold rounded-full border border-purple-500/30">
+              {artifact.type}
+            </span>
+          </div>
+          
+          <div className="space-y-4 text-slate-300">
+            <p className="text-sm md:text-base leading-relaxed">{artifact.description}</p>
+            
+            <div className="space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="text-emerald-400 font-semibold text-sm">Faction:</span>
+                <span className="text-slate-200 text-sm">{artifact.faction}</span>
               </div>
-              
-              <div className="space-y-4 text-slate-300">
-                <p className="text-sm md:text-base leading-relaxed">{artifact.description}</p>
-                
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-semibold text-sm">Faction:</span>
-                    <span className="text-slate-200 text-sm">{artifact.faction}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-blue-400 font-semibold text-sm">Location:</span>
-                    <span className="text-slate-200 text-sm">{artifact.location}</span>
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="text-rose-300 font-bold text-sm mb-2">Effects:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {artifact.effects.map((effect, effectIdx) => (
-                      <span key={effectIdx} className="px-2 py-1 bg-rose-900/30 text-rose-200 text-xs rounded border border-rose-700/40">
-                        {effect}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              <div className="flex items-center gap-2">
+                <span className="text-blue-400 font-semibold text-sm">Location:</span>
+                <span className="text-slate-200 text-sm">{artifact.location}</span>
               </div>
             </div>
-          ))}
+            
+            {artifact.effects && (
+              <div>
+                <h4 className="text-rose-300 font-bold text-sm mb-2">Effects:</h4>
+                <div className="flex flex-wrap gap-2">
+                  {artifact.effects.map((effect: string, effectIdx: number) => (
+                    <span key={effectIdx} className="px-2 py-1 bg-rose-900/30 text-rose-200 text-xs rounded border border-rose-700/40">
+                      {effect}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
@@ -269,6 +272,176 @@ export function LoreTimelinePage() {
             })}
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+export function EventsPage() {
+  const navigate = useNavigate();
+  // Get all events from the events data
+  const events = Object.keys(eventsData as Record<string, any>);
+  
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
+      <div className="max-w-3xl mx-auto p-4 md:p-8 relative z-10">
+        <button
+          onClick={() => navigate(-1)}
+          className="mb-6 md:mb-8 px-3 md:px-4 py-2 rounded-lg bg-slate-800 text-slate-200 hover:bg-slate-700 font-bold border border-slate-600 shadow text-sm md:text-base"
+        >
+          ← Back
+        </button>
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-pink-500 to-purple-600 mb-8 md:mb-10 tracking-wider text-center">
+          Events
+        </h1>
+        <ul className="space-y-4 md:space-y-6 text-center">
+          {events.map((eventName) => (
+            <li key={eventName}>
+              <Link
+                to={`/lore/events/${encodeURIComponent(eventName)}`}
+                className="text-xl md:text-2xl lg:text-3xl font-bold text-rose-300 hover:text-rose-400 transition-colors block py-2 md:py-3"
+              >
+                {eventName}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+export function LocationsPage() {
+  const navigate = useNavigate();
+  // Get all locations from the locations data
+  const locations = Object.keys(locationsData as Record<string, any>);
+  
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
+      <div className="max-w-3xl mx-auto p-4 md:p-8 relative z-10">
+        <button
+          onClick={() => navigate(-1)}
+          className="mb-6 md:mb-8 px-3 md:px-4 py-2 rounded-lg bg-slate-800 text-slate-200 hover:bg-slate-700 font-bold border border-slate-600 shadow text-sm md:text-base"
+        >
+          ← Back
+        </button>
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-500 to-purple-600 mb-8 md:mb-10 tracking-wider text-center">
+          Locations
+        </h1>
+        <ul className="space-y-4 md:space-y-6 text-center">
+          {locations.map((locationName) => (
+            <li key={locationName}>
+              <Link
+                to={`/lore/locations/${encodeURIComponent(locationName)}`}
+                className="text-xl md:text-2xl lg:text-3xl font-bold text-blue-300 hover:text-blue-400 transition-colors block py-2 md:py-3"
+              >
+                {locationName}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+export function ArtifactsPage() {
+  const navigate = useNavigate();
+  // Get all artifacts from the artifacts data
+  const artifacts = Object.keys(artifactsData as Record<string, any>);
+  
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
+      <div className="max-w-3xl mx-auto p-4 md:p-8 relative z-10">
+        <button
+          onClick={() => navigate(-1)}
+          className="mb-6 md:mb-8 px-3 md:px-4 py-2 rounded-lg bg-slate-800 text-slate-200 hover:bg-slate-700 font-bold border border-slate-600 shadow text-sm md:text-base"
+        >
+          ← Back
+        </button>
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-violet-500 to-indigo-600 mb-8 md:mb-10 tracking-wider text-center">
+          Artifacts
+        </h1>
+        <ul className="space-y-4 md:space-y-6 text-center">
+          {artifacts.map((artifactName) => (
+            <li key={artifactName}>
+              <Link
+                to={`/lore/artifacts/${encodeURIComponent(artifactName)}`}
+                className="text-xl md:text-2xl lg:text-3xl font-bold text-purple-300 hover:text-purple-400 transition-colors block py-2 md:py-3"
+              >
+                {artifactName}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+export function TermsPage() {
+  const navigate = useNavigate();
+  // Get all terms from the terms data
+  const terms = Object.keys(termsData as Record<string, any>);
+  
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
+      <div className="max-w-3xl mx-auto p-4 md:p-8 relative z-10">
+        <button
+          onClick={() => navigate(-1)}
+          className="mb-6 md:mb-8 px-3 md:px-4 py-2 rounded-lg bg-slate-800 text-slate-200 hover:bg-slate-700 font-bold border border-slate-600 shadow text-sm md:text-base"
+        >
+          ← Back
+        </button>
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 mb-8 md:mb-10 tracking-wider text-center">
+          Terms & Concepts
+        </h1>
+        <ul className="space-y-4 md:space-y-6 text-center">
+          {terms.map((termName) => (
+            <li key={termName}>
+              <Link
+                to={`/lore/terms/${encodeURIComponent(termName)}`}
+                className="text-xl md:text-2xl lg:text-3xl font-bold text-cyan-300 hover:text-cyan-400 transition-colors block py-2 md:py-3"
+              >
+                {termName}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+export function PeoplePage() {
+  const navigate = useNavigate();
+  // Get all people from the people data
+  const people = Object.keys(peopleData as Record<string, any>);
+  
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
+      <div className="max-w-3xl mx-auto p-4 md:p-8 relative z-10">
+        <button
+          onClick={() => navigate(-1)}
+          className="mb-6 md:mb-8 px-3 md:px-4 py-2 rounded-lg bg-slate-800 text-slate-200 hover:bg-slate-700 font-bold border border-slate-600 shadow text-sm md:text-base"
+        >
+          ← Back
+        </button>
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-500 to-green-600 mb-8 md:mb-10 tracking-wider text-center">
+          People
+        </h1>
+        <ul className="space-y-4 md:space-y-6 text-center">
+          {people.map((personName) => (
+            <li key={personName}>
+              <Link
+                to={`/lore/people/${encodeURIComponent(personName)}`}
+                className="text-xl md:text-2xl lg:text-3xl font-bold text-emerald-300 hover:text-emerald-400 transition-colors block py-2 md:py-3"
+              >
+                {personName}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

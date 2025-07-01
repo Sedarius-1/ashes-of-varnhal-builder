@@ -1,0 +1,47 @@
+{
+  "The Throne-Mnemos": {
+    "title": "The Throne-Mnemos",
+    "subtitle": "\"The seat of neural sovereignty.\"",
+    "type": "Neural Control Matrix",
+    "faction": "House Kaevaryn",
+    "location": "Castle Kaevaryn",
+    "status": "Active",
+    "origin": "Pre-Silencing",
+    "description": "A pre-Silencing neural control matrix originally designed to interface with city-scale governance systems. Over centuries of patchwork maintenance and reinterpretation, it has become a symbol of divine rulership—and a death trap for the unworthy.",
+    "effects": [
+      "Partial synaptic control over House systems",
+      "Weather-field harmonics access",
+      "Internal defense codes control",
+      "Frame deployment channels",
+      "Limited orbital satellite access"
+    ],
+    "history": [
+      "The Throne is carved from blackened alloy and embedded with cranial spine jacks, ossified blood channels, and pulsating control veins.",
+      "It is said the Throne whispers, storing the dreams, regrets, and madness of every monarch who has ever sat upon it.",
+      "The victor of the Crimson Accord is escorted by techno-priests to the Vault of Bone Signal, beneath the Ring-Spire, where the bonding occurs."
+    ],
+    "significance": "The Throne-Mnemos is central to House Kaevaryn's succession ritual, the Crimson Accord. It represents both the pinnacle of their technological achievement and the greatest risk to their rulers."
+  },
+  "The Iron Codex": {
+    "title": "The Iron Codex",
+    "subtitle": "\"Bound in living metal, containing the sacred rites.\"",
+    "type": "Sacred Tome",
+    "faction": "Iron Caste",
+    "location": "The Forge Temple",
+    "status": "Active",
+    "origin": "Post-Silencing",
+    "description": "A massive tome bound in living metal that contains the sacred maintenance rituals and techno-rites of the Iron Caste priests.",
+    "effects": [
+      "Ritual knowledge preservation",
+      "System maintenance protocols",
+      "AI communion techniques",
+      "Sacred diagnostic procedures"
+    ],
+    "history": [
+      "Compiled over generations by Iron Caste adepts",
+      "Contains both pre-Silencing technical data and post-Silencing religious interpretations",
+      "The living metal binding responds to the touch of authorized users"
+    ],
+    "significance": "The Iron Codex is the foundation of the Iron Caste's religious and technical authority, preserving knowledge that keeps Varnhal's infrastructure functioning."
+  }
+} 

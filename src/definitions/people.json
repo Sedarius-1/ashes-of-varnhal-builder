@@ -1,0 +1,74 @@
+{
+  "Queen Aurelia Kaevaryn": {
+    "title": "Queen Aurelia Kaevaryn",
+    "subtitle": "\"Ironclad\"",
+    "faction": "House Kaevaryn",
+    "role": "Queen",
+    "status": "Active",
+    "location": "Castle Kaevaryn",
+    "age": "Unknown",
+    "description": "The current ruler of House Kaevaryn, dubbed 'Ironclad' after leading a daring rescue beneath the collapsed Circle of Flames at age sixteen. Under her stern gaze, novice knights are trained to the brink of death - only in flames may the steel be forged.",
+    "achievements": [
+      "Led rescue mission at Circle of Flames at age 16",
+      "Established current training protocols for knights",
+      "Maintained House Kaevaryn's stability during crisis",
+      "Successfully bonded with the Throne-Mnemos"
+    ],
+    "significance": "Queen Aurelia represents the ideal of Kaevaryn leadership - stern, disciplined, and willing to sacrifice everything for the survival of her House and the preservation of vital systems.",
+    "related": ["House Kaevaryn", "Castle Kaevaryn", "The Throne-Mnemos"]
+  },
+  "Sir Rhagar Vantheyn": {
+    "title": "Sir Rhagar Vantheyn",
+    "subtitle": "\"The Unyielding Wall\"",
+    "faction": "House Kaevaryn",
+    "role": "Master of War",
+    "status": "Active",
+    "location": "Castle Kaevaryn",
+    "age": "Unknown",
+    "description": "The Master of War for House Kaevaryn, known as 'The Unyielding Wall' for his defensive strategies and unbreakable resolve in battle.",
+    "achievements": [
+      "Developed defensive strategies for House Kaevaryn",
+      "Trained multiple generations of knights",
+      "Successfully defended against multiple incursions",
+      "Earned the title 'The Unyielding Wall'"
+    ],
+    "significance": "Sir Rhagar is the military backbone of House Kaevaryn, ensuring their survival in a hostile world through strategic defense and disciplined training.",
+    "related": ["House Kaevaryn", "Black Lance", "Military Strategy"]
+  },
+  "Sister Melkara Dross": {
+    "title": "Sister Melkara Dross",
+    "subtitle": "\"Arch-Cardinal of Iron\"",
+    "faction": "Iron Caste",
+    "role": "Arch-Cardinal",
+    "status": "Active",
+    "location": "The Forge Temple",
+    "age": "Unknown",
+    "description": "The Arch-Cardinal of Iron, highest-ranking member of the Iron Caste and spiritual leader of their techno-religious order.",
+    "achievements": [
+      "Rise to Arch-Cardinal of the Iron Caste",
+      "Preservation of sacred techno-rites",
+      "Maintenance of vital infrastructure systems",
+      "Religious interpretation of ancient technology"
+    ],
+    "significance": "Sister Melkara represents the spiritual and technical authority of the Iron Caste, bridging the gap between ancient technology and religious devotion.",
+    "related": ["Iron Caste", "The Forge Temple", "Techno-rites"]
+  },
+  "Ser Kendros Halven": {
+    "title": "Ser Kendros Halven",
+    "subtitle": "\"Master of the Hunt\"",
+    "faction": "House Kaevaryn",
+    "role": "Master of the Hunt",
+    "status": "Active",
+    "location": "Castle Kaevaryn",
+    "age": "Unknown",
+    "description": "The Master of the Hunt for House Kaevaryn, responsible for tracking and eliminating threats to the realm, particularly bio-constructs and other dangerous entities.",
+    "achievements": [
+      "Successfully tracked and eliminated numerous threats",
+      "Developed hunting strategies for bio-constructs",
+      "Protected House Kaevaryn's borders",
+      "Trained scouts and rangers"
+    ],
+    "significance": "Ser Kendros ensures the safety of House Kaevaryn's territories by actively hunting down threats before they can reach populated areas.",
+    "related": ["House Kaevaryn", "Bio-constructs", "Border Security"]
+  }
+} 

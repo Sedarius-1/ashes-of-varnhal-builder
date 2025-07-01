@@ -1,0 +1,62 @@
+{
+  "The Creed of Continuance": {
+    "title": "The Creed of Continuance",
+    "subtitle": "\"As long as the Systems endure, so too shall Humanity.\"",
+    "category": "Philosophy",
+    "faction": "House Kaevaryn",
+    "description": "A state doctrine upheld by House Kaevaryn that teaches the sacred duty of maintaining the surviving infrastructure of Old Varnhal. It is not a religion in the traditional sense, but a binding philosophy rooted in the belief that 'As long as the Systems endure, so too shall Humanity.'",
+    "principles": [
+      "Sacred stewardship of surviving infrastructure",
+      "Defiance against entropy through maintenance",
+      "Salvation through technological preservation",
+      "Living interfaces as hosts of sovereignty"
+    ],
+    "significance": "The Creed forms the ideological foundation of House Kaevaryn's rule and their relationship with the Iron Caste. It justifies their feudal structure as necessary for the preservation of vital systems.",
+    "related": ["House Kaevaryn", "Iron Caste", "Sacred Stewardship"]
+  },
+  "The Silencing": {
+    "title": "The Silencing",
+    "subtitle": "\"The day all signals went dark.\"",
+    "category": "Historical Event",
+    "faction": "All Pre-Silencing factions",
+    "description": "The catastrophic event that occurred in Year 0 when all signals from Varnhal went dark. This marked the beginning of the post-collapse era and the end of orbital communication and automated systems.",
+    "principles": [
+      "Complete loss of interstellar communication",
+      "Collapse of automated infrastructure",
+      "Isolation from the wider galaxy",
+      "Beginning of the feudal era"
+    ],
+    "significance": "The Silencing is the foundational event that shaped all subsequent history on Varnhal, creating the conditions for the current feudal society and technological regression.",
+    "related": ["Varnhal", "Pre-Silencing", "Orbital Networks"]
+  },
+  "Blood Convergence": {
+    "title": "Blood Convergence",
+    "subtitle": "\"The rite of neural bonding.\"",
+    "category": "Ritual",
+    "faction": "House Kaevaryn",
+    "description": "A sacred rite performed during the Crimson Accord where a would-be ruler injects nanite-infused ancestral serum to allow compatibility with the Throne-Mnemos neural control matrix.",
+    "principles": [
+      "Nanite-infused ancestral serum injection",
+      "Neural compatibility establishment",
+      "Throne-Mnemos bonding process",
+      "Risk of mental burnout and rejection"
+    ],
+    "significance": "The Blood Convergence is the critical step in House Kaevaryn's succession ritual, determining whether a candidate can become ruler or will be destroyed by the process.",
+    "related": ["Crimson Accord", "Throne-Mnemos", "House Kaevaryn"]
+  },
+  "Iron Caste": {
+    "title": "Iron Caste",
+    "subtitle": "\"Guardians of the sacred circuits.\"",
+    "category": "Organization",
+    "faction": "House Kaevaryn",
+    "description": "A techno-religious order within House Kaevaryn responsible for maintaining ancient systems, performing sacred diagnostics, and upholding the techno-rites that keep the realm's infrastructure functioning.",
+    "principles": [
+      "Sacred maintenance of ancient systems",
+      "Techno-rites and diagnostic procedures",
+      "Religious interpretation of technology",
+      "Preservation of pre-Silencing knowledge"
+    ],
+    "significance": "The Iron Caste is essential to the survival of House Kaevaryn and the broader realm, as they maintain the vital systems that prevent complete collapse.",
+    "related": ["House Kaevaryn", "Techno-rites", "Sacred Maintenance"]
+  }
+} 
