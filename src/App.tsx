@@ -12,6 +12,7 @@ import TurnStructurePage from './pages/TurnStructurePage';
 import GameSetupPage from './pages/GameSetupPage';
 import KeywordsPage from './pages/KeywordsPage';
 import FateCardsListPage from './pages/FateCardsListPage';
+import LorePage, { LoreFactionsPage, LoreTimelinePage, LoreArtifactsPage, LoreTermsPage, UniversalLorePage } from './pages/Home';
 
 function App() {
     return (
@@ -19,7 +20,14 @@ function App() {
             <Layout>
                 <Routes>
                     <Route path="/" element={<BuilderPage />} />
-                    <Route path="/factions/:factionName" element={<FactionRules />} />
+                    <Route path="/lore" element={<LorePage />} />
+                    <Route path="/lore/factions" element={<LoreFactionsPage />} />
+                    <Route path="/lore/factions/:factionName" element={<FactionRules />} />
+                    <Route path="/lore/artifacts" element={<LoreArtifactsPage />} />
+                    <Route path="/lore/terms" element={<LoreTermsPage />} />
+                    <Route path="/lore/timeline" element={<LoreTimelinePage />} />
+                    <Route path="/lore/:category" element={<UniversalLorePage />} />
+                    <Route path="/lore/:category/:item" element={<UniversalLorePage />} />
                     <Route path="/scenarios" element={<ScenariosPage />} />
                     <Route path="/campaigns" element={<CampaignsPage />} />
                     <Route path="/combat" element={<CombatPage />} />

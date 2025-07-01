@@ -113,13 +113,13 @@
           "baseEffect": "Target enemy within 12'' loses 1 Action on their next activation.",
           "overdrive": [
             "2+ Successes: Target enemy loses 1 Action more.",
-            "3+ Successes: Target’s Defense is also lowered by 1 until end of turn.",
-            "4+ Successes: Target’s Defense is also lowered by 1 until end of turn."
+            "3+ Successes: Target's Defense is also lowered by 1 until end of turn.",
+            "4+ Successes: Target's Defense is also lowered by 1 until end of turn."
           ],
           "critFail": "Caster loses 1 Action next turn and suffers –1 Defense until end of turn per Critical Fail."
         },
         {
-          "name": "Archivist’s Doomscript",
+          "name": "Archivist's Doomscript",
           "flavor": "Their fate was written before the ink dried.",
           "baseEffect": "Target enemy takes 1 Wound.",
           "overdrive": [
@@ -135,7 +135,7 @@
           "baseEffect": "Target enemy within 12'' suffers –1 Dice on their weapon attacks during their next activation.",
           "overdrive": [
             "2+ Successes: Target enemy suffers another –1 Dice.",
-            "3+ Successes: Target’s attacks lose all special traits (e.g., Brutal, Precise) this round.",
+            "3+ Successes: Target's attacks lose all special traits (e.g., Brutal, Precise) this round.",
             "4+ Successes: Weapon critical damage is also reduced by 1 (to a minimum of 1) until end of next activation."
           ],
           "critFail": "Caster suffers Wound (1) and cannot use any Rites until they successfully Rally per Critical Fail."
@@ -226,7 +226,7 @@
       },
       "abilities": [
         {
-          "name": "Knight’s Resolve (Aura)",
+          "name": "Knight's Resolve (Aura)",
           "description": "Allies in 2'' gain +1 Morale & +1 Defense."
         },
         {
@@ -578,12 +578,12 @@
       "powers": []
     }
   ],
-  "Outclan Reclaimers": [
+  "Ash-Brethren": [
     {
       "id": "",
       "name": "Scrapprince",
       "type": "Boss",
-      "faction": "Outclan Reclaimers",
+      "faction": "Ash-Brethren",
       "cost": 35,
       "baseCost": 35,
       "selectedWeapons": [],
@@ -602,7 +602,7 @@
       "id": "",
       "name": "Junker",
       "type": "Scavenger",
-      "faction": "Outclan Reclaimers",
+      "faction": "Ash-Brethren",
       "cost": 15,
       "baseCost": 15,
       "selectedWeapons": [],

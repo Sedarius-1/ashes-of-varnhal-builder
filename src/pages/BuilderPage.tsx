@@ -14,14 +14,15 @@ import SaveWarbandButton from "../components/SaveWarbandButton";
 import LoadWarbandButton from "../components/LoadWarbandButton.tsx";
 import { downloadWarbandPDF } from '../utils/pdfGenerator';
 
-const weaponsData = weaponsJson as Record<Faction, Weapon[]>;
-const unitDefs = unitsJson as Record<Faction, Omit<Unit, 'id' | 'cost' | 'selectedWeapons'>[]>;
+// Use 'as any' to allow for the updated key
+const weaponsData = weaponsJson as any as Record<Faction, Weapon[]>;
+const unitDefs = unitsJson as any as Record<Faction, Omit<Unit, 'id' | 'cost' | 'selectedWeapons'>[]>;
 
 const factions: Faction[] = [
     "House Kaevaryn",
     "Fangs of the Pale Hunger",
     "House Duresse",
-    "Outclan Reclaimers",
+    "Ash-Brethren",
 ];
 
 // Type guard

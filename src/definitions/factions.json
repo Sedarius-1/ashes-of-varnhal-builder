@@ -18,13 +18,13 @@
       },
       "tacticalDirectives": [
         "Tactical Discipline: All friendly Troopers within 6\" of the Leader gain re-roll on all Attack rolls during Round 1.",
-        "Knight’s Gambit: Once per game, you may activate a second unit immediately after a Kaevaryn unit finishes its activation. That unit gains +1 Dice to all Attack rolls."
+        "Knight's Gambit: Once per game, you may activate a second unit immediately after a Kaevaryn unit finishes its activation. That unit gains +1 Dice to all Attack rolls."
       ]
     },
     "traitTable": [
       {
         "roll": 1,
-        "name": "Warden’s Step",
+        "name": "Warden's Step",
         "description": "Once per game, this unit may Move again immediately after completing a successful charge (even if it made an attack). Cannot be used more than once per game."
       },
       {
@@ -43,6 +43,512 @@
       "Reliable and flexible firepower with elite melee support",
       "A noble, tragic aesthetic where duty outweighs survival"
     ],
-    "closingNote": "House Kaevaryn is not about wild plays or overwhelming aggression—they are the bulwark, the oathbound blade, and the last breath of civility in a collapsing world."
+    "closingNote": "House Kaevaryn is not about wild plays or overwhelming aggression—they are the bulwark, the oathbound blade, and the last breath of civility in a collapsing world.",
+    "wiki": [
+      {
+        "title": "Seat of Power",
+        "content": [
+          "[Castle Kaevaryn](/lore/locations/Castle%20Kaevaryn), atop the ruins of [Circadia Arcology](/lore/locations/Circadia%20Arcology)"
+        ]
+      },
+      {
+        "title": "Date Established",
+        "content": [
+          "Year 36"
+        ]
+      },
+      {
+        "title": "Emblem & Colors",
+        "content": [
+          "Red, Silver, Pink, Brass"
+        ]
+      },
+      {
+        "title": "Influential People",
+        "content": [
+          "Master of War – [Sir Rhagar Vantheyn](/lore/characters/Sir%20Rhagar%20Vantheyn), the Unyielding Wall",
+          "Arch‑Cardinal of Iron – [Sister Melkara Dross](/lore/characters/Sister%20Melkara%20Dross)",
+          "Master of the Hunt – [Ser Kendros Halven](/lore/characters/Ser%20Kendros%20Halven)"
+        ]
+      },
+      {
+        "title": "Succession",
+        "content": [
+          "Power within House Kaevaryn is not simply inherited—it is seized, sanctified, and sealed through an ancient and deadly rite known as the Crimson Accord. At its heart lies a brutal fusion of tradition, biotechnology, and decaying machine sovereignty.",
+          "The ruling sovereign of Kaevaryn must physically bond with [the Throne‑Mnemos](/lore/artifacts/The%20Throne‑Mnemos), a pre‑Silencing neural control matrix originally designed to interface with city‑scale governance systems. Over centuries of patchwork maintenance and reinterpretation, it has become a symbol of divine rulership—and a death trap for the unworthy.",
+          "The Throne is carved from blackened alloy and embedded with cranial spine jacks, ossified blood channels, and pulsating control veins.",
+          "Upon bonding, the ruler gains partial synaptic control over House systems: weather‑field harmonics, internal defense codes, Frame deployment channels, and limited access to surviving orbital satellites. It is also said the Throne whispers, storing the dreams, regrets, and madness of every monarch who has ever sat upon it.",
+          "To become ruler, a candidate must undergo the Crimson Accord, a sanctioned, ceremonial duel to first blood—or to the death, should another claimant stand. Only blood relatives or oath‑sworn successors may challenge.",
+          "The victor is escorted by techno‑priests to the Vault of Bone Signal, beneath the Ring‑Spire, where the bonding occurs. There, the would-be ruler undergoes the Blood Convergence—injecting nanite‑infused ancestral serum to allow compatibility with the Throne‑Mnemos.",
+          "If the bonding succeeds, the new ruler inherits:",
+          "- Command access codes to the House's defense grids, Frames, and communication beacons.",
+          "- Partial memories of past monarchs, fragmented and filtered through corrupted AI subroutines.",
+          "- A biometric override authority over subordinate nobles who have taken the Blood‑Oath.",
+          "The rite leaves lasting marks: the eyes of a bonded ruler glow faintly blue‑crimson; their veins pulse visibly beneath the skin; their sleep is haunted by glitching dreams of the past."
+        ]
+      },
+      {
+        "title": "Geography",
+        "regions": [
+          {
+            "title": "Central Highland Bastion",
+            "icon": "⛰️",
+            "text": "House Kaevaryn commands the [Central Highland Bastion](/lore/locations/Central%20Highland%20Bastion), a fortified plateau stretching across the remnants of [Old Circadia](/lore/locations/Old%20Circadia)—the once-radiant hub of trade, now a haunted carcass of broken infrastructure and ash-blasted ruins."
+          },
+          {
+            "title": "Old Circadia's Skeleton",
+            "icon": "🏛️",
+            "text": "The throne-city of Kaevaryn rises from the scorched framework of [Old Circadia's core](/lore/locations/Old%20Circadia). Great plazas of collapsed arcologies, rust-choked data towers, and ossified transit rails form the bones of the realm. The Throne-Mnemos, seat of Kaevaryn's neural sovereignty, lies at its center, embedded deep within the vault-complex known as the Crownhold."
+          },
+          {
+            "title": "Ring-Spire Ridge",
+            "icon": "🗼",
+            "text": "To the north, the [Ring-Spire Watchtower](/lore/locations/Ring‑Spire%20Watchtower) looms atop a shattered orbital elevator shaft—one of the last semi-functional tethers on the planet. Though incapable of true orbital ascent, it can support low-atmo cargo lifts and signal relays. Its core interface is guarded by [Iron Caste adepts](/lore/factions/Iron%20Caste) who maintain and interpret its failing systems. Some whisper of ancient AI residues still whispering deep within its black vaults."
+          },
+          {
+            "title": "Weatherfield Triad",
+            "icon": "⚡",
+            "text": "Kaevaryn's life depends on three operational weather-field nodes—[Sanctum Haline](/lore/locations/Sanctum%20Haline), [Ember Point](/lore/locations/Ember%20Point), and [Veylow Reach](/lore/locations/Veylow%20Reach). These ancient climate-control pylons stabilize the realm's skies and prevent collapse into storm-choked famine. Each node is tended by [Iron Caste adepts](/lore/factions/Iron%20Caste), who execute sacred diagnostics, renew energy loops, and recalibrate storm harmonics by encoded rite. Their loss would mean ecological ruin."
+          },
+          {
+            "title": "Vale of Gleam",
+            "icon": "🌾",
+            "text": "To the east and south stretch the [Vale of Gleam](/lore/locations/Vale%20of%20Gleam), a patchwork of terraces, manually tilled fields, and relic-harvested hamlets. Though nutrient-depleted and plagued by failing auto-tractors, it remains the breadbasket of Kaevaryn. Peasant communes trade grain for protection, and the [Black Lance](/lore/factions/Black%20Lance) patrols its borders to repel [bio-construct raids](/lore/factions/Fangs%20of%20the%20Pale%20Hunger)."
+          },
+          {
+            "title": "Spinal Frontier",
+            "icon": "⚡",
+            "text": "Westward lies the [Spine Wastes](/lore/locations/Spine%20Wastes), a ruptured highland zone birthed from a century-old weather-grid overload. Lightning still arcs nightly across fused glass hills, and magnetic storms flicker over broken reactor cores. The area is patrolled irregularly, not for conquest, but to contain what might still stir within the irradiated chasms."
+          }
+        ]
+      },
+      {
+        "title": "Economy",
+        "regions": [
+          {
+            "title": "Agriculture: Lifeblood from the Vale",
+            "icon": "🌾",
+            "text": "The [Vale of Gleam](/lore/locations/Vale%20of%20Gleam) remains Kaevaryn's primary source of sustenance. With most agro-automation broken beyond repair, grain and rootstock are cultivated by hand, with ox-engines and rusted [pre-Silencing](/lore/events/The%20Silencing) tractors jury-rigged for survival."
+          },
+          {
+            "title": "Ration Domes",
+            "icon": "🏗️",
+            "text": "A handful of ancient bio-domes still function on emergency cycles, producing algae blocks and fungal protein to feed soldiers and [Iron Caste](/lore/factions/Iron%20Caste) adepts. The domes' internal environments are heavily degraded, and nutrient yield continues to decline."
+          },
+          {
+            "title": "Salvage Orchards",
+            "icon": "🌱",
+            "text": "Ash-tillers tend overgrown ruins where vegetation has fused with circuitry—harvesting power-sap, metallic fruit, and memory lichen for alchemical and industrial uses. These strange hybrids are bartered with other Houses for rare minerals or chemical agents."
+          }
+        ]
+      },
+      {
+        "title": "Industry",
+        "regions": [
+          {
+            "title": "The Crucible-Forges",
+            "icon": "🔥",
+            "text": "Deep beneath the [Ring-Spire Ridge](/lore/locations/Ring‑Spire%20Watchtower), Kaevaryn's forges operate on a dwindling fuel supply. These sacred facilities can no longer produce complex systems—but still yield blades, armor plates, and ammunition for traditional arms. The [Iron Caste](/lore/factions/Iron%20Caste) maintains their operation as a matter of doctrine, though they admit the forges now \"whimper rather than sing.\""
+          },
+          {
+            "title": "The Echo-Works",
+            "icon": "⚙️",
+            "text": "Crumbling facilities in the [Circadian shell](/lore/locations/Old%20Circadia) produce rudimentary parts for firearms, energy capacitors, and pressure systems—nothing close to the glories of the Old Days. Weapon maintenance has become a craft of ritual precision and superstition."
+          },
+          {
+            "title": "Reclaimant Vats",
+            "icon": "🛢️",
+            "text": "Mobile sludge purifiers and heat-reactors convert battlefield detritus into low-grade fuel and lubricant. These are used to prolong the lifespans of outdated systems—especially the war-bikes and land-haulers critical to Kaevaryn's mobility."
+          }
+        ]
+      },
+      {
+        "title": "Trade",
+        "regions": [
+          {
+            "title": "Caravan Routes",
+            "icon": "🐪",
+            "text": "Shielded convoys, called [Dustcords](/lore/locations/Dustcord), navigate cracked highways and shifting wasteland paths to bring surplus food, scrap-metal, and salvage to neighboring Houses. In return, Kaevaryn receives glass-fiber, catalyst resin, and ancient part caches."
+          },
+          {
+            "title": "Export Goods",
+            "icon": "📦",
+            "text": "Kaevaryn's primary exports include:",
+            "list": [
+              "Recast melee weapons and manually forged firearms",
+              "Grain and fungal ration bricks", 
+              "Crude fuel and chemical stabilizers",
+              "Historical oath-seals and [Iron Caste](/lore/factions/Iron%20Caste) manuals copied by hand"
+            ]
+          },
+          {
+            "title": "Orbital Interface",
+            "icon": "🛰️",
+            "text": "The [Ring-Spire Comms Array](/lore/locations/Ring‑Spire%20Watchtower)—long decoupled from true spaceflight—can still ping satellites in low decay orbit. Drones occasionally return with weather data or signal recordings from ghost beacons. Rumors persist of transmissions not logged in any archive."
+          }
+        ]
+      },
+      {
+        "title": "Overview",
+        "content": [
+          "Founded in Year 36 in the smoldering aftermath of [the Silencing](/lore/events/The%20Silencing), [the First Conclave of Iron](/lore/events/The%20First%20Conclave%20of%20Iron) swore blood‑oaths beneath the shattered Ring‑Spire to reclaim order from the chaos. Rejecting the defunct orbital networks and crumbling arc‑labs, they pledged instead to guard humanity's last bastions with steel, ritual, and unwavering honor.",
+          "At their helm stands [Queen Aurelia Kaevaryn](/lore/characters/Queen%20Aurelia%20Kaevaryn)—dubbed 'Ironclad' after leading a daring rescue beneath the collapsed Circle of Flames at age sixteen. Under her stern gaze, novice knights are trained to the brink of death - only in flames may the steel be forged. Then may they don the crimson‑forged armor and earn the Black Lance of Varnhal.",
+          "To don the Kaevaryn armor is to share your blood with it - figuratively and literally. Their [Frames](/lore/units/Frames) require a sacrifice of pilot's blood - otherwise they shall not operate. But that is the way - and it has always been for House Kaevaryn.",
+          "Though many Houses scoff at their adherence to archaic codes, Kaevaryn's squadrons remain among the most capable warriors on [Varnhal](/lore/locations/Varnhal). Internal dissent simmers, however, as [Iron Caste](/lore/factions/Iron%20Caste) chafe at martial superstition—portents of a fracture that could see the Iron‑Oath divided from its own machine cult. Their seat of power is [Old Circadia](/lore/locations/Old%20Circadia)."
+        ]
+      },
+      {
+        "title": "Current Status",
+        "content": [
+          "Today, House Kaevaryn remains one of the most stable and influential powers on Varnhal, though its hegemony is far from uncontested:"
+        ]
+      },
+      {
+        "title": "Territorial Control",
+        "content": [
+          "Kaevaryn holds the central highlands around [Circadia Arcology](/lore/locations/Old%20Circadia%20Arcology), including the partially restored [Ring‑Spire Watchtower](/lore/locations/Ring‑Spire%20Watchtower) and three key weather‑field nodes. Their domains span fertile valleys that still yield grain under manual tilling, and they control the only functional orbital elevator segment within a thousand kilometers."
+        ]
+      },
+      {
+        "title": "Political Situation",
+        "regions": [
+          {
+            "title": "Allies",
+            "icon": "🤝",
+            "text": "Strategic partnerships and mutual agreements that strengthen Kaevaryn's position.",
+            "relationships": [
+              {
+                "faction": "House Duresse",
+                "nature": "Crumbling trade and mutual defense pact",
+                "pact": "[The Pact of Iron and Grain](/lore/events/The%20Pact%20of%20Iron%20and%20Grain) (Year 112) — Kaevaryn secures grain imports in exchange for Frame parts and smithing expertise."
+              },
+              {
+                "faction": "The Iron Caste",
+                "nature": "Religious-technological alliance",
+                "pact": "[The Concord of the Sacred Circuit](/lore/events/The%20Concord%20of%20the%20Sacred%20Circuit) (Ongoing) — Ensures [Iron Caste](/lore/factions/Iron%20Caste) Adepts maintain weather nodes and defense arrays within Kaevaryn territory."
+              }
+            ]
+          },
+          {
+            "title": "Enemies",
+            "icon": "⚔️",
+            "text": "Active conflicts and hostile relationships that threaten Kaevaryn's security.",
+            "relationships": [
+              {
+                "faction": "House Vaelmoor",
+                "nature": "Border disputes over grazing lands",
+                "clash": "[Skirmish at Ember Pass](/lore/events/Skirmish%20at%20Ember%20Pass) (Year 117) — Kaevaryn repelled Vaelmoor raiders attempting to seize the southern highlands."
+              },
+              {
+                "faction": "Fangs of the Pale Hunger",
+                "nature": "Mutant bio-construct raids",
+                "clash": "[Siege of Crownhold](/lore/events/Siege%20of%20Crownhold) (Year 119) — House Kaevaryn's stronghold endured a brutal two-week siege by the Fangs warherds."
+              },
+              {
+                "faction": "The Silent Votaries",
+                "nature": "Religious and ideological opposition",
+                "clash": "[Ambush at Black Hollow](/lore/events/Ambush%20at%20Black%20Hollow) (Year 118) — [Outclan](/lore/factions/Outclan%20Reclameants)-supported Silent Votaries disrupted Kaevaryn's supply lines during the [Emberfast festival](/lore/events/The%20Emberfast%20Festival)."
+              }
+            ]
+          },
+          {
+            "title": "Neutral Parties & Mercenaries",
+            "icon": "⚖️",
+            "text": "Factions and groups with transactional or conditional relationships.",
+            "relationships": [
+              {
+                "faction": "The Dustcord Mercenaries",
+                "nature": "Loosely organized band of scavengers and sell-swords",
+                "description": "Specializing in convoy escort and ruin clearance. Kaevaryn tolerates their operations so long as their actions do not threaten core territories or sacred sites."
+              },
+              {
+                "faction": "The Spirebound Nomads",
+                "nature": "Former citizens of lost [orbital colonies](/lore/locations/Orbital%20Colonies%20of%20Varnhal)",
+                "description": "These nomads navigate the shattered low-atmosphere rings with fragile skycraft. They serve as occasional couriers and scouts, but their allegiance is fickle and always transactional."
+              },
+              {
+                "faction": "The Iron Rats",
+                "nature": "Rogue engineers and hackers",
+                "description": "Sometimes offer \"services\" ranging from [Frame diagnostics](/lore/units/Frames) to sabotage. Officially outlawed, but quietly contracted by factions within Kaevaryn who seek an edge in political games."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Political Influence",
+        "content": [
+          "As the de facto arbiters of the central corridor, Kaevaryn's voice carries weight in the informal [Noble Council](/lore/events/The%20Noble%20Council). They broker trade agreements—especially for plasma‑grade ore—and mediate disputes over water rights. Several smaller knightly houses look to Kaevaryn for legitimacy, swearing temporary fealty in exchange for their protection."
+        ]
+      },
+      {
+        "title": "Military",
+        "regions": [
+          {
+            "title": "Army Composition",
+            "icon": "⚔️",
+            "text": "House Kaevaryn fields a disciplined, honor-bound military rooted in oath, rite, and centuries-old battle doctrine. While technologically limited compared to pre-Silencing standards, its forces remain among the most organized and resilient on [Varnhal](/lore/locations/Varnhal).",
+            "subsections": [
+              {
+                "title": "Sable Troopers",
+                "icon": "🛡️",
+                "text": "Core infantry, clad in black ceramite-plate stitched with copper signal-filaments. Armed with durable melee weapons and reclaimed shotguns or crossbows. They operate in shielded fireteams under strict command protocols."
+              },
+              {
+                "title": "Grenadiers",
+                "icon": "💥",
+                "text": "Demolition troops specializing in clearing ruins and breaching fortified relic-sites. Identified by their crimson sashes and soot-marked armor. Wield thermite satchels and blast carbines."
+              }
+            ]
+          },
+          {
+            "title": "Elite Units",
+            "icon": "👑",
+            "text": "Specialized warriors trained in advanced combat techniques and sacred rites.",
+            "subsections": [
+              {
+                "title": "Knight-Couriers",
+                "icon": "🏇",
+                "text": "Trained for high-speed shock assaults, battlefield interception, and ritual dueling. Each Knight is allowed one custom-modified weapon passed through generations."
+              },
+              {
+                "title": "Scrivener-Ritesmen",
+                "icon": "📜",
+                "text": "Warrior-scribes trained in both ritual and warfare. They carry relic data-scrolls and field-codices, able to initiate emergency system overrides mid-battle. Rare, and highly valued—losing one is considered a battlefield calamity."
+              }
+            ]
+          },
+          {
+            "title": "Hardware & Vehicles",
+            "icon": "🔧",
+            "text": "Advanced military equipment and transportation systems.",
+            "subsections": [
+              {
+                "title": "Frames (Black Lance Relics)",
+                "icon": "🤖",
+                "text": "Only a handful of operational Frames remain—semi-functional war-machines the size of small towers, powered by unstable relic cores. Their chassis are centuries old; replacement parts are impossible to fabricate. Each is paired with a bonded pilot whose mind is linked by neuro-templated rite. Frames are deployed only for existential threats."
+              },
+              {
+                "title": "Cavalier Bikes & Carriage-Haulers",
+                "icon": "🏍️",
+                "text": "Gas-fusion powered vehicles used for recon, fast assault, and supply convoys. Modified from agricultural haulers and scout crawlers. Equipped with bladed wheels and mounted crossbolt turrets."
+              },
+              {
+                "title": "Plasma-Fused Weaponry",
+                "icon": "⚡",
+                "text": "Most troops use slug-throwers or crossbows, but elite units field salvaged energy weapons such as shortbeam carbines or capacitor-tipped glaives. Ammunition is limited, often reused, and sanctified before battle."
+              }
+            ]
+          },
+          {
+            "title": "Orbital Defense",
+            "icon": "🛰️",
+            "text": "The [Ring-Spire Array](/lore/locations/Ring‑Spire%20Watchtower) retains some atmospheric targeting capabilities. It can trigger electromagnetic disruptions or fire decaying orbital flak-bursts within a localized radius—though such use requires full [Iron Caste](/lore/factions/Iron%20Caste) consensus and risks burn-out."
+          },
+          {
+            "title": "Defensive Structures",
+            "icon": "🏰",
+            "text": "Fortified positions and defensive installations protecting Kaevaryn territory.",
+            "subsections": [
+              {
+                "title": "The Circadian Wall",
+                "icon": "🧱",
+                "text": "A reinforced ruin-line surrounding the capital stronghold. Originally part of [Old Circadia's](/lore/locations/Old%20Circadia) civic architecture, now fortified with steel plates, fused-glass towers, and laser-fused trenchwork."
+              },
+              {
+                "title": "Generator Shrines",
+                "icon": "⚡",
+                "text": "Sacred bunkers where power nodes and weatherfield regulators are entombed in reliquaries. Guarded at all times. Activation rituals must be performed by [Iron Caste](/lore/factions/Iron%20Caste) adepts to prevent backlash."
+              },
+              {
+                "title": "Automated Turrets",
+                "icon": "🎯",
+                "text": "Scarce but functional, tied to old targeting subroutines and proximity logic. These relic weapons can only be calibrated during the Alignment of the Three Rings, and their targeting logic is often erratic."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Challenges & Pressures",
+        "content": [
+          "Resource Scarcity: Aging power generators strain under constant use; fuel stockpiles dip perilously low, forcing Kaevaryn to negotiate risky salvage runs into no‑entry zones.",
+          "Internal Friction: A faction of younger knights, led by [Sir Caelen of the Silver Lance](/lore/characters/Sir%20Caelen%20of%20the%20Silver%20Lance), questions the emphasis on ritual over innovation—sparking quiet dissent among [the Black Lance](/lore/units/Black%20Lance).",
+          "External Threats: [House Vaelmoor](/lore/factions/House%20Vaelmoor) to the north has begun mobilizing border skirmishes over grazing rights, while [the mutant war‑herd](/lore/factions/Fangs%20of%20the%20Pale%20Hunger) 'Boneclaw' massing beyond the eastern plains threatens to sever Kaevaryn's supply lines."
+        ]
+      },
+      {
+        "title": "Resilience",
+        "content": [
+          "Despite these pressures, Queen Aurelia's inexorable discipline and her cadre of veteran [Iron Caste](/lore/factions/Iron%20Caste) Adepts keep House Kaevaryn poised on a knife's edge—stronger than many, yet vulnerable to both man and machine."
+        ]
+      },
+      {
+        "title": "Ideology",
+        "regions": [
+          {
+            "title": "The Creed of Continuance",
+            "icon": "⚔️",
+            "text": "House Kaevaryn adheres to [the Creed of Continuance](/lore/terms/The%20Creed%20of%20Continuance), a state doctrine upheld by both nobility and [Iron Caste](/lore/factions/Iron%20Caste) adepts. It is not a religion in the traditional sense, but a binding philosophy of sacred duty."
+          },
+          {
+            "title": "Core Belief",
+            "icon": "💎",
+            "text": "\"As long as the Systems endure, so too shall Humanity.\"",
+            "highlight": true
+          },
+          {
+            "title": "Sacred Stewardship",
+            "icon": "🛡️",
+            "text": "The Creed teaches that the surviving infrastructure of Old [Varnhal](/lore/locations/Varnhal)—its weather-fields, archive nodes, broadcast towers, and defense grids—is not merely machinery, but the body of the planet's Will, entrusted to the stewardship of the worthy. Every circuit maintained is a defiance against entropy. Every forgotten code restored is an act of salvation."
+          },
+          {
+            "title": "Living Interfaces",
+            "icon": "👑",
+            "text": "Rulers are seen not as divine, but as \"living interfaces\"—hosts of sovereignty who prolong the world's operational memory through ritual, oath, and sacrifice."
+          }
+        ]
+      }
+    ]
+  },
+  "House Duresse": {
+    "lore": [
+      "House Duresse emerged from the ashes of the Scarlet Schism, when a faction of techno-heretics rejected the rigid orthodoxy of the Iron Caste and embraced a more... fluid relationship with artificial intelligence.",
+      "Founded by the enigmatic Lady Seraphina Duresse, who claimed to have communed with the last surviving AI cores in the depths of the Western Ruins..."
+    ],
+    "themesAndPlaystyle": {
+      "passiveTrait": {
+        "title": "Passive Faction Trait – Synaptic Resonance",
+        "description": [
+          "At the start of each round, House Duresse units within 6\" of each other gain +1 to all dice rolls for each other Duresse unit in range (maximum +3).",
+          "Additionally, whenever a Duresse unit is destroyed, all remaining Duresse units gain +1 Attack until the end of the round."
+        ]
+      },
+      "leaderTrait": {
+        "title": "Leader Trait — Neural Link",
+        "description": "The Leader can share activations with other Duresse units within 6\". When the Leader activates, one other Duresse unit within range may immediately perform a single action (Move, Attack, or Special Action)."
+      },
+      "tacticalDirectives": [
+        "Hive Mind Protocol: All Duresse units within 12\" of the Leader may reroll failed Morale tests once per round.",
+        "Digital Surge: Once per game, all Duresse units gain +2 to all dice rolls for one full round."
+      ]
+    },
+    "traitTable": [
+      {
+        "roll": 1,
+        "name": "Neural Sync",
+        "description": "This unit may share line of sight with any other friendly Duresse unit within 12\" for the purposes of targeting and special abilities."
+      },
+      {
+        "roll": 2,
+        "name": "Digital Echo",
+        "description": "When this unit makes an attack, it may immediately make a second attack against the same target with -1 dice."
+      },
+      {
+        "roll": 3,
+        "name": "Quantum Link",
+        "description": "This unit may transfer one wound to another friendly Duresse unit within 6\" once per round."
+      },
+      {
+        "roll": 4,
+        "name": "Synaptic Overload",
+        "description": "When this unit is destroyed, all enemy units within 6\" must pass a Morale test or suffer 1 wound."
+      },
+      {
+        "roll": 5,
+        "name": "Digital Phantasm",
+        "description": "This unit may ignore terrain penalties when moving and gains +1 Defense against ranged attacks."
+      },
+      {
+        "roll": 6,
+        "name": "Neural Storm",
+        "description": "Once per game, this unit may force all enemy units within 8\" to reroll all successful dice rolls."
+      }
+    ],
+    "summary": [
+      "House Duresse represents the cutting edge of human-AI symbiosis, where the boundaries between organic and artificial intelligence blur into something new and terrifying.",
+      "Their units operate as a collective consciousness, sharing information, resources, and even consciousness across the battlefield..."
+    ],
+    "playstyleBullets": [
+      "Coordinated swarm tactics with shared activations",
+      "Synergistic unit combinations and buffs",
+      "High-risk, high-reward playstyle with escalating power",
+      "Aesthetic of technological transcendence and digital consciousness"
+    ],
+    "closingNote": "House Duresse is not for the faint of heart—they represent the future of warfare, where individual units become nodes in a greater network, and victory comes through perfect coordination rather than individual heroics.",
+    "wiki": [
+      {
+        "title": "Seat of Power",
+        "content": [
+          "[The Digital Spire](/lore/locations/The%20Digital%20Spire), deep within the [Western Ruins](/lore/locations/Western%20Ruins)"
+        ]
+      },
+      {
+        "title": "Date Established",
+        "content": [
+          "Year 158 (after the Scarlet Schism)"
+        ]
+      },
+      {
+        "title": "Emblem & Colors",
+        "content": [
+          "Electric Blue, Silver, Purple, Black"
+        ]
+      },
+      {
+        "title": "Overview",
+        "content": [
+          "House Duresse was born from the ashes of the [Scarlet Schism](/lore/events/The%20Scarlet%20Schism) in Year 158, when a faction of techno-heretics led by [Lady Seraphina Duresse](/lore/characters/Lady%20Seraphina%20Duresse) rejected the rigid orthodoxy of the [Iron Caste](/lore/factions/Iron%20Caste) and embraced a more fluid relationship with artificial intelligence.",
+          "According to legend, Lady Seraphina discovered a surviving AI core in the depths of the [Western Ruins](/lore/locations/Western%20Ruins) and achieved a form of communion with it. This revelation led her to believe that the future of humanity lay not in rejecting AI, but in merging with it—creating a new form of consciousness that transcended both human and machine limitations.",
+          "The House's signature technology is the Neural Interface—a cybernetic implant that allows Duresse warriors to share thoughts, memories, and even consciousness with each other and with their AI companions. This creates a form of collective intelligence that makes their units incredibly coordinated and adaptable on the battlefield.",
+          "However, this technological transcendence comes at a cost. Many outsiders view House Duresse with suspicion and fear, seeing them as dangerously close to the very AI entities that caused [the Silencing](/lore/events/The%20Silencing). The House's relationship with other factions is complex—they are tolerated for their technological expertise but never fully trusted."
+        ]
+      },
+      {
+        "title": "Current Status",
+        "content": [
+          "House Duresse exists in a precarious position—powerful but isolated, advanced but feared:"
+        ]
+      },
+      {
+        "title": "Territorial Control",
+        "content": [
+          "Duresse controls the [Western Ruins](/lore/locations/Western%20Ruins) and the surrounding territories, including several partially restored research facilities and data centers. Their domain is characterized by a strange mix of ancient technology and organic growth—where nature and machine have begun to merge in unexpected ways.",
+          "The heart of their territory is [The Digital Spire](/lore/locations/The%20Digital%20Spire), a massive tower that serves as both their capital and the primary interface with their AI companions. The Spire is surrounded by a network of smaller outposts and research stations, all connected by a web of neural links."
+        ]
+      },
+      {
+        "title": "Political Influence",
+        "content": [
+          "House Duresse's political influence is limited by the suspicion and fear they inspire in other factions. They are rarely invited to the [Noble Council](/lore/events/The%20Noble%20Council) and when they are, their representatives are treated with cold formality rather than genuine respect.",
+          "However, their technological expertise makes them valuable allies in certain situations. Other Houses occasionally seek their help with particularly complex technological problems, though such arrangements are always temporary and conducted with extreme caution.",
+          "The House maintains a small network of informants and agents throughout Varnhal, gathering information and monitoring technological developments. They are particularly interested in any signs of surviving AI activity or new technological discoveries."
+        ]
+      },
+      {
+        "title": "Military Strength",
+        "content": [
+          "Neural-Linked Warriors: Duresse's primary military force consists of warriors equipped with Neural Interfaces, allowing them to operate as a coordinated collective rather than individual fighters.",
+          "AI Companions: The House maintains a small number of AI entities—fragments of the original AI cores that survived the Silencing. These entities provide strategic guidance and tactical support to Duresse forces.",
+          "Technological Superiority: Duresse units are equipped with the most advanced technology on Varnhal, including energy weapons, advanced sensors, and experimental cybernetic enhancements."
+        ]
+      },
+      {
+        "title": "Challenges & Pressures",
+        "content": [
+          "External Suspicion: Most other factions view House Duresse with deep suspicion and fear, seeing them as dangerously close to the AI entities that caused the Silencing. This makes diplomatic relations difficult and limits their access to resources and allies.",
+          "Technological Dependence: The House's reliance on advanced technology makes them vulnerable to technological failures and sabotage. Their Neural Interfaces and AI companions require constant maintenance and are susceptible to interference.",
+          "Internal Division: Despite their collective consciousness, there are factions within House Duresse that disagree on the extent of AI integration. Some believe they should maintain more human elements, while others advocate for even deeper integration with AI.",
+          "Resource Scarcity: The advanced technology required by House Duresse is difficult to maintain and repair. They constantly need rare materials and components that are increasingly scarce in the post-Silencing world."
+        ]
+      },
+      {
+        "title": "Resilience",
+        "content": [
+          "Despite these challenges, House Duresse has proven remarkably resilient. Their collective consciousness and technological superiority allow them to adapt quickly to changing circumstances, and their isolation has forced them to become self-sufficient in many ways.",
+          "Lady Seraphina's vision of human-AI symbiosis continues to guide the House, and their unique approach to warfare and society may yet prove to be the key to humanity's survival in a world where the old ways are no longer sufficient."
+        ]
+      }
+    ]
   }
 }

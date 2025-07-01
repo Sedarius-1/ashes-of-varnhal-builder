@@ -17,4 +17,5 @@ export type FactionData = {
     summary: string[];
     playstyleBullets: string[];
     closingNote: string;
+    wiki?: { title: string; content: string[]; lastEdited?: string }[];
 };

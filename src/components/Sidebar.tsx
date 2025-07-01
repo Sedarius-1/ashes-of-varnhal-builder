@@ -6,193 +6,139 @@ const factions: Faction[] = [
     'House Kaevaryn',
     'Fangs of the Pale Hunger',
     'House Duresse',
-    'Outclan Reclaimers',
+    'Ash-Brethren',
 ];
 
 const Sidebar = () => {
     const location = useLocation();
     const [coreRulesExpanded, setCoreRulesExpanded] = useState(true);
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [loreExpanded, setLoreExpanded] = useState(false);
 
     // Sidebar content as a function for reuse
     const sidebarContent = (
-        <nav className="space-y-6 relative z-10 p-6">
-            <Link
-                to={`/`}
-                className="block px-4 py-3 rounded-xl font-black text-lg tracking-wide bg-gradient-to-r from-amber-700/80 to-orange-800/80 text-amber-200 shadow-lg shadow-amber-900/30 border border-amber-700/40 mb-6 hover:from-amber-600 hover:to-orange-700 hover:text-white transition-all duration-200"
-                onClick={() => setMobileOpen(false)}
-            >
-                ⚔️ Warband Builder
-            </Link>
-            <h2 className="text-md font-black text-slate-400 uppercase tracking-widest mb-4">Factions</h2>
-            <ul className="space-y-2 mb-8">
-                {factions.map((faction) => {
-                    const isActive = location.pathname === `/factions/${encodeURIComponent(faction)}`;
-                    return (
-                        <li key={faction}>
-                            <Link
-                                to={`/factions/${encodeURIComponent(faction)}`}
-                                className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${
-                                    isActive
-                                        ? 'bg-gradient-to-r from-amber-600 to-orange-700 text-white shadow-lg shadow-amber-900/30 border-amber-700/60'
-                                        : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-amber-300'
-                                }`}
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                {faction.toUpperCase()}
-                            </Link>
-                        </li>
-                    );
-                })}
-            </ul>
-            
-            {/* Core Rules Collapsible Section */}
-            <div className="mt-8">
-                <button
-                    onClick={() => setCoreRulesExpanded(!coreRulesExpanded)}
-                    className="w-full flex items-center justify-between px-4 py-3 rounded-xl font-black text-lg tracking-wide bg-gradient-to-r from-slate-700/80 to-slate-800/80 text-slate-200 shadow-lg border border-slate-600/40 hover:from-slate-600 hover:to-slate-700 hover:text-white transition-all duration-200"
+        <nav className="space-y-8 relative z-10 p-6">
+            {/* Lore Section */}
+            <div>
+                <Link
+                    to="/lore"
+                    className="w-full flex items-center gap-2 text-md font-black text-slate-400 uppercase tracking-widest mb-4 px-2 py-2 rounded transition-colors hover:text-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400"
+                    onClick={() => setMobileOpen(false)}
                 >
-                    <span className="flex items-center gap-2">
-                        <span>📚</span>
-                        Core Rules
-                    </span>
-                    <span className={`transition-transform duration-200 ${coreRulesExpanded ? 'rotate-180' : ''}`}>
-                        ▼
-                    </span>
-                </button>
-                
-                {coreRulesExpanded && (
-                    <ul className="space-y-2 mt-4 pl-4">
-                        <li>
-                            <Link
-                                to="/game-setup"
-                                className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${
-                                    location.pathname.startsWith('/game-setup')
-                                        ? 'bg-gradient-to-r from-green-700 to-emerald-700 text-white shadow-lg shadow-green-900/30 border-green-700/60'
-                                        : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-green-300'
-                                }`}
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                🎯 Game Setup
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                to="/turn-structure"
-                                className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${
-                                    location.pathname.startsWith('/turn-structure')
-                                        ? 'bg-gradient-to-r from-indigo-700 to-blue-700 text-white shadow-lg shadow-indigo-900/30 border-indigo-700/60'
-                                        : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-indigo-300'
-                                }`}
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                ⏱️ Turn Structure & Phases
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                to="/combat"
-                                className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${
-                                    location.pathname.startsWith('/combat')
-                                        ? 'bg-gradient-to-r from-red-700 to-pink-700 text-white shadow-lg shadow-red-900/30 border-red-700/60'
-                                        : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-red-300'
-                                }`}
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                ⚔️ Actions & Combat
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                to="/special-rules"
-                                className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${
-                                    location.pathname.startsWith('/special-rules')
-                                        ? 'bg-gradient-to-r from-cyan-700 to-blue-700 text-white shadow-lg shadow-cyan-900/30 border-cyan-700/60'
-                                        : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-cyan-300'
-                                }`}
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                🔮 Special Rules & Traits
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                to="/scenarios"
-                                className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${
-                                    location.pathname.startsWith('/scenarios')
-                                        ? 'bg-gradient-to-r from-emerald-700 to-teal-700 text-white shadow-lg shadow-emerald-900/30 border-emerald-700/60'
-                                        : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-emerald-300'
-                                }`}
-                                onClick={() => setMobileOpen(false)}
-                            >
-                                📜 Scenarios & Missions
-                            </Link>
-                        </li>
-                     
-                    </ul>
-                )}
+                    <span>📖</span>Lore
+                </Link>
             </div>
-            <h2 className="text-md font-black text-slate-400 uppercase tracking-widest mb-4 mt-8">Campaigns</h2>
-            <ul className="space-y-2">
-                <li>
-                    <Link
-                        to="/campaigns"
-                        className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${
-                            location.pathname.startsWith('/campaigns')
-                                ? 'bg-gradient-to-r from-violet-700 to-purple-700 text-white shadow-lg shadow-violet-900/30 border-violet-700/60'
-                                : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-violet-300'
-                        }`}
-                        onClick={() => setMobileOpen(false)}
-                    >
-                        🏰 Campaign Rules
-                    </Link>
-                </li>
-            </ul>
-            <h2 className="text-md font-black text-slate-400 uppercase tracking-widest mb-4 mt-8">Fate Cards</h2>
-            <ul className="space-y-2">
-                <li>
-                    <Link
-                        to="/fate-cards"
-                        className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${
-                            location.pathname.startsWith('/fate-cards')
-                                ? 'bg-gradient-to-r from-rose-700 to-pink-700 text-white shadow-lg shadow-rose-900/30 border-rose-700/60'
-                                : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-rose-300'
-                        }`}
-                        onClick={() => setMobileOpen(false)}
-                    >
-                        🎴 Fate Cards
-                    </Link>
-                </li>
-            </ul>
-            <h2 className="text-md font-black text-slate-400 uppercase tracking-widest mb-4 mt-8">Download</h2>
-            <ul className="space-y-2">
-                <li>
-                    <Link
-                        to="/keywords"
-                        className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${
-                            location.pathname.startsWith('/keywords')
-                                ? 'bg-gradient-to-r from-purple-700 to-violet-700 text-white shadow-lg shadow-purple-900/30 border-purple-700/60'
-                                : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-purple-300'
-                        }`}
-                        onClick={() => setMobileOpen(false)}
-                    >
-                        📚 Keywords
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        to="/fate-cards-list"
-                        className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${
-                            location.pathname.startsWith('/fate-cards-list')
-                                ? 'bg-gradient-to-r from-rose-700 to-pink-700 text-white shadow-lg shadow-rose-900/30 border-rose-700/60'
-                                : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-rose-300'
-                        }`}
-                        onClick={() => setMobileOpen(false)}
-                    >
-                        🎴 Fate Cards List
-                    </Link>
-                </li>
-            </ul>
+
+            {/* Warband Builder Section */}
+            <div>
+                <h2 className="text-md font-black text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2"><span>⚔️</span>Warband Builder</h2>
+                <ul className="space-y-2 mb-6">
+                    <li>
+                        <Link
+                            to="/"
+                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname === '/' ? 'bg-gradient-to-r from-amber-700 to-orange-800 text-white shadow-lg shadow-amber-900/30 border-amber-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-amber-300'}`}
+                            onClick={() => setMobileOpen(false)}
+                        >
+                            Warband Builder
+                        </Link>
+                    </li>
+                </ul>
+            </div>
+
+            {/* Core Rules Section */}
+            <div>
+                <h2 className="text-md font-black text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2"><span>📚</span>Core Rules</h2>
+                <ul className="space-y-2 mb-6">
+                    <li>
+                        <Link
+                            to="/game-setup"
+                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname.startsWith('/game-setup') ? 'bg-gradient-to-r from-green-700 to-emerald-700 text-white shadow-lg shadow-green-900/30 border-green-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-green-300'}`}
+                            onClick={() => setMobileOpen(false)}
+                        >
+                            🎯 Game Setup
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/turn-structure"
+                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname.startsWith('/turn-structure') ? 'bg-gradient-to-r from-indigo-700 to-blue-700 text-white shadow-lg shadow-indigo-900/30 border-indigo-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-indigo-300'}`}
+                            onClick={() => setMobileOpen(false)}
+                        >
+                            ⏱️ Turn Structure & Phases
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/combat"
+                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname.startsWith('/combat') ? 'bg-gradient-to-r from-red-700 to-pink-700 text-white shadow-lg shadow-red-900/30 border-red-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-red-300'}`}
+                            onClick={() => setMobileOpen(false)}
+                        >
+                            ⚔️ Actions & Combat
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/special-rules"
+                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname.startsWith('/special-rules') ? 'bg-gradient-to-r from-cyan-700 to-blue-700 text-white shadow-lg shadow-cyan-900/30 border-cyan-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-cyan-300'}`}
+                            onClick={() => setMobileOpen(false)}
+                        >
+                            🔮 Special Rules & Traits
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/scenarios"
+                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname.startsWith('/scenarios') ? 'bg-gradient-to-r from-emerald-700 to-teal-700 text-white shadow-lg shadow-emerald-900/30 border-emerald-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-emerald-300'}`}
+                            onClick={() => setMobileOpen(false)}
+                        >
+                            📜 Scenarios & Missions
+                        </Link>
+                    </li>
+                </ul>
+            </div>
+
+            {/* Advanced Rules Section */}
+            <div>
+                <h2 className="text-md font-black text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2"><span>🧩</span>Advanced Rules</h2>
+                <ul className="space-y-2 mb-6">
+                    <li>
+                        <Link
+                            to="/campaigns"
+                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname.startsWith('/campaigns') ? 'bg-gradient-to-r from-violet-700 to-purple-700 text-white shadow-lg shadow-violet-900/30 border-violet-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-violet-300'}`}
+                            onClick={() => setMobileOpen(false)}
+                        >
+                            🏰 Campaign Rules
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/fate-cards"
+                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname.startsWith('/fate-cards') ? 'bg-gradient-to-r from-rose-700 to-pink-700 text-white shadow-lg shadow-rose-900/30 border-rose-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-rose-300'}`}
+                            onClick={() => setMobileOpen(false)}
+                        >
+                            🎴 Fate Cards
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/keywords"
+                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname.startsWith('/keywords') ? 'bg-gradient-to-r from-purple-700 to-violet-700 text-white shadow-lg shadow-purple-900/30 border-purple-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-purple-300'}`}
+                            onClick={() => setMobileOpen(false)}
+                        >
+                            📚 Keywords
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/fate-cards-list"
+                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname.startsWith('/fate-cards-list') ? 'bg-gradient-to-r from-rose-700 to-pink-700 text-white shadow-lg shadow-rose-900/30 border-rose-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-rose-300'}`}
+                            onClick={() => setMobileOpen(false)}
+                        >
+                            🎴 Fate Cards List
+                        </Link>
+                    </li>
+                </ul>
+            </div>
         </nav>
     );
 
