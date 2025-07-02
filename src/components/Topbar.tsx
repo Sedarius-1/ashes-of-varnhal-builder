@@ -95,9 +95,9 @@ const Topbar = () => {
                 <div className="flex items-center gap-2 md:gap-4">
                     <span className="text-2xl md:text-3xl drop-shadow-lg">⚔️</span>
                     <h1 className="text-lg md:text-2xl lg:text-3xl font-black uppercase tracking-widest drop-shadow-lg">
-                        Ashes of Varnhal <span className="text-amber-400">Warband Builder</span>
-                    </h1>
-                </div>
+                Ashes of Varnhal <span className="text-amber-400">Warband Builder</span>
+            </h1>
+        </div>
                 
                 {/* Search Button */}
                 <button
@@ -107,7 +107,7 @@ const Topbar = () => {
                     <span className="text-slate-400">🔍</span>
                     <span className="hidden md:inline text-sm">Search</span>
                 </button>
-            </header>
+    </header>
 
             {/* Search Modal */}
             {isSearchModalOpen && (

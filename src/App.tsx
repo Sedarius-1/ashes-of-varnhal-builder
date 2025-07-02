@@ -18,6 +18,30 @@ import LocationArticle from './components/LocationArticle';
 import EventArticle from './components/EventArticle';
 import PeopleArticle from './components/PeopleArticle';
 
+// 404 component
+const NotFound = () => {
+    return (
+        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
+            <div className="max-w-3xl mx-auto p-4 md:p-8 relative z-10">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-500 to-purple-600 mb-8 md:mb-10 tracking-wider text-center">
+                    404 - Page Not Found
+                </h1>
+                <div className="text-center text-slate-300 text-lg md:text-2xl mb-8">
+                    The page you're looking for doesn't exist.
+                </div>
+                <div className="text-center">
+                    <a 
+                        href="/"
+                        className="px-6 py-3 bg-amber-600 text-white font-bold rounded-lg hover:bg-amber-700 transition-colors"
+                    >
+                        Go Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 function App() {
     return (
         <Router basename="/">
@@ -49,6 +73,7 @@ function App() {
                     <Route path="/game-setup" element={<GameSetupPage />} />
                     <Route path="/keywords" element={<KeywordsPage />} />
                     <Route path="/fate-cards-list" element={<FateCardsListPage />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </Layout>
         </Router>
