@@ -33,6 +33,15 @@ const Sidebar = () => {
                             Warband Builder
                         </Link>
                     </li>
+                    <li>
+                        <Link
+                            to="/campaigns"
+                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname.startsWith('/campaigns') ? 'bg-gradient-to-r from-violet-700 to-purple-700 text-white shadow-lg shadow-violet-900/30 border-violet-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-violet-300'}`}
+                            onClick={() => setMobileOpen(false)}
+                        >
+                            🏰 Campaign Tracker
+                        </Link>
+                    </li>
                 </ul>
             </div>
 
@@ -94,8 +103,8 @@ const Sidebar = () => {
                 <ul className="space-y-2 mb-6">
                     <li>
                         <Link
-                            to="/campaigns"
-                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname.startsWith('/campaigns') ? 'bg-gradient-to-r from-violet-700 to-purple-700 text-white shadow-lg shadow-violet-900/30 border-violet-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-violet-300'}`}
+                            to="/campaign-rules"
+                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname.startsWith('/campaign-rules') ? 'bg-gradient-to-r from-violet-700 to-purple-700 text-white shadow-lg shadow-violet-900/30 border-violet-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-violet-300'}`}
                             onClick={() => setMobileOpen(false)}
                         >
                             🏰 Campaign Rules

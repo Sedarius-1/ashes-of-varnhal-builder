@@ -17,6 +17,7 @@ import LorePage, { LoreFactionsPage, LoreTimelinePage, LoreArtifactsPage, LoreTe
 import LocationArticle from './components/LocationArticle';
 import EventArticle from './components/EventArticle';
 import PeopleArticle from './components/PeopleArticle';
+import CampaignRulesPage from './pages/CampaignRulesPage';
 
 
 
@@ -44,6 +45,7 @@ function App() {
                     <Route path="/lore/timeline" element={<LoreTimelinePage />} />
                     <Route path="/scenarios" element={<ScenariosPage />} />
                     <Route path="/campaigns" element={<CampaignsPage />} />
+                    <Route path="/campaign-rules" element={<CampaignRulesPage />} />
                     <Route path="/combat" element={<CombatPage />} />
                     <Route path="/special-rules" element={<SpecialRulesPage />} />
                     <Route path="/fate-cards" element={<FateCardsPage />} />

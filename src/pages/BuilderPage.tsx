@@ -37,6 +37,10 @@ export default function BuilderPage() {
     const [selectedUnit, setSelectedUnit] = useState<Unit | null>(null);
     const [selectedFaction, setSelectedFaction] = useState<Faction | null>(null);
     const [unitModalOpen, setUnitModalOpen] = useState(false);
+    
+    // Determine if faction should be locked based on existing units
+    const isFactionLocked = units.length > 0;
+    const lockedFaction = units.length > 0 ? units[0].faction : null;
 
     const handleAddUnit = (unitTemplate: Omit<Unit, 'id' | 'cost' | 'selectedWeapons'>) => {
         const newUnit: Unit = {
@@ -46,11 +50,22 @@ export default function BuilderPage() {
             cost: unitTemplate.baseCost,
         };
         setUnits((prev) => [...prev, newUnit]);
+        
+        // If this is the first unit, set the faction
+        if (units.length === 0) {
+            setSelectedFaction(unitTemplate.faction);
+        }
     };
 
     const handleRemoveUnit = (id: string) => {
         setUnits((prev) => prev.filter((u) => u.id !== id));
         if (selectedUnit?.id === id) setSelectedUnit(null);
+    };
+
+    const handleClearWarband = () => {
+        setUnits([]);
+        setSelectedUnit(null);
+        setSelectedFaction(null);
     };
 
     const handleSelectUnit = (unit: Unit) => {
@@ -97,14 +112,31 @@ export default function BuilderPage() {
                         <div className="flex items-center gap-6 w-full md:w-auto">
                             <FactionSelector
                                 factions={factions}
-                                selectedFaction={selectedFaction}
+                                selectedFaction={isFactionLocked ? lockedFaction : selectedFaction}
                                 setSelectedFaction={setSelectedFaction}
                                 onAddUnit={() => setUnitModalOpen(true)}
+                                isLocked={isFactionLocked}
+                                lockedFaction={lockedFaction}
                             />
                         </div>
                         <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 w-full md:w-auto justify-end">
                             <SaveWarbandButton units={units} />
-                            <LoadWarbandButton onLoad={(loadedUnits) => setUnits(loadedUnits)} />
+                            <LoadWarbandButton onLoad={(loadedUnits) => {
+                                setUnits(loadedUnits);
+                                // Set faction based on loaded units
+                                if (loadedUnits.length > 0 && isFaction(loadedUnits[0].faction)) {
+                                    setSelectedFaction(loadedUnits[0].faction);
+                                }
+                            }} />
+                            {units.length > 0 && (
+                                <button
+                                    onClick={handleClearWarband}
+                                    className="w-full md:w-auto mt-2 md:mt-0 px-6 py-3 rounded-xl font-black transition-all duration-200 flex items-center gap-2 tracking-wide bg-gradient-to-r from-red-600 to-pink-600 text-white hover:from-red-700 hover:to-pink-700 shadow-lg hover:shadow-xl shadow-red-500/25 hover:shadow-red-500/40 transform hover:-translate-y-0.5 border border-red-500/50"
+                                >
+                                    <span className="text-lg">🗑️</span>
+                                    CLEAR WARBAND
+                                </button>
+                            )}
                             <button
                                 onClick={() => downloadWarbandPDF(units)}
                                 disabled={units.length === 0}
@@ -165,7 +197,14 @@ export default function BuilderPage() {
                                 <div className="text-3xl md:text-4xl">⚡</div>
                                 <div>
                                     <h3 className="text-xl md:text-2xl font-bold text-white tracking-wide">WARBAND SUMMARY</h3>
-                                    <p className="text-amber-100 text-sm md:text-base">Your assembled fighting force</p>
+                                    <div className="flex items-center gap-2">
+                                        <p className="text-amber-100 text-sm md:text-base">Your assembled fighting force</p>
+                                        {isFactionLocked && (
+                                            <span className="px-2 py-1 bg-white/20 text-white text-xs font-black rounded-full flex items-center gap-1">
+                                                🔒 {lockedFaction}
+                                            </span>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                             <div className="text-right">
@@ -178,10 +217,10 @@ export default function BuilderPage() {
             </div>
 
             {/* Unit Modal */}
-            {unitModalOpen && selectedFaction && (
+            {unitModalOpen && (selectedFaction || lockedFaction) && (
                 <UnitModal
-                    faction={selectedFaction}
-                    units={unitDefs[selectedFaction]}
+                    faction={selectedFaction || lockedFaction}
+                    units={unitDefs[selectedFaction || lockedFaction!]}
                     onClose={() => setUnitModalOpen(false)}
                     onAddUnit={handleAddUnit}
                 />
