@@ -221,6 +221,106 @@
       "critEffect": "Brutal",
       "critDmg": 1,
       "cost": 20
+    },
+    {
+      "name": "Scrap Blade",
+      "range": "0\"",
+      "dice": 3,
+      "critEffect": "",
+      "critDmg": 1,
+      "type": "Melee",
+      "cost": 0,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Spine Gutter",
+      "range": "0\"",
+      "dice": 4,
+      "critEffect": "",
+      "critDmg": 1,
+      "type": "Melee",
+      "cost": 10,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Hooked Flail",
+      "range": "0\"",
+      "dice": 3,
+      "critEffect": "",
+      "critDmg": 1,
+      "type": "Melee",
+      "cost": 15,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Junk Rifle",
+      "range": "10\"",
+      "dice": 3,
+      "critEffect": "",
+      "critDmg": 1,
+      "type": "Ranged",
+      "cost": 10,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Scrapbow",
+      "range": "10\"",
+      "dice": 3,
+      "critEffect": "",
+      "critDmg": 1,
+      "type": "Ranged",
+      "cost": 15,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Implant Harpoon",
+      "range": "6\"",
+      "dice": 3,
+      "critEffect": "",
+      "critDmg": 1,
+      "type": "Ranged",
+      "cost": 20,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Mutagen Spitter",
+      "range": "8\"",
+      "dice": 4,
+      "critEffect": "",
+      "critDmg": 1,
+      "type": "Ranged",
+      "cost": 25,
+      "allowedFor": "elite"
+    },
+    {
+      "name": "Fleshrender Talons",
+      "range": "0\"",
+      "dice": 4,
+      "critEffect": "",
+      "critDmg": 2,
+      "type": "Melee",
+      "cost": 10,
+      "allowedFor": "elite"
+    },
+    {
+      "name": "Plasma Torch Claws",
+      "range": "0\"",
+      "dice": 5,
+      "critEffect": "",
+      "critDmg": 3,
+      "type": "Melee",
+      "cost": 30,
+      "allowedFor": "elite"
+    },
+    {
+      "name": "Barbed Chain",
+      "range": "2\"",
+      "dice": 3,
+      "critEffect": "",
+      "critDmg": 2,
+      "type": "Melee",
+      "cost": 20,
+      "allowedFor": "elite"
     }
   ],
   "Ash-Brethren": [
@@ -231,6 +331,106 @@
       "critEffect": "Bleed",
       "critDmg": 4,
       "cost": 12
+    },
+    {
+      "name": "Melee Weapon",
+      "range": "0\"",
+      "dice": 3,
+      "critEffect": "",
+      "critDmg": 1,
+      "type": "Melee",
+      "cost": 0,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Short Sword",
+      "range": "0\"",
+      "dice": 3,
+      "critEffect": "",
+      "critDmg": 1,
+      "type": "Melee",
+      "cost": 5,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Laser Carbine",
+      "range": "12\"",
+      "dice": 3,
+      "critEffect": "",
+      "critDmg": 1,
+      "type": "Ranged",
+      "cost": 10,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Ashbrand Blade",
+      "range": "0\"",
+      "dice": 4,
+      "critEffect": "",
+      "critDmg": 2,
+      "type": "Melee",
+      "cost": 15,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Incendiary Machine Gun",
+      "range": "10\"",
+      "dice": 4,
+      "critEffect": "Burning 1",
+      "critDmg": 2,
+      "type": "Ranged",
+      "cost": 20,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Flare Grenades",
+      "range": "8\"",
+      "dice": 3,
+      "critEffect": "Burning 1",
+      "critDmg": 1,
+      "type": "Ranged",
+      "cost": 15,
+      "allowedFor": "all"
+    },
+    {
+      "name": "Pyrestave",
+      "range": "2\"",
+      "dice": 4,
+      "critEffect": "Burning 2",
+      "critDmg": 2,
+      "type": "Melee",
+      "cost": 25,
+      "allowedFor": "elite"
+    },
+    {
+      "name": "Molten Mace",
+      "range": "0\"",
+      "dice": 5,
+      "critEffect": "Burning 2",
+      "critDmg": 3,
+      "type": "Melee",
+      "cost": 20,
+      "allowedFor": "elite"
+    },
+    {
+      "name": "Plasma Glaive",
+      "range": "1\"",
+      "dice": 5,
+      "critEffect": "Burning 2",
+      "critDmg": 3,
+      "type": "Melee",
+      "cost": 30,
+      "allowedFor": "elite"
+    },
+    {
+      "name": "Ashflame Projector",
+      "range": "8\"",
+      "dice": 4,
+      "critEffect": "Burning 2",
+      "critDmg": 2,
+      "type": "Ranged",
+      "cost": 35,
+      "allowedFor": "elite"
     }
   ],
   "House Duresse": [

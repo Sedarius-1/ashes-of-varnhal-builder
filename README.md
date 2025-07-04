@@ -1,28 +1,33 @@
-# Ashes of Varnhal Builder
+# Ashes of Varnhal Campaign Tracker
 
-A React/TypeScript web application for building warbands and managing game content for the "Ashes of Varnhal" tabletop wargame.
+A React/TypeScript web application for building warbands, tracking campaigns, and managing game content for the "Ashes of Varnhal" tabletop wargame.
 
 ## Features
 
-### Warband Builder
-- Create and customize warbands with different factions
-- Add units with weapons and abilities
-- Save and load warband configurations
-- Point cost tracking and validation
+### Campaign Tracker & Warband Builder
+- Create, customize, and manage warbands for all factions
+- Add units, weapons, and abilities with point cost tracking
+- Track campaign progress, game results, and warband upgrades
+- Save, load, import, and export warbands (JSON)
+- PDF export of warband rosters for printing or sharing
+- Fully mobile-friendly and responsive interface
+
+### Core Rules Reference
+- **Game Setup**: Table layout, deployment, and scenario structure
+- **Turn & Actions**: Turn sequence, activations, actions, and combat resolution (all in one streamlined section)
+- **Special Rules & Traits**: Reference for critical effects, status conditions, and special rules
+- **Scenarios & Missions**: Browse core and heroic scenarios with objectives, deployment, and victory conditions
 
 ### Game Content Management
 - **Faction Rules**: Detailed faction information, lore, and trait tables
 - **Fate Cards**: Complete deck of 32 Fate Cards with PDF generation
-- **Special Rules**: Comprehensive rules reference
-- **Combat**: Combat mechanics and calculations
-- **Campaigns**: Campaign management tools
-- **Scenarios**: Mission scenarios and objectives
+- **Campaign Rules**: Advanced campaign progression and rules
+- **Keywords**: Glossary of game terms and keywords
 
 ### PDF Generation
 - **Fate Cards PDF**: Generate print-ready PDF cards for physical use
-- Professional card layout with proper formatting
-- Print instructions and card count
-- Designed for standard poker card sleeves
+- **Warband PDF**: Export your warband roster as a PDF for easy reference
+- Professional layout and print instructions
 
 ## Getting Started
 
@@ -55,6 +60,12 @@ To generate Fate Cards PDF:
 3. Print on cardstock (200-300gsm recommended)
 4. Cut along card borders
 5. Shuffle and use in games
+
+### Warband PDF
+To export your warband as a PDF:
+1. Go to the Campaign Tracker
+2. Select your warband
+3. Click "🖨️ Download as PDF"
 
 ## Technology Stack
 

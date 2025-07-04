@@ -2,14 +2,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Layout from './components/Layout';
 import ScrollToTop from './components/ScrollToTop';
-import BuilderPage from './pages/BuilderPage';
 import FactionRules from './pages/FactionRules';
 import ScenariosPage from './pages/ScenariosPage';
 import CampaignsPage from './pages/CampaignsPage';
-import CombatPage from './pages/CombatPage';
 import SpecialRulesPage from './pages/SpecialRulesPage';
 import FateCardsPage from './pages/FateCardsPage';
-import TurnStructurePage from './pages/TurnStructurePage';
 import GameSetupPage from './pages/GameSetupPage';
 import KeywordsPage from './pages/KeywordsPage';
 import FateCardsListPage from './pages/FateCardsListPage';
@@ -18,6 +15,8 @@ import LocationArticle from './components/LocationArticle';
 import EventArticle from './components/EventArticle';
 import PeopleArticle from './components/PeopleArticle';
 import CampaignRulesPage from './pages/CampaignRulesPage';
+import TurnAndActionsPage from './pages/TurnAndActionsPage';
+import FactionRulesPage from './pages/FactionRulesPage';
 
 
 
@@ -27,7 +26,7 @@ function App() {
             <ScrollToTop />
             <Layout>
                 <Routes>
-                    <Route path="/" element={<BuilderPage />} />
+                    <Route path="/" element={<CampaignsPage />} />
                     <Route path="/lore" element={<LorePage />} />
                     <Route path="/lore/factions" element={<LoreFactionsPage />} />
                     <Route path="/lore/factions/:factionName" element={<FactionRules />} />
@@ -46,13 +45,13 @@ function App() {
                     <Route path="/scenarios" element={<ScenariosPage />} />
                     <Route path="/campaigns" element={<CampaignsPage />} />
                     <Route path="/campaign-rules" element={<CampaignRulesPage />} />
-                    <Route path="/combat" element={<CombatPage />} />
                     <Route path="/special-rules" element={<SpecialRulesPage />} />
                     <Route path="/fate-cards" element={<FateCardsPage />} />
-                    <Route path="/turn-structure" element={<TurnStructurePage />} />
                     <Route path="/game-setup" element={<GameSetupPage />} />
                     <Route path="/keywords" element={<KeywordsPage />} />
                     <Route path="/fate-cards-list" element={<FateCardsListPage />} />
+                    <Route path="/turn-actions" element={<TurnAndActionsPage />} />
+                    <Route path="/factions/:factionName" element={<FactionRulesPage />} />
                 </Routes>
             </Layout>
         </Router>

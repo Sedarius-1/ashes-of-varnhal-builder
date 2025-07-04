@@ -8,6 +8,10 @@ export interface GameResult {
     salvageRoll: string;
     salvageResult: string;
     notes: string;
+    status?: "win" | "draw" | "loss" | "";
+    opponentName?: string;
+    enemyCP?: string;
+    enemyFaction?: string;
 }
 
 export interface Warband {

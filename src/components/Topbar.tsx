@@ -2,9 +2,14 @@ import { useState, useEffect, useRef } from 'react';
 import {useNavigate } from 'react-router-dom';
 import factionsData from '../definitions/factions.json';
 import type { FactionData } from '../types/factionData';
+import locationsData from '../definitions/locations.json';
+import peopleData from '../definitions/people.json';
+import eventsData from '../definitions/events.json';
+import artifactsData from '../definitions/artifacts.json';
+import termsData from '../definitions/terms.json';
 
 interface SearchResult {
-    type: 'faction' | 'wiki';
+    type: 'faction' | 'wiki' | 'location' | 'person' | 'event' | 'artifact' | 'term';
     title: string;
     url: string;
     faction?: string;
@@ -17,7 +22,7 @@ const Topbar = () => {
     const searchInputRef = useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
 
-    // Search through all factions and their wiki articles
+    // Search through all factions (top-level keys only) and main article names for locations, people, events, artifacts, terms (top-level 'title' only)
     const performSearch = (query: string): SearchResult[] => {
         if (!query.trim()) return [];
 
@@ -25,8 +30,8 @@ const Topbar = () => {
         const factions = factionsData as Record<string, FactionData>;
         const lowerQuery = query.toLowerCase();
 
-        Object.entries(factions).forEach(([factionName, faction]) => {
-            // Search faction names
+        // Factions: only top-level keys
+        Object.keys(factions).forEach((factionName) => {
             if (factionName.toLowerCase().includes(lowerQuery)) {
                 results.push({
                     type: 'faction',
@@ -35,18 +40,55 @@ const Topbar = () => {
                     faction: factionName
                 });
             }
+        });
 
-            // Search wiki articles
-            if (faction.wiki) {
-                faction.wiki.forEach(article => {
-                    if (article.title.toLowerCase().includes(lowerQuery)) {
-                        results.push({
-                            type: 'wiki',
-                            title: `${article.title} (${factionName})`,
-                            url: `/lore/factions/${encodeURIComponent(factionName)}`,
-                            faction: factionName
-                        });
-                    }
+        // Locations: only top-level 'title' field
+        Object.entries(locationsData as Record<string, any>).forEach(([key, loc]) => {
+            if (typeof loc.title === 'string' && loc.title.toLowerCase().includes(lowerQuery)) {
+                results.push({
+                    type: 'location',
+                    title: loc.title,
+                    url: `/lore/locations/${encodeURIComponent(key)}`
+                });
+            }
+        });
+        // People: only top-level 'title' field
+        Object.entries(peopleData as Record<string, any>).forEach(([key, person]) => {
+            if (typeof person.title === 'string' && person.title.toLowerCase().includes(lowerQuery)) {
+                results.push({
+                    type: 'person',
+                    title: person.title,
+                    url: `/lore/people/${encodeURIComponent(key)}`
+                });
+            }
+        });
+        // Events: only top-level 'title' field
+        Object.entries(eventsData as Record<string, any>).forEach(([key, event]) => {
+            if (typeof event.title === 'string' && event.title.toLowerCase().includes(lowerQuery)) {
+                results.push({
+                    type: 'event',
+                    title: event.title,
+                    url: `/lore/events/${encodeURIComponent(key)}`
+                });
+            }
+        });
+        // Artifacts: only top-level 'title' field
+        Object.entries(artifactsData as Record<string, any>).forEach(([key, artifact]) => {
+            if (typeof artifact.title === 'string' && artifact.title.toLowerCase().includes(lowerQuery)) {
+                results.push({
+                    type: 'artifact',
+                    title: artifact.title,
+                    url: `/lore/artifacts/${encodeURIComponent(key)}`
+                });
+            }
+        });
+        // Terms: only top-level 'title' field
+        Object.entries(termsData as Record<string, any>).forEach(([key, term]) => {
+            if (typeof term.title === 'string' && term.title.toLowerCase().includes(lowerQuery)) {
+                results.push({
+                    type: 'term',
+                    title: term.title,
+                    url: `/lore/terms/${encodeURIComponent(key)}`
                 });
             }
         });
@@ -95,7 +137,7 @@ const Topbar = () => {
                 <div className="flex items-center gap-2 md:gap-4">
                     <span className="text-2xl md:text-3xl drop-shadow-lg">⚔️</span>
                     <h1 className="text-lg md:text-2xl lg:text-3xl font-black uppercase tracking-widest drop-shadow-lg">
-                Ashes of Varnhal <span className="text-amber-400">Warband Builder</span>
+                Ashes of Varnhal <span className="text-amber-400">Campaign Tracker</span>
             </h1>
         </div>
                 
@@ -168,9 +210,17 @@ const Topbar = () => {
                                                         <span className={`px-2 py-1 rounded-full text-xs font-medium ${
                                                             result.type === 'faction' 
                                                                 ? 'bg-amber-900/50 text-amber-300 border border-amber-700/50' 
-                                                                : 'bg-blue-900/50 text-blue-300 border border-blue-700/50'
+                                                                : result.type === 'location' 
+                                                                    ? 'bg-green-900/50 text-green-300 border border-green-700/50'
+                                                                    : result.type === 'person' 
+                                                                        ? 'bg-pink-900/50 text-pink-300 border border-pink-700/50'
+                                                                        : result.type === 'event' 
+                                                                            ? 'bg-yellow-900/50 text-yellow-300 border border-yellow-700/50'
+                                                                            : result.type === 'artifact' 
+                                                                                ? 'bg-purple-900/50 text-purple-300 border border-purple-700/50'
+                                                                                : 'bg-gray-900/50 text-gray-300 border border-gray-700/50'
                                                         }`}>
-                                                            {result.type === 'faction' ? 'Faction' : 'Wiki Article'}
+                                                            {result.type === 'faction' ? 'Faction' : result.type === 'location' ? 'Location' : result.type === 'person' ? 'Person' : result.type === 'event' ? 'Event' : result.type === 'artifact' ? 'Artifact' : 'Term'}
                                                         </span>
                                                         {result.faction && result.type === 'wiki' && (
                                                             <span className="text-slate-400 text-sm">

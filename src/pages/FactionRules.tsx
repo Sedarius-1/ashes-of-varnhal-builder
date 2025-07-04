@@ -150,15 +150,18 @@ const FactionRules: React.FC = () => {
                             </div>
                         </div>
                     </div>
-                    {/* Leadership */}
-                    <div className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-4 md:p-6 border border-slate-700/50 backdrop-blur-sm mb-8 md:mb-10">
+                    {/* Leadership section: only render if there is any wiki entry with 'Leadership' (case-insensitive) or 'Succession' in the title */}
+                    {faction.wiki.some(a => /leadership/i.test(a.title) || /succession/i.test(a.title)) && (
+                      <div className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-4 md:p-6 border border-slate-700/50 backdrop-blur-sm mb-8 md:mb-10">
                         <h2 className="text-xl md:text-2xl lg:text-3xl font-black text-slate-200 mb-4 md:mb-6 tracking-wide">Leadership</h2>
                         <div className="space-y-4 md:space-y-6 text-slate-300 leading-relaxed text-sm md:text-base lg:text-lg">
-                            <div>
-                                <h3 className="text-lg md:text-xl font-bold text-amber-300 mb-2">Influential People</h3>
-                                {faction.wiki.find(a => a.title === 'Influential People')?.content.map((para, i) => <p key={i}>{renderWithLinks(para)}</p>) || 
-                                 <p className="text-slate-400 italic">Information about influential people to be added...</p>}
-                            </div>
+                            {/* Only render Influential People section if it exists in the wiki */}
+                            {faction.wiki.some(a => a.title === 'Influential People') && (
+                                <div>
+                                    <h3 className="text-lg md:text-xl font-bold text-amber-300 mb-2">Influential People</h3>
+                                    {faction.wiki.find(a => a.title === 'Influential People')?.content.map((para, i) => <p key={i}>{renderWithLinks(para)}</p>)}
+                                </div>
+                            )}
                             {/* Succession visually enhanced */}
                             {faction.wiki.find(a => a.title === 'Succession') && (
                                 <div className="mt-8">
@@ -220,10 +223,12 @@ const FactionRules: React.FC = () => {
                                 </div>
                             )}
                         </div>
-                    </div>
+                      </div>
+                    )}
 
-                    {/* Territory and Resources */}
-                    <div className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-4 md:p-6 border border-slate-700/50 backdrop-blur-sm mb-8 md:mb-10">
+                    {/* Territory and Resources section: render if any relevant sub-entry exists */}
+                    {['Geography', 'Economy', 'Industry', 'Trade'].some(title => faction.wiki?.some(a => a.title === title)) && (
+                      <div className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-4 md:p-6 border border-slate-700/50 backdrop-blur-sm mb-8 md:mb-10">
                         <h2 className="text-xl md:text-2xl lg:text-3xl font-black text-slate-200 mb-4 md:mb-6 tracking-wide">Territory and Resources</h2>
                         <div className="space-y-4 md:space-y-6 text-slate-300 leading-relaxed text-sm md:text-base lg:text-lg">
                             <div>
@@ -266,117 +271,134 @@ const FactionRules: React.FC = () => {
                                     <span className="text-2xl">💰</span>
                                     Economy
                                 </h3>
-                                {(() => {
-                                    const economy = faction.wiki.find(a => a.title === 'Economy');
-                                    if ((economy as any)?.regions) {
-                                        return (
-                                            <div className="space-y-6">
-                                                {(economy as any).regions.map((region: any, idx: number) => (
-                                                    <div key={idx} className="bg-gradient-to-r from-slate-900/70 to-slate-800/70 rounded-xl border border-emerald-700/40 p-4 md:p-6 relative overflow-hidden">
-                                                        <div className="absolute top-0 right-0 w-20 h-20 bg-emerald-500/10 rounded-full -translate-y-10 translate-x-10"></div>
-                                                        <div className="absolute bottom-0 left-0 w-16 h-16 bg-emerald-400/10 rounded-full translate-y-8 -translate-x-8"></div>
-                                                        <div className="relative z-10">
-                                                            <h4 className="text-lg md:text-xl font-black text-emerald-300 mb-3 flex items-center gap-2">
-                                                                <span className="text-xl">{region.icon}</span>
-                                                                {region.title}
-                                                            </h4>
-                                                            <p className="text-slate-300 text-sm md:text-base leading-relaxed">
-                                                                {renderWithLinks(region.text)}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                ))}
+                                {/* Economy section: render if 'Economy' wiki entry exists */}
+                                {(function() {
+                                  const economy = faction.wiki.find(a => /economy/i.test(a.title));
+                                  if (!economy) return null;
+                                  if ((economy as any)?.regions) {
+                                    return (
+                                      <div className="space-y-6">
+                                        {(economy as any).regions.map((region: any, idx: number) => (
+                                          <div key={idx} className="bg-gradient-to-r from-slate-900/70 to-slate-800/70 rounded-xl border border-emerald-700/40 p-4 md:p-6 relative overflow-hidden">
+                                            <div className="absolute top-0 right-0 w-20 h-20 bg-emerald-500/10 rounded-full -translate-y-10 translate-x-10"></div>
+                                            <div className="flex items-center gap-2 mb-1">
+                                              {region.icon && <span className="text-2xl">{region.icon}</span>}
+                                              <span className="font-black text-emerald-300 text-lg">{region.title}</span>
                                             </div>
-                                        );
-                                    } else if (economy?.content) {
-                                        // fallback for old format
-                                        return economy.content.map((para, i) => <p key={i}>{renderWithLinks(para)}</p>);
-                                    } else {
-                                        return <p className="text-slate-400 italic">Economic information to be added...</p>;
-                                    }
+                                            <div className="text-slate-300 text-base">{renderWithLinks(region.text)}</div>
+                                            {region.list && Array.isArray(region.list) && (
+                                              <ul className="list-disc ml-6 mt-2 text-slate-400 text-sm">
+                                                {region.list.map((item: any, li: number) => <li key={li}>{item}</li>)}
+                                              </ul>
+                                            )}
+                                          </div>
+                                        ))}
+                                      </div>
+                                    );
+                                  } else if (economy?.content) {
+                                    // fallback for old format
+                                    return economy.content.map((para: string, i: number) => <p key={i}>{renderWithLinks(para)}</p>);
+                                  } else {
+                                    return <p className="text-slate-400 italic">Economic information to be added...</p>;
+                                  }
                                 })()}
                             </div>
-                            <div>
-                                <h3 className="text-lg md:text-xl font-bold text-emerald-300 mb-4 flex items-center gap-2">
-                                    <span className="text-2xl">🏭</span>
-                                    Industry
-                                </h3>
-                                {(() => {
-                                    const industry = faction.wiki.find(a => a.title === 'Industry');
-                                    if ((industry as any)?.regions) {
-                                        return (
-                                            <div className="space-y-6">
-                                                {(industry as any).regions.map((region: any, idx: number) => (
-                                                    <div key={idx} className="bg-gradient-to-r from-slate-900/70 to-slate-800/70 rounded-xl border border-emerald-700/40 p-4 md:p-6 relative overflow-hidden">
-                                                        <div className="absolute top-0 right-0 w-20 h-20 bg-emerald-500/10 rounded-full -translate-y-10 translate-x-10"></div>
-                                                        <div className="absolute bottom-0 left-0 w-16 h-16 bg-emerald-400/10 rounded-full translate-y-8 -translate-x-8"></div>
-                                                        <div className="relative z-10">
-                                                            <h4 className="text-lg md:text-xl font-black text-emerald-300 mb-3 flex items-center gap-2">
-                                                                <span className="text-xl">{region.icon}</span>
-                                                                {region.title}
-                                                            </h4>
-                                                            <p className="text-slate-300 text-sm md:text-base leading-relaxed">
-                                                                {renderWithLinks(region.text)}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        );
-                                    } else if (industry?.content) {
-                                        // fallback for old format
-                                        return industry.content.map((para, i) => <p key={i}>{renderWithLinks(para)}</p>);
-                                    } else {
-                                        return <p className="text-slate-400 italic">Industrial information to be added...</p>;
-                                    }
-                                })()}
-                            </div>
-                            <div>
-                                <h3 className="text-lg md:text-xl font-bold text-emerald-300 mb-4 flex items-center gap-2">
-                                    <span className="text-2xl">🤝</span>
-                                    Trade
-                                </h3>
-                                {(() => {
-                                    const trade = faction.wiki.find(a => a.title === 'Trade');
-                                    if ((trade as any)?.regions) {
-                                        return (
-                                            <div className="space-y-6">
-                                                {(trade as any).regions.map((region: any, idx: number) => (
-                                                    <div key={idx} className="bg-gradient-to-r from-slate-900/70 to-slate-800/70 rounded-xl border border-emerald-700/40 p-4 md:p-6 relative overflow-hidden">
-                                                        <div className="absolute top-0 right-0 w-20 h-20 bg-emerald-500/10 rounded-full -translate-y-10 translate-x-10"></div>
-                                                        <div className="absolute bottom-0 left-0 w-16 h-16 bg-emerald-400/10 rounded-full translate-y-8 -translate-x-8"></div>
-                                                        <div className="relative z-10">
-                                                            <h4 className="text-lg md:text-xl font-black text-emerald-300 mb-3 flex items-center gap-2">
-                                                                <span className="text-xl">{region.icon}</span>
-                                                                {region.title}
-                                                            </h4>
-                                                            <p className="text-slate-300 text-sm md:text-base leading-relaxed mb-3">
-                                                                {renderWithLinks(region.text)}
-                                                            </p>
-                                                            {region.list && (
-                                                                <ul className="list-disc pl-6 space-y-2">
-                                                                    {region.list.map((item: string, itemIdx: number) => (
-                                                                        <li key={itemIdx} className="text-slate-300 text-sm md:text-base">
-                                                                            {renderWithLinks(item)}
-                                                                        </li>
-                                                                    ))}
-                                                                </ul>
-                                                            )}
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        );
-                                    } else if (trade?.content) {
-                                        // fallback for old format
-                                        return trade.content.map((para, i) => <p key={i}>{renderWithLinks(para)}</p>);
-                                    } else {
-                                        return <p className="text-slate-400 italic">Trade information to be added...</p>;
-                                    }
-                                })()}
-                            </div>
+                            {faction.wiki.find(a => a.title === 'Industry') && (
+                              <div>
+                                  <h3 className="text-lg md:text-xl font-bold text-emerald-300 mb-4 flex items-center gap-2">
+                                      <span className="text-2xl">🏭</span>
+                                      Industry
+                                  </h3>
+                                  {(() => {
+                                      const industry = faction.wiki.find(a => a.title === 'Industry');
+                                      if ((industry as any)?.regions) {
+                                          return (
+                                              <div className="space-y-6">
+                                                  {(industry as any).regions.map((region: any, idx: number) => (
+                                                      <div key={idx} className="bg-gradient-to-r from-slate-900/70 to-slate-800/70 rounded-xl border border-emerald-700/40 p-4 md:p-6 relative overflow-hidden">
+                                                          <div className="absolute top-0 right-0 w-20 h-20 bg-emerald-500/10 rounded-full -translate-y-10 translate-x-10"></div>
+                                                          <div className="absolute bottom-0 left-0 w-16 h-16 bg-emerald-400/10 rounded-full translate-y-8 -translate-x-8"></div>
+                                                          <div className="relative z-10">
+                                                              <h4 className="text-lg md:text-xl font-black text-emerald-300 mb-3 flex items-center gap-2">
+                                                                  <span className="text-xl">{region.icon}</span>
+                                                                  {region.title}
+                                                              </h4>
+                                                              <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+                                                                  {renderWithLinks(region.text)}
+                                                              </p>
+                                                          </div>
+                                                      </div>
+                                                  ))}
+                                              </div>
+                                          );
+                                      } else if (industry?.content) {
+                                          // fallback for old format
+                                          return industry.content.map((para, i) => <p key={i}>{renderWithLinks(para)}</p>);
+                                      } else {
+                                          return <p className="text-slate-400 italic">Industrial information to be added...</p>;
+                                      }
+                                  })()}
+                              </div>
+                            )}
+                            {faction.wiki.find(a => a.title === 'Trade') && (
+                              <div>
+                                  <h3 className="text-lg md:text-xl font-bold text-emerald-300 mb-4 flex items-center gap-2">
+                                      <span className="text-2xl">🤝</span>
+                                      Trade
+                                  </h3>
+                                  {(() => {
+                                      const trade = faction.wiki.find(a => a.title === 'Trade');
+                                      if ((trade as any)?.regions) {
+                                          return (
+                                              <div className="space-y-6">
+                                                  {(trade as any).regions.map((region: any, idx: number) => (
+                                                      <div key={idx} className="bg-gradient-to-r from-slate-900/70 to-slate-800/70 rounded-xl border border-emerald-700/40 p-4 md:p-6 relative overflow-hidden">
+                                                          <div className="absolute top-0 right-0 w-20 h-20 bg-emerald-500/10 rounded-full -translate-y-10 translate-x-10"></div>
+                                                          <div className="absolute bottom-0 left-0 w-16 h-16 bg-emerald-400/10 rounded-full translate-y-8 -translate-x-8"></div>
+                                                          <div className="relative z-10">
+                                                              <h4 className="text-lg md:text-xl font-black text-emerald-300 mb-3 flex items-center gap-2">
+                                                                  <span className="text-xl">{region.icon}</span>
+                                                                  {region.title}
+                                                              </h4>
+                                                              <p className="text-slate-300 text-sm md:text-base leading-relaxed mb-3">
+                                                                  {renderWithLinks(region.text)}
+                                                              </p>
+                                                              {region.list && (
+                                                                  <ul className="list-disc pl-6 space-y-2">
+                                                                      {region.list.map((item: string, itemIdx: number) => (
+                                                                          <li key={itemIdx} className="text-slate-300 text-sm md:text-base">
+                                                                              {renderWithLinks(item)}
+                                                                          </li>
+                                                                      ))}
+                                                                  </ul>
+                                                              )}
+                                                          </div>
+                                                      </div>
+                                                  ))}
+                                              </div>
+                                          );
+                                      } else if (trade?.content) {
+                                          // fallback for old format
+                                          return trade.content.map((para, i) => <p key={i}>{renderWithLinks(para)}</p>);
+                                      } else {
+                                          return <p className="text-slate-400 italic">Trade information to be added...</p>;
+                                      }
+                                  })()}
+                              </div>
+                            )}
                         </div>
-                    </div>
+                      </div>
+                    )}
+
+                    {/* Strategic Assets section: render if any relevant sub-entry exists */}
+                    {['Strategic Assets', 'Special Sites', 'Key Holdings'].some(title => faction.wiki?.some(a => a.title === title)) && (
+                      <div className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-4 md:p-6 border border-slate-700/50 backdrop-blur-sm mb-8 md:mb-10">
+                        <h2 className="text-xl md:text-2xl lg:text-3xl font-black text-slate-200 mb-4 md:mb-6 tracking-wide">Strategic Assets</h2>
+                        <div className="space-y-4 md:space-y-6 text-slate-300 leading-relaxed text-sm md:text-base lg:text-lg">
+                            {/* ... render Strategic Assets, Special Sites, Key Holdings blocks ... */}
+                        </div>
+                      </div>
+                    )}
 
                     {/* Culture */}
                     <div className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-4 md:p-6 border border-slate-700/50 backdrop-blur-sm mb-8 md:mb-10">

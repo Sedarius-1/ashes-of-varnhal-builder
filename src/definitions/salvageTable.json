@@ -1,0 +1,10 @@
+[
+  { "roll": "4–6", "sp": 3, "result": "Mostly scrap and damaged gear." },
+  { "roll": "7–10", "sp": 4, "result": "Minimal returns." },
+  { "roll": "11–13", "sp": 5, "result": "Usable salvage." },
+  { "roll": "14–17", "sp": 6, "result": "Functional tech fragments." },
+  { "roll": "18–20", "sp": 7, "result": "Intact cores and frames." },
+  { "roll": "21–22", "sp": 8, "result": "Rare salvage. Gain +1 XP on one unit of your choice." },
+  { "roll": "23–24", "sp": 10, "result": "Exceptional find. Gain +1 XP and unlock a reroll during next postgame." },
+  { "roll": "25+", "sp": 12, "result": "Major breakthrough. You may also choose 1 basic weapon upgrade for free." }
+] 

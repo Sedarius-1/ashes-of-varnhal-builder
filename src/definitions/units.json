@@ -353,6 +353,151 @@
           "description": "Effect: Target enemy suffers -1 Resolve and -1 Morale until end of game round.\n\nOverdrive:\n\n2+: -1 Resolve/Morale\n\n3+: Target must test Morale immediately\n\n4+: Also becomes Staggered\n\nBacklash: All Beastman units within 6\" test Morale immediately.\n\n"
         }
       ]
+    },
+    {
+      "id": "",
+      "name": "Reclaimer",
+      "type": "Troops",
+      "faction": "Fangs of the Pale Hunger",
+      "cost": 60,
+      "baseCost": 60,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "6\"",
+        "defense": "4",
+        "vigor": 5,
+        "actions": 2,
+        "morale": 4,
+        "resolve": 2,
+        "power": 0,
+        "reactor": 0
+      },
+      "abilities": [
+        {"name": "Flicker Protocol (1/game)", "description": "Once per battle, this unit may activate dormant reflex enhancers at the start of its activation. Until the end of the turn, it may reroll all failed Defense dice."}
+      ]
+    },
+    {
+      "id": "",
+      "name": "Berserk-Kernel",
+      "type": "Troops",
+      "faction": "Fangs of the Pale Hunger",
+      "cost": 75,
+      "baseCost": 75,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "5\"",
+        "defense": "5",
+        "vigor": 6,
+        "actions": 2,
+        "morale": 5,
+        "resolve": 2,
+        "power": 0,
+        "reactor": 0
+      },
+      "abilities": [
+        {"name": "Overstim Gland", "description": "At the start of each of this unit's activations, roll 1D6. On a result of 6, it gains +1 Action for this turn but suffers 1 Wound at the end of its activation."}
+      ]
+    },
+    {
+      "id": "",
+      "name": "Harrier",
+      "type": "Troops",
+      "faction": "Fangs of the Pale Hunger",
+      "cost": 50,
+      "baseCost": 50,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "8\"",
+        "defense": "3",
+        "vigor": 4,
+        "actions": 2,
+        "morale": 3,
+        "resolve": 2,
+        "power": 0,
+        "reactor": 0
+      },
+      "abilities": [
+        {"name": "Loping Dash", "description": "When performing a Move action, may move through friendly units and ignore Difficult Ground for that Move."}
+      ]
+    },
+    {
+      "id": "",
+      "name": "Neural Shardbearer",
+      "type": "Elite",
+      "faction": "Fangs of the Pale Hunger",
+      "cost": 105,
+      "baseCost": 105,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "6\"",
+        "defense": "3",
+        "vigor": 5,
+        "actions": 2,
+        "morale": 5,
+        "resolve": 3,
+        "power": 2,
+        "reactor": 0
+      },
+      "abilities": [
+        {"name": "Shard-Sync Protocol", "description": "At the start of its activation, may target one friendly unit within 6''. Until end of turn, it may choose to either: Transfer up to 2 Wounds taken by the target to itself (immediately), or grant the target rerolls on all 1s when making Attack rolls this round."}
+      ],
+      "powers": [
+        {
+          "name": "Protocol: Memory Bleed",
+          "flavor": "They were not built to forget.",
+          "baseEffect": "Choose an enemy unit within 8''. That unit becomes Confused until the end of its next activation. Confused units must target the nearest model (friend or foe) with their first Action, if eligible.",
+          "overdrive": [
+            "2+ successes: The target also suffers –1 Defense until the end of the turn.",
+            "3+ successes: Target cannot receive buffs or reroll dice during its next activation.",
+            "4+ successes: You may choose a second enemy unit within 4'' of the original target to also become Confused."
+          ],
+          "critFail": "For each [Crit Fail], the Neural Shardbearer suffers –1 Action next turn."
+        },
+        {
+          "name": "Protocol: Ghost Signal",
+          "flavor": "Echoes carry more than words.",
+          "baseEffect": "Choose one friendly unit within 6''. That unit may immediately reroll any number of failed dice in its next Attack or Defense roll.",
+          "overdrive": [
+            "2+ successes: The target also gains +1 Defense until the start of your next turn.",
+            "3+ successes: The target also recovers 1 Wound.",
+            "4+ successes: You may select a second friendly unit within 6'' to receive the same effect."
+          ],
+          "critFail": "For each [Crit Fail], the Shardbearer suffers 1 Wound."
+        },
+        {
+          "name": "Protocol: Fate-Shard Detonation",
+          "flavor": "All threads tangle in the end.",
+          "baseEffect": "All friendly units within 6'' of the Shardbearer are immediately affected by the top Fate Card drawn. This includes the Shardbearer. The effect resolves as written—whether beneficial or harmful.",
+          "overdrive": [
+            "2+ successes: You may reroll the Fate Card once and keep either result.",
+            "3+ successes: Friendly units affected gain +1 Morale this round.",
+            "4+ successes: If the card deals Wounds, ignore the first Wound suffered by each friendly unit."
+          ],
+          "critFail": "For each [Crit Fail], the Shardbearer immediately draws and applies an additional Fate Card effect to itself."
+        }
+      ]
+    },
+    {
+      "id": "",
+      "name": "Directive-Lost",
+      "type": "Elite",
+      "faction": "Fangs of the Pale Hunger",
+      "cost": 105,
+      "baseCost": 105,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "6\"",
+        "defense": "5",
+        "vigor": 6,
+        "actions": 3,
+        "morale": 6,
+        "resolve": 3,
+        "power": 0,
+        "reactor": 0
+      },
+      "abilities": [
+        {"name": "Last Directive (1/game)", "description": "Once per battle, if within 6'' of two or more friendly units, Directive-Lost may issue a burst command: choose two nearby friendly units to each make a free 1-Action Move or Melee Attack."}
+      ]
     }
   ],
   "House Duresse": [
@@ -616,6 +761,252 @@
         "power": 0,
         "reactor": 0
       }
+    },
+    {
+      "id": "",
+      "name": "Ember Scout",
+      "type": "Troops",
+      "faction": "Ash-Brethren",
+      "cost": 50,
+      "baseCost": 50,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "6\"",
+        "defense": "3",
+        "vigor": 4,
+        "actions": 2,
+        "morale": 5,
+        "resolve": 2,
+        "power": 0,
+        "reactor": 0
+      },
+      "abilities": [
+        {"name": "Fleetfooted", "description": "Gains +1 Movement and ignores Difficult Terrain."},
+        {"name": "Sharpshooter", "description": "May reroll one failed attack die per activation if target is within 12''."}
+      ]
+    },
+    {
+      "id": "",
+      "name": "Ash Embers",
+      "type": "Troops",
+      "faction": "Ash-Brethren",
+      "cost": 45,
+      "baseCost": 45,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "8\"",
+        "defense": "2",
+        "vigor": 3,
+        "actions": 2,
+        "morale": 5,
+        "resolve": 1,
+        "power": 0,
+        "reactor": 0
+      },
+      "abilities": [
+        {"name": "Deathflare", "description": "Upon destruction, this unit places a Burning 1 token on up to two enemy units within 4''."},
+        {"name": "Expendable", "description": "This unit may not buy any equipment."},
+        {"name": "No Experience", "description": "Cannot gain Experience or upgrades."}
+      ]
+    },
+    {
+      "id": "",
+      "name": "Cinder Veteran",
+      "type": "Elite",
+      "faction": "Ash-Brethren",
+      "cost": 65,
+      "baseCost": 65,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "6\"",
+        "defense": "3",
+        "vigor": 4,
+        "actions": 2,
+        "morale": 6,
+        "resolve": 2,
+        "power": 1,
+        "reactor": 0
+      },
+      "abilities": [
+        {"name": "Kindled Anger", "description": "Gains +1 Attack while adjacent to at least one Burning enemy."}
+      ],
+      "powers": [
+        {
+          "name": "Ashborne Fury",
+          "flavor": "The ashes of our fallen ignite my resolve.",
+          "baseEffect": "At the start of your activation, count allied Troop units destroyed this turn within 6''. For each, gain +1 Attack and +1 Defense until the end of this activation (max +3).",
+          "overdrive": [
+            "2+ successes: Additionally, you may move up to 3'' ignoring terrain penalties.",
+            "3+ successes: You may make a free melee attack after moving.",
+            "4+ successes: Heal 1 Wound."
+          ],
+          "critFail": "Suffer [Critical Fail] Wounds per allied Troop units destroyed this turn within 6''."
+        }
+      ]
+    },
+    {
+      "id": "",
+      "name": "Pyre Warden",
+      "type": "Elite",
+      "faction": "Ash-Brethren",
+      "cost": 90,
+      "baseCost": 90,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "4\"",
+        "defense": "4",
+        "vigor": 5,
+        "actions": 2,
+        "morale": 6,
+        "resolve": 2,
+        "power": 0,
+        "reactor": 1
+      },
+      "abilities": [
+        {"name": "Flameguard Aura (Aura 4'')", "description": "Allies gain +[Reactor] Defense while they have any Wounds lost."},
+        {"name": "Sacred Ashes", "description": "When an allied Troop unit is destroyed within 6'', this unit heals 1 Wound or gains 1 Reactor."}
+      ]
+    },
+    {
+      "id": "",
+      "name": "Blight Herald",
+      "type": "Elite",
+      "faction": "Ash-Brethren",
+      "cost": 100,
+      "baseCost": 100,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "5\"",
+        "defense": "3",
+        "vigor": 3,
+        "actions": 2,
+        "morale": 5,
+        "resolve": 3,
+        "power": 2,
+        "reactor": 0
+      },
+      "abilities": [
+        {"name": "Mourning Chorus", "description": "When an allied unit dies within 6'', you may cause an enemy unit within 6'' to suffer a Morale test."},
+        {"name": "Pyre's Whisper", "description": "Once per round, a friendly unit within 6'' may reroll one failed Defense die."}
+      ],
+      "powers": [
+        {
+          "name": "Whispering Embers",
+          "flavor": "Hope flickers even in the darkest flames.",
+          "baseEffect": "Grant a friendly unit within 6'' the ability to reroll one failed Defense die during their next activation.",
+          "overdrive": [
+            "2+ successes: The reroll can be attempted on two dice.",
+            "3+ successes: The unit gains +1 Morale until the start of your next turn.",
+            "4+ successes: The unit gains +1 Action on its next activation."
+          ],
+          "critFail": "Caster must reroll [Critical Hits] successful Defence Dice until next activation."
+        },
+        {
+          "name": "Eulogy of Shadows",
+          "flavor": "Silence falls, but our voices echo.",
+          "baseEffect": "Select one enemy unit within 6''. That unit must pass a Morale test or suffer –1 Action on its next activation.",
+          "overdrive": [
+            "2+ successes: The enemy unit also suffers –1 Defense until the start of your next turn.",
+            "3+ successes: The enemy unit may not move during its next activation.",
+            "4+ successes: The enemy unit cannot use Ranged attacks during its next activation."
+          ],
+          "critFail": "Caster immediately breaks and falls back [Critical Fail] Dice inches towards the nearest table border."
+        },
+        {
+          "name": "Gravebound Command",
+          "flavor": "Rise, and fight for the fallen.",
+          "baseEffect": "Choose one friendly Troop unit within 6''. That unit gains +1 Attack and may ignore negative status effects for this activation.",
+          "overdrive": [
+            "2+ successes: The chosen unit may reroll one failed attack die this activation.",
+            "3+ successes: The chosen unit may perform a free Charge action immediately after its activation.",
+            "4+ successes: After this unit's activation, immediately activate one other friendly Troop unit within 6''."
+          ],
+          "critFail": "Caster loses [Critical Fail] Wounds."
+        }
+      ]
+    },
+    {
+      "id": "",
+      "name": "Inferno Castellan",
+      "type": "Elite",
+      "faction": "Ash-Brethren",
+      "cost": 130,
+      "baseCost": 130,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "5\"",
+        "defense": "5",
+        "vigor": 6,
+        "actions": 2,
+        "morale": 6,
+        "resolve": 3,
+        "power": 0,
+        "reactor": 2
+      },
+      "abilities": [
+        {"name": "Death's Beacon", "description": "When an allied Troop unit is destroyed within 6'', gain +1 Reactor."},
+        {"name": "Final Ignition", "description": "When this unit destroys an enemy, it may gain +1 Reactor."},
+        {"name": "Molten Retribution", "description": "Spend Action to deal Burning [Reactor] to all enemies within 3''."}
+      ]
+    },
+    {
+      "id": "",
+      "name": "Ashen Cardinal",
+      "type": "Elite",
+      "faction": "Ash-Brethren",
+      "cost": 140,
+      "baseCost": 140,
+      "selectedWeapons": [],
+      "stats": {
+        "move": "6\"",
+        "defense": "5",
+        "vigor": 4,
+        "actions": 2,
+        "morale": 6,
+        "resolve": 3,
+        "power": 2,
+        "reactor": 0
+      },
+      "abilities": [
+        {"name": "Sanctified Ember (Aura 6'')", "description": "While an allied Troop unit is destroyed within range, all friendly Elites gain +1 Action and +1 Defense until the start of your next turn."},
+        {"name": "Flameborne Retribution", "description": "Each time this unit suffers a Wound, it may immediately unleash a free melee attack against an adjacent enemy."},
+        {"name": "Final Benediction", "description": "Upon death, all enemy units within 6'' suffer Burning 1 and must take a Morale test."}
+      ],
+      "powers": [
+        {
+          "name": "Ashen Veil",
+          "flavor": "Let the smoke shield us.",
+          "baseEffect": "All friendly Elites within 6'' gain +1 Defense until the start of your next turn.",
+          "overdrive": [
+            "2+ successes: The Elites also gain +1 Move this activation.",
+            "3+ successes: Friendly Elites may ignore negative status effects until the start of your next turn.",
+            "4+ successes: You may immediately activate one friendly Elite unit within 6''."
+          ],
+          "critFail": "The caster becomes Suppressed until the start of their next activation."
+        },
+        {
+          "name": "Seething Strike",
+          "flavor": "The flame of vengeance burns within!",
+          "baseEffect": "Make one melee attack with +1 to hit and +1 Damage.",
+          "overdrive": [
+            "2+ successes: The attack causes Burning 1 on the target.",
+            "3+ successes: The target is pushed 2'' directly away.",
+            "4+ successes: After the attack, the caster heals 1 Wound."
+          ],
+          "critFail": "The caster suffers [Critical Fails] Wounds this activation."
+        },
+        {
+          "name": "Emberlord's Rally",
+          "flavor": "Rise and fight, as one flame!",
+          "baseEffect": "Select one friendly Elite unit within 6''. That unit gains +1 Action and +1 Defense until the start of your next turn.",
+          "overdrive": [
+            "2+ successes: The chosen unit may immediately make a free Move action.",
+            "3+ successes: If the chosen unit is adjacent to an enemy after moving, it may make a free melee attack.",
+            "4+ successes: Immediately activate one additional friendly Elite unit within 6''."
+          ],
+          "critFail": "The caster suffers [Critical Fails] Wounds this activation."
+        }
+      ]
     }
   ]
 }

@@ -31,6 +31,26 @@
         "roll": 2,
         "name": "Sacred Geometry",
         "description": "While within 3\" of two or more friendly units, this unit gains +1 Defense due to ideal formation structure."
+      },
+      {
+        "roll": 3,
+        "name": "Doctrine of Iron",
+        "description": "The first time this unit suffers Wounds each game, it ignores it."
+      },
+      {
+        "roll": 4,
+        "name": "Judicial Mandate",
+        "description": "When targeting an enemy that has already activated this round, gain +1 Attack die."
+      },
+      {
+        "roll": 5,
+        "name": "Litany of Denial",
+        "description": "Once per game, this unit may force a power targeting it to suffer –2 successes before Resolve is rolled."
+      },
+      {
+        "roll": 6,
+        "name": "Knight-Errant's Resolve",
+        "description": "If this unit is the last remaining friendly model on the field, it gains +1 Action and +1 Morale for the remainder of the battle."
       }
     ],
     "summary": [
@@ -536,10 +556,9 @@
       {
         "title": "Challenges & Pressures",
         "content": [
-          "External Suspicion: Most other factions view House Duresse with deep suspicion and fear, seeing them as dangerously close to the AI entities that caused the Silencing. This makes diplomatic relations difficult and limits their access to resources and allies.",
-          "Technological Dependence: The House's reliance on advanced technology makes them vulnerable to technological failures and sabotage. Their Neural Interfaces and AI companions require constant maintenance and are susceptible to interference.",
-          "Internal Division: Despite their collective consciousness, there are factions within House Duresse that disagree on the extent of AI integration. Some believe they should maintain more human elements, while others advocate for even deeper integration with AI.",
-          "Resource Scarcity: The advanced technology required by House Duresse is difficult to maintain and repair. They constantly need rare materials and components that are increasingly scarce in the post-Silencing world."
+          "Resource Scarcity: The advanced technology required by House Duresse is difficult to maintain and repair. They constantly need rare materials and components that are increasingly scarce in the post-Silencing world.",
+          "Internal Friction: Despite their collective consciousness, there are factions within House Duresse that disagree on the extent of AI integration. Some believe they should maintain more human elements, while others advocate for even deeper integration with AI.",
+          "External Threats: Most other factions view House Duresse with deep suspicion and fear, seeing them as dangerously close to the AI entities that caused the Silencing. This makes diplomatic relations difficult and limits their access to resources and allies."
         ]
       },
       {
@@ -547,6 +566,342 @@
         "content": [
           "Despite these challenges, House Duresse has proven remarkably resilient. Their collective consciousness and technological superiority allow them to adapt quickly to changing circumstances, and their isolation has forced them to become self-sufficient in many ways.",
           "Lady Seraphina's vision of human-AI symbiosis continues to guide the House, and their unique approach to warfare and society may yet prove to be the key to humanity's survival in a world where the old ways are no longer sufficient."
+        ]
+      }
+    ]
+  },
+  "Fangs of the Pale Hunger": {
+    "lore": [
+      "The Fangs of the Pale Hunger are a mutant war-herd of bio-constructs, once engineered for labor and war, now devolved into bestial raiders. They roam the wastelands, driven by fractured subroutines and primal hunger, attacking settlements and scavenging ancient tech."
+    ],
+    "themesAndPlaystyle": {
+      "passiveTrait": {
+        "title": "Passive Faction Trait – Combat Subroutine: Reawakening",
+        "description": [
+          "Once per round, when a Fangs unit is reduced to 0 Wounds, roll 1d6:",
+          "5+: Before being removed, it executes a final Combat Subroutine — make one Move and one Melee Attack as if it were still active. This movement may bring the unit into base contact with an enemy."
+        ]
+      },
+      "leaderTrait": {
+        "title": "Leader Trait – Blood Frenzy Protocol (Aura 6'')",
+        "description": "Once per turn, one friendly Beastmen unit within range may enter Overrun Mode during its activation: It gains +1 Action this turn. At the end of its activation, it suffers 1 Wound. While in Overrun Mode, it ignores the '1 attack per activation' rule."
+      },
+      "tacticalDirectives": [
+        "Override Instinct Loop: Once per game, at the start of any round, all friendly Beastmen units gain +1 Action for this round. However, at the end of their activation, each must roll 1d6: On a 1–2: They take 1 Wound. On a 3–6: No effect.",
+        "Ghost Signal: Directive Reasserted: Once per game, after your Leader activates, you may immediately activate two other friendly Beastmen units, one after the other. These units gain +1'' Movement and may charge even if they already moved this turn, but must target the nearest visible enemy."
+      ]
+    },
+    "traitTable": [
+      {"roll": 1, "name": "Subdermal Surge", "description": "Once per game, when reduced to 0 Wounds, this unit instead remains on 1 Wound and immediately gains +1 Action this turn. It must use it now."},
+      {"roll": 2, "name": "Reversion Protocol", "description": "This unit rerolls 1 failed Defense die per attack if it is within 3'' of at least one other friendly unit."},
+      {"roll": 3, "name": "Echo of Command", "description": "If within 6'' of the Leader, this unit may reroll one failed Attack die per activation."},
+      {"roll": 4, "name": "Red Cortex Echo", "description": "The first time this unit performs a Charge each game, it gains +1 Movement and +1 Attack die during that action."},
+      {"roll": 5, "name": "Flesh Recompiles", "description": "After suffering a Wound from a power or condition (not melee/ranged), roll a die. On a 4+, negate the Wound."},
+      {"roll": 6, "name": "Spasm Reflex Loop", "description": "Once per game, after this unit is targeted by an attack but before dice are rolled, it may immediately Move 2''. This may break engagement and nullify the melee attack."}
+    ],
+    "summary": [
+      "The Fangs of the Pale Hunger are aggressive, fast, and unpredictable. Their units excel at melee combat and can surprise opponents with sudden bursts of speed or violence."
+    ],
+    "playstyleBullets": [
+      "Aggressive melee focus",
+      "Unpredictable activation chains",
+      "Units that can return from the brink of death",
+      "Primal, bestial aesthetic"
+    ],
+    "closingNote": "The Fangs of the Pale Hunger are for players who enjoy relentless aggression and chaotic, high-risk play.",
+    "wiki": [
+      {
+        "title": "Seat of Power",
+        "content": [
+          "[The Howling Expanse](/lore/locations/The%20Howling%20Expanse) — a shattered wasteland of twisted forests, bone-strewn plains, and frostbitten ruins."
+        ]
+      },
+      {
+        "title": "Date Established",
+        "content": [
+          "Not a unified force. The Fangs are a loose confederation of warbands, scavenger tribes, and feral packs. Their origins trace back to the scattered mutant herds and degenerated bio-constructs that emerged in the decades following the [Silencing](/lore/events/The%20Silencing)."
+        ]
+      },
+      {
+        "title": "Emblem & Colors",
+        "content": [
+          "A snarling hybrid beast's skull, half-mechanical, half-flesh, framed by shattered antlers dripping with frost. Colors are bone-white and obsidian black, streaked with blood-red claw marks."
+        ]
+      },
+      {
+        "title": "Overview",
+        "content": [
+          "The Fangs of the Pale Hunger are born from the ashes of collapsed bio-engineering projects—gene-spliced laborers and soldiers twisted by radiation and lost commands. Without a unifying leader, they roam the wastes driven by instinct, broken protocols, and ancient war echoes. Tribes call themselves by many names, but all share the hunger: a primal drive to hunt, dominate, and survive at any cost.",
+          "The Fangs remain a chaotic and deadly force, never united under a single banner but coordinated enough to pose a dire threat to settled lands. Their warbands contest control over hunting grounds and salvage fields, while mutated bio-constructs serve as feral shock troops. Politically fractured but unified in predatory instinct, they are the bane of border garrisons and a constant reminder of [Varnhal](/lore/locations/Varnhal)'s savage decay."
+        ]
+      },
+      {
+        "title": "Geography",
+        "regions": [
+          {
+            "title": "Frozen Wastes and Thorned Forests",
+            "icon": "🌲",
+            "text": "Dense, frostbitten woodlands twisted by corrupted biotech overgrowth. Dead trees drip with metallic resin; mutated fauna stalk the shadows."
+          },
+          {
+            "title": "Bone Plains",
+            "icon": "🦴",
+            "text": "Open grasslands littered with skeletal remains of bio-constructs and war beasts, scarred by endless tribal clashes."
+          },
+          {
+            "title": "The Shattered Crags",
+            "icon": "⛰️",
+            "text": "Jagged, ruined mountain ranges that serve as natural fortresses for warbands and hidden lairs."
+          },
+          {
+            "title": "Ruinous Strongholds",
+            "icon": "🏚️",
+            "text": "Scattered remnants of arc-labs and bio-factories, now claimed as dens by the most brutal warlords."
+          }
+        ],
+        "content": [
+          "The Fangs of the Pale Hunger claim no unified territory, instead roaming the [Howling Expanse](/lore/locations/Howling%20Expanse)—a harsh, fragmented region of Varnhal. The climate is brutal and unpredictable—freezing winters marked by electrical storms and toxic fogs, short summers that barely sustain the twisted ecosystem."
+        ]
+      },
+      {
+        "title": "Economy",
+        "regions": [
+          {
+            "title": "Agriculture",
+            "icon": "🌾",
+            "text": "The Fangs rely almost entirely on foraging, hunting, and salvage. Some tribes maintain ritualistic cultivation of predatory lichen and fungal blooms, used both as food and in rites."
+          }
+        ],
+        "content": [
+          "No functioning factories or weather nodes remain under their control. Caravan routes are few and dangerous, often avoided by outsiders. No orbital interfaces or spaceport access exist within their roaming lands."
+        ]
+      },
+      {
+        "title": "Industry",
+        "regions": [
+          {
+            "title": "Scattered",
+            "icon": "⚒️",
+            "text": "Industry is nearly non-existent beyond primitive forging using scavenged scrap and bone-smelted metal. The Fangs occasionally raid abandoned arc-labs, extracting remnants of biotech and weapon components to craft crude but effective gear."
+          }
+        ]
+      },
+      {
+        "title": "Trade",
+        "regions": [
+          {
+            "title": "Limited",
+            "icon": "💰",
+            "text": "Trade is limited and informal, consisting mostly of raids, salvage exchanges, and barter with neutral scavenger groups or desperate border settlements."
+          }
+        ]
+      },
+      {
+        "title": "Ideology",
+        "regions": [
+          {
+            "title": "The Law of the Pack",
+            "icon": "🐺",
+            "text": "The Fangs of the Pale Hunger follow the Law of the Pack—a primal code of survival, dominance, and mutual dependence. The strong lead, the cunning thrive, and the weak serve or are left behind. This law is enforced not by written edict, but by instinct, ritual combat, and the ever-present threat of hunger."
+          },
+          {
+            "title": "Pack Instinct",
+            "icon": "🧬",
+            "text": "'The Pack Endures, or All Are Lost.'",
+            "highlight": true
+          },
+          {
+            "title": "Rituals of the Hunt",
+            "icon": "🩸",
+            "text": "The Fangs' culture is steeped in blood rites, trophy-taking, and the veneration of successful hunts. To claim a kill is to earn status; to fail is to risk exile or death."
+          },
+          {
+            "title": "Living Weapons",
+            "icon": "🦴",
+            "text": "Fangs see themselves as living weapons—mutant tools shaped by ancient bio-tech and the will to survive. Leadership is earned through ferocity, cunning, and the ability to bring down the greatest prey."
+          }
+        ]
+      },
+      {
+        "title": "Military",
+        "title": "Military",
+        "regions": [
+          {
+            "title": "Army Composition",
+            "icon": "⚔️",
+            "text": "The Fangs of the Pale Hunger are a loose confederation of warbands, scavenger tribes, and feral packs. Their military is a chaotic blend of mutated bio-constructs, war beasts, and primitive warriors. They are not a unified force, but a collection of warbands that share a common goal: survival.",
+            "subsections": [
+              {
+                "title": "Reclaimers",
+                "icon": "🛡️",
+                "text": "Core infantry, clad in black ceramite-plate stitched with copper signal-filaments. Armed with durable melee weapons and reclaimed shotguns or crossbows. They operate in shielded fireteams under strict command protocols."
+              }
+            ]
+          },
+          {
+            "title": "Elite Units",
+            "icon": "👑",
+            "text": "Specialized warriors trained in advanced combat techniques and sacred rites.",
+            "subsections": [
+              {
+                "title": "Directive-Lost",
+                "icon": "🏇",
+                "text": "War-forms linked to long-dead commanders via neural implants. They possess fragmented tactical memories and act as commanders or elite shock troops, often unpredictable due to corrupted programming."
+              },
+              {
+                "title": "Neural Shardbearers",
+                "icon": "🏇",
+                "text": "Mutant shamans who wield corrupted biotech to manipulate battlefield conditions and bolster their allies. They serve as spiritual leaders and field controllers."
+              },
+              {
+                "title": "Feral Champions",
+                "icon": "🏇",
+                "text": "Leaders of warbands, heavily mutated and augmented, wielding relic weaponry fused with living tissue. They inspire their followers through savage displays of strength and ritual."
+              },
+              {
+                "title": "Synaptic Marauder",
+                "icon": "🏇",
+                "text": "The Synaptic Marauder is the apex predator of the Fangs—engineered for the hunt and driven by a fractured neural link.\n\n- Feeds on pain and survival instinct, growing stronger as its kin suffer.\n- Moves with terrifying speed and brutal efficiency, striking multiple times in a frenzy.\n- Embodies the primal Hunger that binds the Fangs, feared as a living avatar of the pack's will.\n\nTo face a Marauder is to face the raw, unrelenting force of the wild made flesh."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Political Situation",
+        "regions": [
+          {
+            "title": "Allies",
+            "icon": "🤝",
+            "text": "Rare and pragmatic alliances, usually based on mutual need or shared enemies. Loyalty is fleeting.",
+            "relationships": [
+              {
+                "faction": "The Dustcord Mercenaries",
+                "nature": "Temporary pacts for salvage or raids",
+                "description": "Fangs warbands sometimes hire or ally with Dustcord Mercenaries for large-scale raids or to move through hostile territory. Such alliances last only as long as the spoils do."
+              },
+              {
+                "faction": "Outclan Reclameants",
+                "nature": "Shared mutant heritage",
+                "description": "Occasional cooperation in scavenging or defense, but trust is minimal and betrayal is common."
+              }
+            ]
+          },
+          {
+            "title": "Enemies",
+            "icon": "⚔️",
+            "text": "Frequent and violent conflicts with settled powers and rival mutant tribes.",
+            "relationships": [
+              {
+                "faction": "House Kaevaryn",
+                "nature": "Border raids, resource competition",
+                "clash": "Skirmishes at the [Frozen Veil](/lore/locations/Frozen%20Veil) (Year 119) — Kaevaryn forces repelled a Fangs assault on weather node installations."
+              },
+              {
+                "faction": "House Vaelmoor",
+                "nature": "Territorial disputes over the southern plains",
+                "clash": "Battle of Bone Ridge (Year 116) — A brutal clash leaving both sides bloodied but unconquered."
+              },
+              {
+                "faction": "Silent Votaries",
+                "nature": "Ideological and religious opposition",
+                "clash": "Ambush at [Black Hollow](/lore/locations/Black%20Hollow) (Year 118) — Fangs warbands disrupted Votary supply routes."
+              }
+            ]
+          },
+          {
+            "title": "Neutral Parties & Mercenaries",
+            "icon": "⚖️",
+            "text": "Groups that trade, negotiate, or coexist with the Fangs out of necessity or shared interest.",
+            "relationships": [
+              {
+                "faction": "Border Settlements",
+                "nature": "Barter and uneasy truces",
+                "description": "Some desperate settlements trade food, salvage, or information to avoid raids. These truces are fragile and often broken."
+              },
+              {
+                "faction": "The Iron Rats",
+                "nature": "Rogue engineers and black marketeers",
+                "description": "Occasionally supply the Fangs with tech or sabotage services in exchange for protection or rare bio-components."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Territorial Control",
+        "content": [
+          "The Fangs of the Pale Hunger claim no fixed territory. Instead, their warbands roam the [Howling Expanse](/lore/locations/Howling%20Expanse) and surrounding wilds, seizing hunting grounds, ruins, and salvage fields by force. Control is fluid—won and lost through violence, dominance, and the shifting strength of the pack. Their presence is marked by the bones of prey, the ruins of raided settlements, and the howls that echo across the frostbitten plains."
+        ]
+      },
+      {
+        "title": "Political Influence",
+        "content": [
+          "The Fangs wield little formal political influence among Varnhal's powers. Their impact is felt through fear, disruption, and the threat of sudden raids. Border lords and scavenger clans may pay tribute or negotiate uneasy truces, but the Fangs' true power lies in their unpredictability and the chaos they sow. In the rare councils of the wasteland, their voice is the growl of hunger and the promise of violence."
+        ]
+      },
+      {
+        "title": "Challenges & Pressures",
+        "content": [
+          "Resource Scarcity: The Fangs rely almost entirely on foraging, hunting, and salvage. Scarcity of food and usable tech often leads to inter-tribal conflict and desperate raids.",
+          "Internal Friction: The Fangs are a loose confederation of warbands, with leadership constantly contested through violence and ritual. Betrayal and shifting alliances are common.",
+          "External Threats: Frequent and violent conflicts with settled powers, rival mutant tribes, and border settlements threaten the Fangs' survival and territory."
+        ]
+      }
+    ]
+  },
+  "Ash-Brethren": {
+    "lore": [
+      "The Ash-Brethren are a zealous order of flame-worshipping survivors, united by faith and the purifying power of fire. They believe the world must be cleansed through burning, and their warriors wield heat-based weaponry and sacred rites."
+    ],
+    "themesAndPlaystyle": {
+      "passiveTrait": {
+        "title": "Passive Faction Trait – Emberbound Doctrine",
+        "description": [
+          "At the end of each activation, if an Ash-Brethren unit did not move this turn, it gains +1 Defense until the start of its next turn.",
+          "Whenever an enemy model suffers a Wound from a Burning or Heat-based effect, one Ash-Brethren unit within 6'' may Heal a Wound."
+        ]
+      },
+      "leaderTrait": {
+        "title": "Leader Trait – Searing Benediction (Aura 6'')",
+        "description": "Once per round, after a friendly unit within range hits with a Burning or Heat weapon, it may choose to apply +1 Damage to that attack or apply Burning 2 instead of Burning 1."
+      },
+      "tacticalDirectives": [
+        "Ashes Ascendant: Once per game, at the start of a round, all Ash-Brethren units gain +1 Defense and cannot be Pinned or Slowed this round. They count as in cover even in the open.",
+        "Cauterize the Breach: Once per game, when an Ash-Brethren unit is reduced to 0 Wounds, you may immediately interrupt and allow another friendly unit within 6'' to take a free activation. That unit gains +1 Action and treats all targets as being Engaged (for bonus effects)."
+      ]
+    },
+    "traitTable": [
+      {"roll": 1, "name": "Char-Skin Discipline", "description": "This unit reduces all Burning damage it suffers by 1. Can fall to 0."},
+      {"roll": 2, "name": "Red-Wake Step", "description": "After performing a melee attack, this unit may move 2''. This movement does not provoke engagement."},
+      {"roll": 3, "name": "Smoldering Faith", "description": "If this unit is already Burning, it gains +1 to hit on all attacks."},
+      {"roll": 4, "name": "Scorch Halo", "description": "At the end of this unit's activation, all enemy units within 2'' must pass a Morale test or suffer 1 Wound."},
+      {"roll": 5, "name": "Ember Rejoinder", "description": "Once per game, after suffering a Critical Hit, this unit may immediately make one attack against its attacker."},
+      {"roll": 6, "name": "Last Flame", "description": "Once per game, when reduced to 0 Wounds, this unit explodes in a holy flare: all units within 3'' suffer Burning 1."}
+    ],
+    "summary": [
+      "The Ash-Brethren combine resilience with powerful area denial and burning effects. Their units are hard to pin down and can punish enemies for clustering together."
+    ],
+    "playstyleBullets": [
+      "Resilient infantry with defensive buffs",
+      "Burning and heat-based attacks",
+      "Synergy between faith and fire",
+      "Sacrificial, martyrdom mechanics"
+    ],
+    "closingNote": "The Ash-Brethren are for players who enjoy attrition, area control, and thematic, faith-driven armies.",
+    "wiki": [
+      {
+        "title": "Overview",
+        "content": [
+          "The Ash-Brethren are a zealous order of flame-worshipping survivors, united by faith and the purifying power of fire. They believe the world must be cleansed through burning, and their warriors wield heat-based weaponry and sacred rites. Their enclaves are both sanctuaries and forges, and their leaders are revered as living saints."
+        ]
+      },
+      {
+        "title": "Challenges & Pressures",
+        "content": [
+          "Resource Scarcity: The Ash-Brethren struggle to maintain supplies of fuel, food, and sacred relics. Their enclaves are often beset by shortages, forcing them to raid or negotiate for survival.",
+          "Internal Friction: Zealous doctrinal disputes and power struggles among the priesthood can lead to schisms and purges within the order.",
+          "External Threats: Surrounded by hostile factions and viewed as dangerous fanatics, the Ash-Brethren are frequent targets for crusades, raids, and political isolation."
         ]
       }
     ]

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 const SCENARIO_TABS = [
-  { key: 'structure', label: 'Scenario Structure', icon: '🏗️' },
   { key: 'core', label: 'Core Scenarios', icon: '🎲' },
   { key: 'heroic', label: 'Heroic Scenarios', icon: '👑' },
 ];
@@ -129,7 +128,7 @@ const OPTIONAL_SCENARIO_TABLE = [
 ];
 
 export default function ScenariosPage() {
-  const [activeTab, setActiveTab] = useState('structure');
+  const [activeTab, setActiveTab] = useState('core');
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
@@ -148,6 +147,9 @@ export default function ScenariosPage() {
             <div className="absolute -top-2 -left-2 -right-2 -bottom-2 bg-gradient-to-r from-emerald-400/20 via-teal-400/20 to-cyan-400/20 blur-xl rounded-full"></div>
           </div>
           <div className="w-32 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 mx-auto rounded-full shadow-lg shadow-emerald-500/50"></div>
+          <p className="mt-6 text-slate-400 text-lg max-w-2xl mx-auto">
+            Browse the available scenarios for Ashes of Varnhal. Each scenario includes objectives, deployment, special rules, and victory conditions. Use these lists to select or randomize your next mission.
+          </p>
         </div>
         {/* Tabs Navigation */}
         <div className="flex justify-center mb-10">
@@ -170,37 +172,6 @@ export default function ScenariosPage() {
         </div>
         {/* Tab Panels */}
         <div>
-          {activeTab === 'structure' && (
-            <section className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-8 border border-slate-700/50 backdrop-blur-sm mb-10">
-              <h2 className="text-3xl font-black text-slate-200 mb-6 flex items-center tracking-wide">
-                <span className="text-emerald-400 mr-3">🏗️</span>
-                Scenario Structure
-              </h2>
-              <div className="space-y-6 text-slate-300 leading-relaxed">
-                <p>This section outlines the format and expectations for mission-based play. Each scenario is composed of several parts that determine how the battle unfolds and what conditions define victory.</p>
-                <div>
-                  <h3 className="text-2xl font-black text-emerald-300 mb-2 tracking-wide">Objectives, Deployment, Terrain Suggestions</h3>
-                  <div className="mb-4">
-                    <span className="font-black text-emerald-400">Objectives:</span> Each mission includes one or more objectives that define the win conditions for both players. These may involve controlling specific points, eliminating certain enemy units, retrieving salvage, or surviving a set number of rounds.
-                  </div>
-                  <div className="mb-4">
-                    <span className="font-black text-emerald-400">Deployment:</span> Deployment zones are clearly marked in each scenario and determine where players may place their units at the start of the game. Deployment rules also dictate who deploys first and how alternating unit placement occurs.
-                  </div>
-                  <div className="mb-4">
-                    <span className="font-black text-emerald-400">Terrain Suggestions:</span> A 3&apos;x3&apos; battlefield is the standard format. Terrain should be dense and varied, representing the ruined, overgrown, or industrially scorched zones typical of the setting. Use a mix of:
-                    <ul className="list-disc list-inside ml-6 mt-2">
-                      <li><span className="italic text-cyan-300">Blocking Terrain</span> — impassable and breaks line of sight (e.g., ruined walls, collapsed structures)</li>
-                      <li><span className="italic text-cyan-300">Cover Terrain</span> — provides defensive bonuses when obscuring the attacker's view (e.g., crates, broken machinery)</li>
-                      <li><span className="italic text-cyan-300">Elevated Terrain</span> — gives vantage points with tactical advantages, usable by climbing</li>
-                    </ul>
-                  </div>
-                  <div>
-                    Each scenario may offer specific guidance or exceptions to terrain setup based on the narrative or balance requirements.
-                  </div>
-                </div>
-              </div>
-            </section>
-          )}
           {activeTab === 'core' && (
             <section className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-8 border border-slate-700/50 backdrop-blur-sm mb-10">
               <h2 className="text-3xl font-black text-slate-200 mb-8 flex items-center tracking-wide">

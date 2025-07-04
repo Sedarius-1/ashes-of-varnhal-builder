@@ -9,6 +9,17 @@ const Sidebar = () => {
     // Sidebar content as a function for reuse
     const sidebarContent = (
         <nav className="space-y-8 relative z-10 p-6">
+            {/* Campaign Tracker Main Link */}
+            <div>
+                <Link
+                    to="/"
+                    className={`w-full flex items-center gap-2 text-lg font-black uppercase tracking-widest mb-6 px-2 py-3 rounded-xl transition-colors border-2 border-violet-700/60 shadow-lg shadow-violet-900/10
+                        ${location.pathname === '/' ? 'bg-gradient-to-r from-violet-700 to-indigo-700 text-white border-violet-700/90' : 'bg-slate-900/80 text-violet-300 hover:bg-violet-900/60 hover:text-white'}`}
+                    onClick={() => setMobileOpen(false)}
+                >
+                    <span>🏰</span>Campaign Tracker
+                </Link>
+            </div>
             {/* Lore Section */}
             <div>
                 <Link
@@ -18,31 +29,6 @@ const Sidebar = () => {
                 >
                     <span>📖</span>Lore
                 </Link>
-            </div>
-
-            {/* Warband Builder Section */}
-            <div>
-                <h2 className="text-md font-black text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2"><span>⚔️</span>Warband Builder</h2>
-                <ul className="space-y-2 mb-6">
-                    <li>
-                        <Link
-                            to="/"
-                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname === '/' ? 'bg-gradient-to-r from-amber-700 to-orange-800 text-white shadow-lg shadow-amber-900/30 border-amber-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-amber-300'}`}
-                            onClick={() => setMobileOpen(false)}
-                        >
-                            Warband Builder
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            to="/campaigns"
-                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname.startsWith('/campaigns') ? 'bg-gradient-to-r from-violet-700 to-purple-700 text-white shadow-lg shadow-violet-900/30 border-violet-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-violet-300'}`}
-                            onClick={() => setMobileOpen(false)}
-                        >
-                            🏰 Campaign Tracker
-                        </Link>
-                    </li>
-                </ul>
             </div>
 
             {/* Core Rules Section */}
@@ -60,20 +46,11 @@ const Sidebar = () => {
                     </li>
                     <li>
                         <Link
-                            to="/turn-structure"
-                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname.startsWith('/turn-structure') ? 'bg-gradient-to-r from-indigo-700 to-blue-700 text-white shadow-lg shadow-indigo-900/30 border-indigo-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-indigo-300'}`}
+                            to="/turn-actions"
+                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname.startsWith('/turn-actions') ? 'bg-gradient-to-r from-indigo-700 to-blue-700 text-white shadow-lg shadow-indigo-900/30 border-indigo-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-indigo-300'}`}
                             onClick={() => setMobileOpen(false)}
                         >
-                            ⏱️ Turn Structure & Phases
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            to="/combat"
-                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname.startsWith('/combat') ? 'bg-gradient-to-r from-red-700 to-pink-700 text-white shadow-lg shadow-red-900/30 border-red-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-red-300'}`}
-                            onClick={() => setMobileOpen(false)}
-                        >
-                            ⚔️ Actions & Combat
+                            ⏱️ Turn & Actions
                         </Link>
                     </li>
                     <li>
@@ -92,6 +69,49 @@ const Sidebar = () => {
                             onClick={() => setMobileOpen(false)}
                         >
                             📜 Scenarios & Missions
+                        </Link>
+                    </li>
+                </ul>
+            </div>
+
+            {/* Faction Rules Section */}
+            <div>
+                <h2 className="text-md font-black text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2"><span>🛡️</span>Faction Rules</h2>
+                <ul className="space-y-2 mb-6">
+                    <li>
+                        <Link
+                            to="/factions/House%20Kaevaryn"
+                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname === '/factions/House%20Kaevaryn' ? 'bg-gradient-to-r from-rose-700 to-pink-700 text-white shadow-lg shadow-rose-900/30 border-rose-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-rose-300'}`}
+                            onClick={() => setMobileOpen(false)}
+                        >
+                            🏰 House Kaevaryn
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/factions/Fangs%20of%20the%20Pale%20Hunger"
+                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname === '/factions/Fangs%20of%20the%20Pale%20Hunger' ? 'bg-gradient-to-r from-lime-700 to-amber-700 text-white shadow-lg shadow-lime-900/30 border-lime-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-lime-300'}`}
+                            onClick={() => setMobileOpen(false)}
+                        >
+                            🐺 Fangs of the Pale Hunger
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/factions/House%20Duresse"
+                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname === '/factions/House%20Duresse' ? 'bg-gradient-to-r from-blue-700 to-purple-700 text-white shadow-lg shadow-blue-900/30 border-blue-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-blue-300'}`}
+                            onClick={() => setMobileOpen(false)}
+                        >
+                            🧬 House Duresse
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            to="/factions/Ash-Brethren"
+                            className={`block px-4 py-2 rounded-xl font-black tracking-wide border border-slate-700/40 transition-all duration-200 ${location.pathname === '/factions/Ash-Brethren' ? 'bg-gradient-to-r from-gray-700 to-amber-700 text-white shadow-lg shadow-gray-900/30 border-gray-700/60' : 'bg-slate-800/60 text-slate-300 hover:bg-slate-700/80 hover:text-amber-300'}`}
+                            onClick={() => setMobileOpen(false)}
+                        >
+                            🔥 Ash-Brethren
                         </Link>
                     </li>
                 </ul>
