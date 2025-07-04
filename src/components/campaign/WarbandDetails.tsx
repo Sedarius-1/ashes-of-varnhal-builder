@@ -1,7 +1,5 @@
 import React from 'react';
 import type { Warband } from '../../types/warband';
-import type { Faction } from '../../types/faction';
-import type { Weapon } from '../../types/weapon';
 
 interface WarbandDetailsProps {
   warband: Warband;

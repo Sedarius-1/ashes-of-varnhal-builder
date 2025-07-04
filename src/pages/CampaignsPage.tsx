@@ -5,8 +5,6 @@ import type { Faction } from '../types/faction';
 import type { Weapon } from '../types/weapon';
 import unitsJson from '../definitions/units.json';
 import weaponsJson from '../definitions/weapons.json';
-import UnitDetails from "../components/UnitDetails";
-import FactionSelector from "../components/FactionSelector";
 import injuryTable from '../definitions/injuryTable.json';
 import salvageTable from '../definitions/salvageTable.json';
 import levelUpTable from '../definitions/levelUpTable.json';
