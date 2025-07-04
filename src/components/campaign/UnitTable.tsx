@@ -1,6 +1,5 @@
 import React from 'react';
 import type { Unit } from '../../types/unit';
-import type { Faction } from '../../types/faction';
 
 interface UnitTableProps {
   units: Unit[];
