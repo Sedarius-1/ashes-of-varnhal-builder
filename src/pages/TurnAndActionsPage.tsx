@@ -1,14 +1,18 @@
 import { useState } from 'react';
 
-const TURN_STRUCTURE_TABS = [
+const TABS = [
   { key: 'overview', label: 'Overview', icon: '📋' },
   { key: 'rounds', label: 'Game Rounds', icon: '🔄' },
   { key: 'activations', label: 'Unit Activations', icon: '⚡' },
   { key: 'actions', label: 'Actions & Types', icon: '🎯' },
   { key: 'defensive', label: 'Defensive Stances', icon: '🛡️' },
+  { key: 'movement', label: 'Movement Rules', icon: '🏃' },
+  { key: 'combat', label: 'Combat Resolution', icon: '⚔️' },
+  { key: 'powers', label: 'Using Powers', icon: '✨' },
+  { key: 'damage', label: 'Damage Resolution', icon: '💀' },
 ];
 
-export default function TurnStructurePage() {
+export default function TurnAndActionsPage() {
   const [activeTab, setActiveTab] = useState('overview');
 
   return (
@@ -23,7 +27,7 @@ export default function TurnStructurePage() {
         <div className="mb-12 text-center">
           <div className="relative">
             <h1 className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-blue-400 to-cyan-400 mb-4 tracking-wider">
-              ⏱️ Turn Structure
+              🔄 Turn & Actions
             </h1>
             <div className="absolute -top-2 -left-2 -right-2 -bottom-2 bg-gradient-to-r from-indigo-400/20 via-blue-400/20 to-cyan-400/20 blur-xl rounded-full"></div>
           </div>
@@ -33,7 +37,7 @@ export default function TurnStructurePage() {
         {/* Tabs Navigation */}
         <div className="flex justify-center mb-10">
           <div className="inline-flex rounded-2xl bg-slate-800/80 border border-slate-700/60 shadow-lg overflow-hidden">
-            {TURN_STRUCTURE_TABS.map(tab => (
+            {TABS.map(tab => (
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
@@ -58,12 +62,10 @@ export default function TurnStructurePage() {
                 <span className="text-indigo-400 mr-3">📋</span>
                 Turn Structure Overview
               </h2>
-              
               <div className="space-y-6 text-slate-300 leading-relaxed">
                 <p className="text-lg">
                   Ashes of Varnhal uses an <span className="font-black text-indigo-400">alternating activation</span> system that creates dynamic, tactical gameplay. Instead of one player activating their entire warband, players take turns activating one unit at a time, creating constant counterplay opportunities.
                 </p>
-                
                 <div className="bg-gradient-to-r from-indigo-900/50 to-blue-900/50 rounded-xl p-6 border-l-4 border-indigo-500">
                   <h3 className="text-2xl font-black text-indigo-300 mb-4 tracking-wide">Key Concepts</h3>
                   <ul className="space-y-3">
@@ -85,7 +87,6 @@ export default function TurnStructurePage() {
                     </li>
                   </ul>
                 </div>
-
                 <div className="bg-gradient-to-r from-amber-900/50 to-orange-900/50 rounded-xl p-6 border-l-4 border-amber-500">
                   <h3 className="text-2xl font-black text-amber-300 mb-4 tracking-wide">Tactical Importance</h3>
                   <p className="text-slate-300 leading-relaxed">
@@ -95,14 +96,12 @@ export default function TurnStructurePage() {
               </div>
             </section>
           )}
-
           {activeTab === 'rounds' && (
             <section className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-8 border border-slate-700/50 backdrop-blur-sm mb-10">
               <h2 className="text-3xl font-black text-slate-200 mb-8 flex items-center tracking-wide">
                 <span className="text-indigo-400 mr-3">🔄</span>
                 Game Rounds and Phases
               </h2>
-              
               <div className="space-y-8">
                 {/* Alternating Activations */}
                 <div className="bg-gradient-to-r from-blue-900/50 to-indigo-900/50 rounded-xl p-6 border-l-4 border-blue-500">
@@ -128,14 +127,12 @@ export default function TurnStructurePage() {
                       <span className="text-slate-300">If one player has more units remaining than the other, they may take multiple activations at the end of the round after their opponent has no eligible units left.</span>
                     </li>
                   </ul>
-                  
                   <div className="mt-6 p-4 bg-slate-800/60 rounded-lg border border-slate-600">
                     <p className="text-slate-300 italic">
                       <span className="font-black text-blue-400">Example:</span> Player A activates a ranged unit and shoots a nearby enemy. Player B may then respond by activating a melee unit to charge in retaliation before the next ranged attack occurs.
                     </p>
                   </div>
                 </div>
-
                 {/* End of Round Cleanup */}
                 <div className="bg-gradient-to-r from-purple-900/50 to-pink-900/50 rounded-xl p-6 border-l-4 border-purple-500">
                   <h3 className="text-2xl font-black text-purple-300 mb-4 tracking-wide">End of Round Cleanup</h3>
@@ -168,14 +165,12 @@ export default function TurnStructurePage() {
               </div>
             </section>
           )}
-
           {activeTab === 'activations' && (
             <section className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-8 border border-slate-700/50 backdrop-blur-sm mb-10">
               <h2 className="text-3xl font-black text-slate-200 mb-8 flex items-center tracking-wide">
                 <span className="text-indigo-400 mr-3">⚡</span>
                 Activating Units
               </h2>
-              
               <div className="space-y-8">
                 {/* Declaration and Action Spending */}
                 <div className="bg-gradient-to-r from-emerald-900/50 to-teal-900/50 rounded-xl p-6 border-l-4 border-emerald-500">
@@ -197,13 +192,11 @@ export default function TurnStructurePage() {
                       <span className="text-slate-300">Units cannot save or transfer unused Action Points. Unspent AP is lost at the end of the unit's activation.</span>
                     </li>
                   </ul>
-                  
                   <div className="mt-6 p-4 bg-slate-800/60 rounded-lg border border-slate-600">
                     <p className="text-slate-300 italic">
                       <span className="font-black text-emerald-400">Example:</span> A unit with 2 AP may move and shoot, or move twice, or use a special ability and then move, depending on available options.
                     </p>
                   </div>
-                  
                   <div className="mt-4 p-4 bg-amber-900/30 rounded-lg border border-amber-500/30">
                     <p className="text-slate-300">
                       <span className="font-black text-amber-400">Note:</span> Some actions (such as Overwatch) explicitly end a unit's activation and prevent further actions.
@@ -213,61 +206,50 @@ export default function TurnStructurePage() {
               </div>
             </section>
           )}
-
           {activeTab === 'actions' && (
             <section className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-8 border border-slate-700/50 backdrop-blur-sm mb-10">
               <h2 className="text-3xl font-black text-slate-200 mb-8 flex items-center tracking-wide">
                 <span className="text-indigo-400 mr-3">🎯</span>
                 Types of Actions
               </h2>
-              
               <div className="space-y-6">
                 <p className="text-slate-300 leading-relaxed text-lg">
                   Units may spend Action Points on the following standard actions unless otherwise restricted:
                 </p>
-
                 <div className="grid gap-4">
                   <div className="bg-gradient-to-r from-blue-900/50 to-indigo-900/50 rounded-xl p-6 border-l-4 border-blue-500">
                     <h3 className="text-xl font-black text-blue-300 mb-2 tracking-wide">Move</h3>
                     <p className="text-slate-300">Move up to the unit's full Movement value in inches.</p>
                   </div>
-
                   <div className="bg-gradient-to-r from-red-900/50 to-pink-900/50 rounded-xl p-6 border-l-4 border-red-500">
                     <h3 className="text-xl font-black text-red-300 mb-2 tracking-wide">Charge</h3>
                     <p className="text-slate-300">Move up to the unit's full Movement value in inches and end in base contact with enemy unit. Gain +1 Dice to Attack Rolls made with melee weapons in this turn.</p>
                   </div>
-
                   <div className="bg-gradient-to-r from-orange-900/50 to-amber-900/50 rounded-xl p-6 border-l-4 border-orange-500">
                     <h3 className="text-xl font-black text-orange-300 mb-2 tracking-wide">Attack</h3>
                     <p className="text-slate-300">Make one attack with an equipped weapon. A unit may only attack once per activation unless a rule states otherwise.</p>
                   </div>
-
                   <div className="bg-gradient-to-r from-purple-900/50 to-pink-900/50 rounded-xl p-6 border-l-4 border-purple-500">
                     <h3 className="text-xl font-black text-purple-300 mb-2 tracking-wide">Use Power</h3>
                     <p className="text-slate-300">Spend 1 Action to use an available ability (casters only).</p>
                   </div>
-
                   <div className="bg-gradient-to-r from-green-900/50 to-emerald-900/50 rounded-xl p-6 border-l-4 border-green-500">
                     <h3 className="text-xl font-black text-green-300 mb-2 tracking-wide">Dodge</h3>
                     <p className="text-slate-300">Adopt a defensive stance until the start of your next activation. You may make a Dodge Test (target 4+) the next time you are attacked this round.</p>
                   </div>
-
                   <div className="bg-gradient-to-r from-cyan-900/50 to-blue-900/50 rounded-xl p-6 border-l-4 border-cyan-500">
                     <h3 className="text-xl font-black text-cyan-300 mb-2 tracking-wide">Overwatch</h3>
                     <p className="text-slate-300">End your activation and enter Overwatch stance (see Defensive Stances).</p>
                   </div>
-
                   <div className="bg-gradient-to-r from-yellow-900/50 to-orange-900/50 rounded-xl p-6 border-l-4 border-yellow-500">
                     <h3 className="text-xl font-black text-yellow-300 mb-2 tracking-wide">Interact</h3>
                     <p className="text-slate-300">Perform a mission-specific or terrain interaction (e.g., opening a gate, seizing a relic).</p>
                   </div>
-
                   <div className="bg-gradient-to-r from-teal-900/50 to-cyan-900/50 rounded-xl p-6 border-l-4 border-teal-500">
                     <h3 className="text-xl font-black text-teal-300 mb-2 tracking-wide">Recover</h3>
                     <p className="text-slate-300">Remove one negative condition from the unit (e.g., Burning, Pinned, Suppressed). Cannot be used while engaged unless stated otherwise.</p>
                   </div>
                 </div>
-
                 <div className="bg-gradient-to-r from-slate-700/50 to-gray-700/50 rounded-xl p-6 border-l-4 border-slate-500">
                   <p className="text-slate-300 leading-relaxed">
                     <span className="font-black text-slate-400">Note:</span> Some actions may be replaced or extended by powers, traits, or equipment effects. Special actions are defined per scenario or unit.
@@ -276,21 +258,18 @@ export default function TurnStructurePage() {
               </div>
             </section>
           )}
-
           {activeTab === 'defensive' && (
             <section className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-8 border border-slate-700/50 backdrop-blur-sm mb-10">
               <h2 className="text-3xl font-black text-slate-200 mb-8 flex items-center tracking-wide">
                 <span className="text-indigo-400 mr-3">🛡️</span>
                 Overwatch and Dodge Stance
               </h2>
-              
               <div className="space-y-8">
                 <div className="bg-gradient-to-r from-slate-700/50 to-gray-700/50 rounded-xl p-6 border-l-4 border-slate-500">
                   <p className="text-slate-300 leading-relaxed">
                     There are no Reactions in Ashes of Varnhal. However, specific defensive stances can be taken as actions during a unit's activation:
                   </p>
                 </div>
-
                 {/* Overwatch */}
                 <div className="bg-gradient-to-r from-cyan-900/50 to-blue-900/50 rounded-xl p-6 border-l-4 border-cyan-500">
                   <h3 className="text-2xl font-black text-cyan-300 mb-4 tracking-wide">Overwatch (1 Action, Ends Activation)</h3>
@@ -309,7 +288,6 @@ export default function TurnStructurePage() {
                     </li>
                   </ul>
                 </div>
-
                 {/* Dodge */}
                 <div className="bg-gradient-to-r from-green-900/50 to-emerald-900/50 rounded-xl p-6 border-l-4 border-green-500">
                   <h3 className="text-2xl font-black text-green-300 mb-4 tracking-wide">Dodge (1 Action)</h3>
@@ -328,7 +306,6 @@ export default function TurnStructurePage() {
                     </li>
                   </ul>
                 </div>
-
                 <div className="bg-gradient-to-r from-amber-900/50 to-orange-900/50 rounded-xl p-6 border-l-4 border-amber-500">
                   <h3 className="text-2xl font-black text-amber-300 mb-4 tracking-wide">Tactical Considerations</h3>
                   <p className="text-slate-300 leading-relaxed">
@@ -337,6 +314,161 @@ export default function TurnStructurePage() {
                 </div>
               </div>
             </section>
+          )}
+          {activeTab === 'movement' && (
+            <section className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-8 border border-slate-700/50 backdrop-blur-sm mb-10">
+              <h2 className="text-3xl font-black text-slate-200 mb-8 flex items-center tracking-wide">
+                <span className="text-red-400 mr-3">🏃</span>
+                Movement Rules
+              </h2>
+              {/* Terrain and Line of Sight */}
+              <div className="bg-gradient-to-r from-blue-900/50 to-indigo-900/50 rounded-xl p-6 border-l-4 border-blue-500 mb-8">
+                <h3 className="text-2xl font-black text-blue-300 mb-4 tracking-wide">Terrain and Line of Sight</h3>
+                <p className="text-slate-300 mb-4 leading-relaxed">
+                  <span className="font-black text-blue-400">Terrain</span> affects movement, cover, and line of sight during gameplay. Different types of terrain influence how units can move and defend.
+                </p>
+                <p className="text-slate-300 mb-4 leading-relaxed">
+                  For exact rules regarding different types of terrain, see section 3.1 - Terrain types
+                </p>
+                <p className="text-slate-300 mb-4 leading-relaxed">
+                  <span className="font-black text-blue-400">Line of Sight (LoS)</span> is required for ranged attacks and many abilities.
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-start">
+                    <span className="text-blue-400 font-black mr-3 mt-1">•</span>
+                    <span className="text-slate-300">LoS is determined by an unobstructed straight line from any part of the attacking model's base to any part of the target model's base.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-blue-400 font-black mr-3 mt-1">•</span>
+                    <span className="text-slate-300">Blocking terrain or other units block LoS.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-blue-400 font-black mr-3 mt-1">•</span>
+                    <span className="text-slate-300">Elevation differences must be considered; units on higher terrain may see over some obstacles.</span>
+                  </li>
+                </ul>
+              </div>
+              {/* Climbing, Jumping, Falling */}
+              <div className="bg-gradient-to-r from-amber-900/50 to-orange-900/50 rounded-xl p-6 border-l-4 border-amber-500">
+                <h3 className="text-2xl font-black text-amber-300 mb-4 tracking-wide">Climbing, Jumping, Falling</h3>
+                <p className="text-slate-300 mb-4 leading-relaxed">
+                  Some terrain features require units to climb or jump to traverse.
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <span className="text-amber-400 font-black mr-3 mt-1">•</span>
+                    <span className="text-slate-300"><span className="font-black text-amber-400">Climbing:</span> Units must spend 2 Actions to climb vertical surfaces or obstacles. Movement during climbing is halved.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-amber-400 font-black mr-3 mt-1">•</span>
+                    <span className="text-slate-300"><span className="font-black text-amber-400">Jumping:</span> Units may spend 1 Action to jump over gaps or low obstacles up to 3'' wide.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-amber-400 font-black mr-3 mt-1">•</span>
+                    <span className="text-slate-300"><span className="font-black text-amber-400">Falling:</span> If a unit falls from a height of 3'' or more, it suffers 1 Wound and must pass a Vigor Test (target 4+) to avoid being Staggered.</span>
+                  </li>
+                </ul>
+                <p className="text-slate-300 mt-4 leading-relaxed">
+                  Units cannot move normally while climbing or jumping, and these actions consume available Actions. Special abilities or equipment may modify these rules.
+                </p>
+              </div>
+            </section>
+          )}
+          {activeTab === 'combat' && (
+            <section className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-8 border border-slate-700/50 backdrop-blur-sm mb-10">
+              <h2 className="text-3xl font-black text-slate-200 mb-8 flex items-center tracking-wide">
+                <span className="text-red-400 mr-3">⚔️</span>
+                Combat Resolution
+              </h2>
+              {/* Ranged vs Melee */}
+              <div className="bg-gradient-to-r from-red-900/50 to-pink-900/50 rounded-xl p-6 border-l-4 border-red-500 mb-8">
+                <h3 className="text-2xl font-black text-red-300 mb-4 tracking-wide">Ranged vs. Melee</h3>
+                <p className="text-slate-300 mb-4 leading-relaxed">
+                  Combat in <span className="font-black text-red-400">Ashes of Varnhal</span> is resolved through ranged and melee attacks. Both follow similar core mechanics but differ in range and conditions:
+                </p>
+                <ul className="space-y-2 mb-4">
+                  <li className="flex items-start">
+                    <span className="text-red-400 font-black mr-3 mt-1">•</span>
+                    <span className="text-slate-300"><span className="font-black text-red-400">Ranged Combat:</span> Attacks made using ranged weapons from a distance. Requires line of sight and within weapon range.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-red-400 font-black mr-3 mt-1">•</span>
+                    <span className="text-slate-300"><span className="font-black text-red-400">Melee Combat:</span> Close-quarters combat performed when a model is adjacent (0'' range) to an enemy unit.</span>
+                  </li>
+                </ul>
+                <p className="text-slate-300 leading-relaxed">
+                  Ranged attacks can be made during a unit's activation if the target is within the weapon's range and line of sight. Melee attacks require the attacker to be in base contact with the target.
+                </p>
+              </div>
+              {/* Attack Rolls and Defense */}
+              <div className="bg-gradient-to-r from-purple-900/50 to-indigo-900/50 rounded-xl p-6 border-l-4 border-purple-500 mb-8">
+                <h3 className="text-2xl font-black text-purple-300 mb-4 tracking-wide">Attack Rolls and Defense</h3>
+                <p className="text-slate-300 mb-4 leading-relaxed">
+                  When making an attack, follow these steps:
+                </p>
+                <ol className="space-y-3 mb-4">
+                  <li className="flex items-start">
+                    <span className="text-purple-400 font-black mr-3 mt-1">1.</span>
+                    <span className="text-slate-300"><span className="font-black text-purple-400">Roll Attack Dice:</span> Roll a number of dice equal to the attacking weapon's dice pool.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-purple-400 font-black mr-3 mt-1">2.</span>
+                    <span className="text-slate-300"><span className="font-black text-purple-400">Calculate Successes:</span> Each die result of 4 or higher counts as a success, 6 counts as a Critical success and triggers weapon special rules.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-purple-400 font-black mr-3 mt-1">3.</span>
+                    <span className="text-slate-300"><span className="font-black text-purple-400">Compare to Defense:</span> The target's Defense stat reduces the number of successes from the attack.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-purple-400 font-black mr-3 mt-1">4.</span>
+                    <span className="text-slate-300"><span className="font-black text-purple-400">Apply Damage:</span> Each remaining success inflicts 1 damage, critical success 1 damage + damage according to the weapon's Crit Damage value.</span>
+                  </li>
+                </ol>
+                <p className="text-slate-300 leading-relaxed">
+                  If the attack inflicts Wounds equal to or greater than the target's current Wounds, the target is removed from play.
+                </p>
+              </div>
+              {/* Cover and Line of Sight */}
+              <div className="bg-gradient-to-r from-emerald-900/50 to-teal-900/50 rounded-xl p-6 border-l-4 border-emerald-500">
+                <h3 className="text-2xl font-black text-emerald-300 mb-4 tracking-wide">Cover and Line of Sight</h3>
+                <p className="text-slate-300 mb-4 leading-relaxed">
+                  <span className="font-black text-emerald-400">Cover</span> provides defensive bonuses and affects combat outcomes:
+                </p>
+                <ul className="space-y-2 mb-6">
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 font-black mr-3 mt-1">•</span>
+                    <span className="text-slate-300">Units fully or partially behind cover gain +1 to their Defense stat.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 font-black mr-3 mt-1">•</span>
+                    <span className="text-slate-300">Some cover may completely block line of sight and cannot be targeted unless the attacker moves around it.</span>
+                  </li>
+                </ul>
+                <p className="text-slate-300 mb-4 leading-relaxed">
+                  <span className="font-black text-emerald-400">Line of Sight (LoS)</span> determines whether an attacker can target an enemy:
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 font-black mr-3 mt-1">•</span>
+                    <span className="text-slate-300">An unobstructed straight line from any part of the attacker's base to any part of the target's base is required.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 font-black mr-3 mt-1">•</span>
+                    <span className="text-slate-300">Terrain, other units, and elevation changes can block or grant LoS.</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-emerald-400 font-black mr-3 mt-1">•</span>
+                    <span className="text-slate-300">If LoS is blocked, the attack cannot be made.</span>
+                  </li>
+                </ul>
+              </div>
+            </section>
+          )}
+          {activeTab === 'powers' && (
+            <></>
+          )}
+          {activeTab === 'damage' && (
+            <></>
           )}
         </div>
       </div>

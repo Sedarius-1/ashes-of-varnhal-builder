@@ -1,0 +1,10 @@
+[
+  { "roll": "4–6", "result": "Dead", "effect": "The unit is permanently removed from the roster." },
+  { "roll": "7–10", "result": "Crippled", "effect": "The unit survives but suffers a permanent stat penalty (–1 to Move, Defense, or Vigor, your choice)." },
+  { "roll": "11–13", "result": "Trauma", "effect": "The unit survives but begins the next game with –1 Morale and –1 Wound." },
+  { "roll": "14–17", "result": "Lingering Wound", "effect": "Misses next battle. No permanent penalty." },
+  { "roll": "18–20", "result": "Wounded", "effect": "Begins next game with –1 Wound." },
+  { "roll": "21–22", "result": "Shaken", "effect": "No physical harm, but loses 1 XP." },
+  { "roll": "23–24", "result": "Close Call", "effect": "No effect." },
+  { "roll": "25+", "result": "Steeled by Fire", "effect": "Gains +1 XP and may reroll one stat advancement in future." }
+] 

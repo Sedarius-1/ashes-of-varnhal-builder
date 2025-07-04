@@ -116,7 +116,7 @@ const createTitlePage = (pdf: jsPDF, cardCount: number) => {
   // Footer
   pdf.setFontSize(8);
   pdf.setTextColor(120, 120, 120);
-  pdf.text('Generated from Ashes of Varnhal Builder', pageWidth / 2, pageHeight - 20, { align: 'center' });
+  pdf.text('Generated from Ashes of Varnhal', pageWidth / 2, pageHeight - 20, { align: 'center' });
 };
 
 const drawCard = (pdf: jsPDF, card: FateCard, x: number, y: number, width: number, height: number) => {
@@ -355,7 +355,7 @@ const createKeywordsTitlePage = (pdf: jsPDF, abilityCount: number) => {
   // Footer
   pdf.setFontSize(8);
   pdf.setTextColor(100, 100, 100);
-  pdf.text('Generated from Ashes of Varnhal Builder', pageWidth / 2, pageHeight - 15, { align: 'center' });
+  pdf.text('Generated from Ashes of Varnhal', pageWidth / 2, pageHeight - 15, { align: 'center' });
 };
 
 const drawAbilityText = (pdf: jsPDF, ability: WeaponAbility, x: number, y: number, width: number): number => {
@@ -447,7 +447,7 @@ const createWarbandTitlePage = (pdf: jsPDF, unitCount: number) => {
   pdf.text(`Total Units: ${unitCount}`, pageWidth / 2, 120, { align: 'center' });
   pdf.setFontSize(8);
   pdf.setTextColor(120, 120, 120);
-  pdf.text('Generated from Ashes of Varnhal Builder', pageWidth / 2, pageHeight - 20, { align: 'center' });
+  pdf.text('Generated from Ashes of Varnhal', pageWidth / 2, pageHeight - 20, { align: 'center' });
 };
 
 const drawUnitCard = (pdf: jsPDF, unit: Unit, x: number, y: number, width: number, height: number) => {

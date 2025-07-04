@@ -3,8 +3,7 @@ import { useState } from 'react';
 const GAME_SETUP_TABS = [
   { key: 'overview', label: 'Overview', icon: '📋' },
   { key: 'table', label: 'Table Layout', icon: '🎯' },
-  { key: 'warband', label: 'Building Warbands', icon: '⚔️' },
-  { key: 'leaders', label: 'Leader Traits', icon: '👑' },
+  { key: 'structure', label: 'Scenario Structure', icon: '🏗️' },
   { key: 'deployment', label: 'Deployment', icon: '📍' },
 ];
 
@@ -182,178 +181,32 @@ export default function GameSetupPage() {
             </section>
           )}
 
-          {activeTab === 'warband' && (
+          {activeTab === 'structure' && (
             <section className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-8 border border-slate-700/50 backdrop-blur-sm mb-10">
-              <h2 className="text-3xl font-black text-slate-200 mb-8 flex items-center tracking-wide">
-                <span className="text-green-400 mr-3">⚔️</span>
-                Building a Warband
+              <h2 className="text-3xl font-black text-slate-200 mb-6 flex items-center tracking-wide">
+                <span className="text-emerald-400 mr-3">🏗️</span>
+                Scenario Structure
               </h2>
-              
-              <div className="space-y-8">
-                <div className="bg-gradient-to-r from-green-900/50 to-emerald-900/50 rounded-xl p-6 border-l-4 border-green-500">
-                  <p className="text-slate-300 leading-relaxed text-lg">
-                    Each player controls a warband—a small force of fighters, specialists, and veterans assembled for a mission. Warbands are built using <span className="font-black text-green-400">Creation Points (CP)</span> and gain post-battle resources in the form of <span className="font-black text-green-400">Salvage Points (SP)</span>. This section explains how to build your force from available units and weapons.
-                  </p>
-                </div>
-
-                {/* CP/SP System */}
-                <div className="bg-gradient-to-r from-blue-900/50 to-indigo-900/50 rounded-xl p-6 border-l-4 border-blue-500">
-                  <h3 className="text-2xl font-black text-blue-300 mb-4 tracking-wide">CP/SP System</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start">
-                      <span className="text-blue-400 font-black mr-3 mt-1">•</span>
-                      <span className="text-slate-300"><span className="font-black text-blue-400">Creation Points (CP):</span> Each player begins a game with a CP budget (commonly 500 CP for standard games). This total is spent to hire units and equip them with weapons and upgrades.</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-blue-400 font-black mr-3 mt-1">•</span>
-                      <span className="text-slate-300"><span className="font-black text-blue-400">Salvage Points (SP):</span> After battle, players earn SP, which represent rare salvage and post-game progression. Each 1 SP equals 10 CP and can be used to purchase upgrades, new weapons, or additional units during a campaign.</span>
-                    </li>
-                  </ul>
-                  <div className="mt-4 p-4 bg-slate-800/60 rounded-lg border border-slate-600">
-                    <p className="text-slate-300">
-                      CP is only used to build warbands before the game. SP is used after a game to modify your roster or repair and enhance units.
-                    </p>
+              <div className="space-y-6 text-slate-300 leading-relaxed">
+                <p>This section outlines the format and expectations for mission-based play. Each scenario is composed of several parts that determine how the battle unfolds and what conditions define victory.</p>
+                <div>
+                  <h3 className="text-2xl font-black text-emerald-300 mb-2 tracking-wide">Objectives, Deployment, Terrain Suggestions</h3>
+                  <div className="mb-4">
+                    <span className="font-black text-emerald-400">Objectives:</span> Each mission includes one or more objectives that define the win conditions for both players. These may involve controlling specific points, eliminating certain enemy units, retrieving salvage, or surviving a set number of rounds.
                   </div>
-                </div>
-
-                {/* Weapons and Units */}
-                <div className="bg-gradient-to-r from-purple-900/50 to-pink-900/50 rounded-xl p-6 border-l-4 border-purple-500">
-                  <h3 className="text-2xl font-black text-purple-300 mb-4 tracking-wide">Weapons and Units</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start">
-                      <span className="text-purple-400 font-black mr-3 mt-1">•</span>
-                      <span className="text-slate-300"><span className="font-black text-purple-400">Units:</span> Each warband is built by selecting units from a single faction's roster. Units have a base CP cost, which includes their core stats and any faction-specific traits.</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-purple-400 font-black mr-3 mt-1">•</span>
-                      <span className="text-slate-300"><span className="font-black text-purple-400">Weapons:</span> Weapons are purchased separately from a shared or faction-specific armory. Most units may equip one ranged and one melee weapon unless their profile states otherwise. (Every unit starts with a generic Melee weapon)</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-purple-400 font-black mr-3 mt-1">•</span>
-                      <span className="text-slate-300"><span className="font-black text-purple-400">Weapon Access:</span> Some weapons are limited to Troops or Elites, and certain advanced gear may be restricted to specific units.</span>
-                    </li>
-                  </ul>
-                  <div className="mt-4 p-4 bg-slate-800/60 rounded-lg border border-slate-600">
-                    <p className="text-slate-300">
-                      Each unit entry in a roster will indicate allowed weapon types, available upgrades, and unique traits.
-                    </p>
+                  <div className="mb-4">
+                    <span className="font-black text-emerald-400">Deployment:</span> Deployment zones are clearly marked in each scenario and determine where players may place their units at the start of the game. Deployment rules also dictate who deploys first and how alternating unit placement occurs.
                   </div>
-                </div>
-
-                {/* Restrictions and Limits */}
-                <div className="bg-gradient-to-r from-red-900/50 to-pink-900/50 rounded-xl p-6 border-l-4 border-red-500">
-                  <h3 className="text-2xl font-black text-red-300 mb-4 tracking-wide">Restrictions and Unit Limits</h3>
-                  <p className="text-slate-300 mb-4 leading-relaxed">
-                    To maintain balance and diversity in warbands, the following limits apply:
-                  </p>
-                  <ul className="space-y-4">
-                    <li className="flex items-start">
-                      <span className="text-red-400 font-black mr-3 mt-1">•</span>
-                      <div className="text-slate-300">
-                        <span className="font-black text-red-400">Troops and Elites:</span> Warbands are built using two categories of units — Troops and Elites.
-                        <ul className="mt-2 ml-6 space-y-1">
-                          <li className="flex items-start">
-                            <span className="text-red-400 font-black mr-2 mt-1">-</span>
-                            <span className="text-slate-300"><span className="font-black text-red-400">Troops:</span> Basic fighters. Usually make up the majority of a warband.</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="text-red-400 font-black mr-2 mt-1">-</span>
-                            <span className="text-slate-300"><span className="font-black text-red-400">Elites:</span> Advanced or specialized units.</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-400 font-black mr-3 mt-1">•</span>
-                      <span className="text-slate-300"><span className="font-black text-red-400">Maximum Units:</span> A warband may not exceed 15 units in standard play. Scenario rules may override this.</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-400 font-black mr-3 mt-1">•</span>
-                      <span className="text-slate-300"><span className="font-black text-red-400">Hero Units:</span> Some special units are not available by default and must be unlocked via scenario rewards or campaign events.</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-red-400 font-black mr-3 mt-1">•</span>
-                      <span className="text-slate-300"><span className="font-black text-red-400">Leaders:</span> One Elite unit must be designated as the warband's Leader. That unit gains access to a special trait or aura depending on the faction.</span>
-                    </li>
-                  </ul>
-                  <div className="mt-4 p-4 bg-slate-800/60 rounded-lg border border-slate-600">
-                    <p className="text-slate-300">
-                      Players are encouraged to build warbands that reflect their faction's character—whether disciplined nobility, frenzied ferals, or cunning tacticians.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </section>
-          )}
-
-          {activeTab === 'leaders' && (
-            <section className="bg-gradient-to-r from-slate-800/80 to-slate-900/80 rounded-2xl shadow-2xl p-8 border border-slate-700/50 backdrop-blur-sm mb-10">
-              <h2 className="text-3xl font-black text-slate-200 mb-8 flex items-center tracking-wide">
-                <span className="text-green-400 mr-3">👑</span>
-                Leader Traits and Tactical Directives
-              </h2>
-              
-              <div className="space-y-8">
-                <div className="bg-gradient-to-r from-amber-900/50 to-orange-900/50 rounded-xl p-6 border-l-4 border-amber-500">
-                  <p className="text-slate-300 leading-relaxed text-lg">
-                    In each game, one of your warband's eligible units is designated as the <span className="font-black text-amber-400">Leader</span>. This model does not receive any bonus to stats or cost unless otherwise noted, but gains access to either a permanent <span className="italic">Leader Trait</span> or a powerful, one-use <span className="italic">Tactical Directive</span>.
-                  </p>
-                </div>
-
-                {/* Leader Traits */}
-                <div className="bg-gradient-to-r from-blue-900/50 to-indigo-900/50 rounded-xl p-6 border-l-4 border-blue-500">
-                  <h3 className="text-2xl font-black text-blue-300 mb-4 tracking-wide">Leader Traits</h3>
-                  <p className="text-slate-300 mb-4 leading-relaxed">
-                    Each faction comes with a unique <span className="font-black text-blue-400">Leader Trait</span>, representing that faction's philosophy and style of command. Leader Traits are passive or aura-based rules that remain active throughout the game. They typically provide synergy for units near the Leader and reward cohesive positioning and strategic planning.
-                  </p>
-                  <div className="bg-slate-800/60 rounded-lg p-4 border border-slate-600">
-                    <p className="text-slate-300">
-                      A Leader Trait is the default rule your Leader has unless replaced by a Tactical Directive.
-                    </p>
-                  </div>
-                  <div className="mt-4 p-4 bg-emerald-900/30 rounded-lg border border-emerald-500/30">
-                    <p className="text-slate-300 italic">
-                      <span className="font-black text-emerald-400">Example:</span> House Kaevaryn's <span className="font-black text-emerald-400">Banner of Resolve</span> grants all friendly units within 6'' +1 Morale and allows a reroll on one attack die per activation. Once per turn, the first attack by an affected unit may be immediately followed by a second attack.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Tactical Directives */}
-                <div className="bg-gradient-to-r from-purple-900/50 to-pink-900/50 rounded-xl p-6 border-l-4 border-purple-500">
-                  <h3 className="text-2xl font-black text-purple-300 mb-4 tracking-wide">Tactical Directives</h3>
-                  <p className="text-slate-300 mb-4 leading-relaxed">
-                    Before each game begins, instead of using the standard Leader Trait, a player may choose to replace it with a <span className="font-black text-purple-400">Tactical Directive</span>. These are powerful, one-time effects that reflect a moment of decisive command or battlefield gambit.
-                  </p>
-                  <p className="text-slate-300 mb-4 leading-relaxed">
-                    Tactical Directives can only be used once per game, and only by the Leader. They are declared and resolved as instructed—often at the start of a round, during activation, or in response to a specific condition. Once used, the Leader no longer benefits from their standard Leader Trait for the remainder of the game.
-                  </p>
-                  <div className="mt-4 p-4 bg-emerald-900/30 rounded-lg border border-emerald-500/30">
-                    <p className="text-slate-300 italic mb-4">
-                      <span className="font-black text-emerald-400">Example Tactical Directives:</span>
-                    </p>
-                    <ul className="space-y-2">
-                      <li className="flex items-start">
-                        <span className="text-emerald-400 font-black mr-3 mt-1">•</span>
-                        <span className="text-slate-300"><span className="font-black text-emerald-400">Tactical Discipline</span> (House Kaevaryn): All friendly Troopers within 6'' of the Leader gain re-roll on all Attacks rolls during Round 1.</span>
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-emerald-400 font-black mr-3 mt-1">•</span>
-                        <span className="text-slate-300"><span className="font-black text-emerald-400">Knight's Gambit</span> (House Kaevaryn): Once per game, after a Kaevaryn unit finishes its activation, immediately activate a second friendly unit.</span>
-                      </li>
+                  <div className="mb-4">
+                    <span className="font-black text-emerald-400">Terrain Suggestions:</span> A 3'x3' battlefield is the standard format. Terrain should be dense and varied, representing the ruined, overgrown, or industrially scorched zones typical of the setting. Use a mix of:
+                    <ul className="list-disc list-inside ml-6 mt-2">
+                      <li><span className="italic text-cyan-300">Blocking Terrain</span> — impassable and breaks line of sight (e.g., ruined walls, collapsed structures)</li>
+                      <li><span className="italic text-cyan-300">Cover Terrain</span> — provides defensive bonuses when obscuring the attacker's view (e.g., crates, broken machinery)</li>
+                      <li><span className="italic text-cyan-300">Elevated Terrain</span> — gives vantage points with tactical advantages, usable by climbing</li>
                     </ul>
                   </div>
-                </div>
-
-                {/* Choosing Between */}
-                <div className="bg-gradient-to-r from-red-900/50 to-pink-900/50 rounded-xl p-6 border-l-4 border-red-500">
-                  <h3 className="text-2xl font-black text-red-300 mb-4 tracking-wide">Choosing Between Trait or Directive</h3>
-                  <p className="text-slate-300 mb-4 leading-relaxed">
-                    Leader Traits offer consistent benefits across the battle, rewarding longer-term positioning and synergy. Tactical Directives, on the other hand, are impactful gambits—ideal for disrupting enemy tempo or seizing a critical moment. Players must decide which best suits their plan for the coming battle.
-                  </p>
-                  <div className="mt-4 p-4 bg-red-900/30 rounded-lg border border-red-500/30">
-                    <p className="text-slate-300 font-black">
-                      You must choose either your faction's Leader Trait or one of its Tactical Directives before the game begins. This choice cannot be changed mid-game.
-                    </p>
+                  <div>
+                    Each scenario may offer specific guidance or exceptions to terrain setup based on the narrative or balance requirements.
                   </div>
                 </div>
               </div>

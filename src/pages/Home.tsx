@@ -539,11 +539,62 @@ export function LoreFactionArticlePage() {
                     {factionName}
                 </h1>
                 <div className="space-y-8">
-                    {faction.wiki.map((section, i) => (
+                    {faction.wiki
+                      .filter((section: any) => {
+                        // Only render sections that have at least some content, regions, or table
+                        const hasContent = Array.isArray(section.content) && section.content.length > 0 && section.content.some((c: string) => c.trim() !== '');
+                        const hasRegions = Array.isArray(section.regions) && section.regions.length > 0;
+                        const hasTable = Array.isArray(section.table) && section.table.length > 0;
+                        return hasContent || hasRegions || hasTable;
+                      })
+                      .map((section: any, i: number) => (
                         <section key={i}>
                             <h2 className="text-xl md:text-2xl font-bold text-slate-200 mb-2">{section.title}</h2>
                             <div className="space-y-3 text-slate-200 text-base md:text-lg leading-relaxed">
-                                {section.content.map((para, j) => <p key={j}>{para}</p>)}
+                                {/* Render content paragraphs if present */}
+                                {Array.isArray(section.content) && section.content.map((para: string, j: number) => <p key={j}>{para}</p>)}
+                                {/* Render regions if present and non-empty */}
+                                {Array.isArray(section.regions) && section.regions.length > 0 && (
+                                  <div className="grid gap-4 md:grid-cols-2 mt-4">
+                                    {section.regions.map((region: any, idx: number) => (
+                                      <div key={idx} className="bg-slate-800/70 border border-slate-700 rounded-lg p-4">
+                                        <div className="flex items-center gap-2 mb-1">
+                                          {region.icon && <span className="text-2xl">{region.icon}</span>}
+                                          <span className="font-black text-amber-300 text-lg">{region.title}</span>
+                                        </div>
+                                        <div className="text-slate-300 text-base">{region.text}</div>
+                                        {region.list && Array.isArray(region.list) && (
+                                          <ul className="list-disc ml-6 mt-2 text-slate-400 text-sm">
+                                            {region.list.map((item: any, li: number) => <li key={li}>{item}</li>)}
+                                          </ul>
+                                        )}
+                                      </div>
+                                    ))}
+                                  </div>
+                                )}
+                                {/* Render table if present */}
+                                {Array.isArray(section.table) && section.table.length > 0 && (
+                                  <div className="overflow-x-auto mt-4">
+                                    <table className="min-w-full border border-slate-700 bg-slate-800/70 rounded-lg">
+                                      <thead>
+                                        <tr>
+                                          {Object.keys(section.table[0]).map((col: string, ci: number) => (
+                                            <th key={ci} className="px-4 py-2 text-amber-300 font-black border-b border-slate-700 text-left">{col}</th>
+                                          ))}
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        {section.table.map((row: any, ri: number) => (
+                                          <tr key={ri} className="border-b border-slate-700 hover:bg-slate-700/30">
+                                            {Object.values(row).map((val: any, vi: number) => (
+                                              <td key={vi} className="px-4 py-2 text-slate-200 align-top">{val}</td>
+                                            ))}
+                                          </tr>
+                                        ))}
+                                      </tbody>
+                                    </table>
+                                  </div>
+                                )}
                             </div>
                         </section>
                     ))}

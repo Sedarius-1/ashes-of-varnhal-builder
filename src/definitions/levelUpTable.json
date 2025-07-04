@@ -1,0 +1,23 @@
+[
+  { "roll": 4, "result": "Unexpected Instinct", "effect": "+1 Move (max 8'')" },
+  { "roll": 5, "result": "Veteran of Dust", "effect": "+1 Morale (max 7)" },
+  { "roll": 6, "result": "Tireless Engine", "effect": "+1 Vigour (max 6)" },
+  { "roll": 7, "result": "Sharpened Edge", "effect": "+1 to Melee Attack Dice (once per activation)" },
+  { "roll": 8, "result": "Honed Reflexes", "effect": "+1 Defense (max 5)" },
+  { "roll": 9, "result": "Tracker's Intuition", "effect": "Gains Ignore Cover when Shooting" },
+  { "roll": 10, "result": "Hardened Resolve", "effect": "+1 Resolve (max 4)" },
+  { "roll": 11, "result": "Quickdraw", "effect": "May draw Line of Sight through 1 terrain piece per round" },
+  { "roll": 12, "result": "Deadeye", "effect": "Ranged Critical hits deal +1 extra damage" },
+  { "roll": 13, "result": "Grizzled Veteran", "effect": "Ignore the Wounds inflicted by first attack suffered each game" },
+  { "roll": 14, "result": "Adaptive Reflexes", "effect": "Gains 'Dodge' as a free action once per game" },
+  { "roll": 15, "result": "Heavy Step", "effect": "Melee Attacks made after moving deal +1 damage" },
+  { "roll": 16, "result": "Iron Will", "effect": "Gains reroll on failed Morale tests" },
+  { "roll": 17, "result": "Weapon Mastery", "effect": "May equip one additional weapon (up to 3 max)" },
+  { "roll": 18, "result": "Battle Scars", "effect": "Gains a permanent +1 Action on Round 1 only" },
+  { "roll": 19, "result": "Overcharger", "effect": "If unit has Power stat > 0, gain +1 Power, else reroll" },
+  { "roll": 20, "result": "Resilient Core", "effect": "The first time reduced to 0 Wounds, survive with 1 instead" },
+  { "roll": 21, "result": "Augmented Targeting", "effect": "Ranged attacks ignore penalties from Obscured targets" },
+  { "roll": 22, "result": "Aggression Protocol", "effect": "Gains +1 Attack die when charging" },
+  { "roll": 23, "result": "Staggering Impact", "effect": "Melee Crits now inflict Stun" },
+  { "roll": 24, "result": "Legend in Ash", "effect": "Gain a faction-specific Trait (or reroll if not yet implemented)" }
+] 
