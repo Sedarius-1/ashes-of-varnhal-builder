@@ -47,12 +47,20 @@ export function pageview(url: string) {
   });
 }
 
-export function updateAnalyticsConsent(granted: boolean) {
-  if (!window.gtag) {
-    console.warn('window.gtag is not defined when trying to update consent!');
-    return;
+function waitForGtag(callback: () => void, retries = 10) {
+  if (typeof window.gtag === 'function') {
+    callback();
+  } else if (retries > 0) {
+    setTimeout(() => waitForGtag(callback, retries - 1), 200);
+  } else {
+    console.warn('window.gtag is not defined after waiting!');
   }
-  window.gtag('consent', 'update', {
-    analytics_storage: granted ? 'granted' : 'denied',
+}
+
+export function updateAnalyticsConsent(granted: boolean) {
+  waitForGtag(() => {
+    window.gtag('consent', 'update', {
+      analytics_storage: granted ? 'granted' : 'denied',
+    });
   });
 } 

@@ -102,11 +102,11 @@ export default function CampaignsPage() {
       const newWarband = await createWarband(warband, user.uid);
       setCampaignWarbands(prev => [...prev, newWarband]);
       return newWarband;
-    } catch (error) {
+      } catch (error) {
       console.error('Failed to create warband:', error);
       setError('Failed to create warband. Please try again.');
       throw error;
-    }
+      }
   };
 
   // Delete warband from Firestore
@@ -365,7 +365,7 @@ export default function CampaignsPage() {
               </button>
             </div>
           )}
-
+          
           {/* Warband Selection */}
           <div className="mb-6 sm:mb-8">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2 sm:gap-0">

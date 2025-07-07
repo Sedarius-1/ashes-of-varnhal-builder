@@ -62,14 +62,14 @@ const AddWarbandModal: React.FC<AddWarbandModalProps> = ({
                 if (name.trim() && newWarbandFaction) {
                   try {
                     const newWarband: Omit<Warband, 'id'> = {
-                      name: name.trim(),
-                      faction: newWarbandFaction,
-                      units: [],
-                      cp: cp
-                    };
+                    name: name.trim(),
+                    faction: newWarbandFaction,
+                    units: [],
+                    cp: cp
+                  };
                     await createNewWarband(newWarband);
-                    setShowAddWarbandModal(false);
-                    setNewWarbandFaction(null);
+                  setShowAddWarbandModal(false);
+                  setNewWarbandFaction(null);
                   } catch (error) {
                     console.error('Failed to create warband:', error);
                     alert('Failed to create warband. Please try again.');
