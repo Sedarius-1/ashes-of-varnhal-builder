@@ -15,6 +15,7 @@ export interface GameResult {
 }
 
 export interface Warband {
+    id?: string; // Firestore document ID
     name: string;
     faction: Faction | null;
     units: Unit[];

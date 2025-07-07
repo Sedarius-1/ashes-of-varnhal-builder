@@ -7,7 +7,7 @@ interface AddUnitModalProps {
   selectedWarbandIndex: number;
   campaignWarbands: Warband[];
   unitDefs: Record<string, any[]>;
-  addUnitToWarband: (warbandIndex: number, unit: Unit) => boolean;
+  addUnitToWarband: (warbandIndex: number, unit: Unit) => Promise<boolean>;
   setShowAddUnitModal: (show: boolean) => void;
 }
 
@@ -39,7 +39,7 @@ const AddUnitModal: React.FC<AddUnitModalProps> = ({
                 {unitDefs[warband.faction]?.map((unitTemplate: any, index: number) => (
                   <div
                     key={index}
-                    onClick={() => {
+                    onClick={async () => {
                       const newUnit: Unit = {
                         ...unitTemplate,
                         id: Date.now().toString() + index,
@@ -50,7 +50,8 @@ const AddUnitModal: React.FC<AddUnitModalProps> = ({
                         injuries: [],
                         levelUpAbilities: []
                       };
-                      if (addUnitToWarband(selectedWarbandIndex, newUnit)) {
+                      const success = await addUnitToWarband(selectedWarbandIndex, newUnit);
+                      if (success) {
                         setShowAddUnitModal(false);
                       } else {
                         alert('Not enough CP to add this unit!');

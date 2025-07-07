@@ -7,6 +7,10 @@ import peopleData from '../definitions/people.json';
 import eventsData from '../definitions/events.json';
 import artifactsData from '../definitions/artifacts.json';
 import termsData from '../definitions/terms.json';
+import { useAuth } from '../contexts/AuthContext';
+import { signOutUser } from '../firebase/auth';
+import { LoginModal } from './auth/LoginModal';
+import { SignUpModal } from './auth/SignUpModal';
 
 interface SearchResult {
     type: 'faction' | 'wiki' | 'location' | 'person' | 'event' | 'artifact' | 'term';
@@ -19,8 +23,12 @@ const Topbar = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
     const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
+    const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+    const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
+    const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
     const searchInputRef = useRef<HTMLInputElement>(null);
     const navigate = useNavigate();
+    const { user } = useAuth();
 
     // Search through all factions (top-level keys only) and main article names for locations, people, events, artifacts, terms (top-level 'title' only)
     const performSearch = (query: string): SearchResult[] => {
@@ -131,6 +139,15 @@ const Topbar = () => {
         setSearchQuery('');
     };
 
+    const handleSignOut = async () => {
+        try {
+            await signOutUser();
+            setIsUserMenuOpen(false);
+        } catch (error) {
+            console.error('Sign out error:', error);
+        }
+    };
+
     return (
         <>
             <header className="bg-gradient-to-r from-slate-900 via-gray-900 to-black text-amber-200 px-4 md:px-8 py-3 md:py-5 shadow-2xl border-b-2 border-amber-700/40 flex items-center justify-between z-10 relative">
@@ -141,14 +158,56 @@ const Topbar = () => {
             </h1>
         </div>
                 
-                {/* Search Button */}
-                <button
-                    onClick={handleSearchClick}
-                    className="flex items-center gap-2 px-3 md:px-4 py-2 bg-slate-800/80 border border-slate-600 rounded-lg text-slate-200 hover:bg-slate-700/80 transition-colors"
-                >
-                    <span className="text-slate-400">🔍</span>
-                    <span className="hidden md:inline text-sm">Search</span>
-                </button>
+                <div className="flex items-center gap-2">
+                    {/* Search Button */}
+                    <button
+                        onClick={handleSearchClick}
+                        className="flex items-center gap-2 px-3 md:px-4 py-2 bg-slate-800/80 border border-slate-600 rounded-lg text-slate-200 hover:bg-slate-700/80 transition-colors"
+                    >
+                        <span className="text-slate-400">🔍</span>
+                        <span className="hidden md:inline text-sm">Search</span>
+                    </button>
+
+                    {/* Auth Buttons */}
+                    {user ? (
+                        <div className="relative">
+                            <button
+                                onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
+                                className="flex items-center gap-2 px-3 md:px-4 py-2 bg-amber-600/80 border border-amber-500 rounded-lg text-white hover:bg-amber-700/80 transition-colors"
+                            >
+                                <span>👤</span>
+                                <span className="hidden md:inline text-sm">{user.email}</span>
+                                <span>▼</span>
+                            </button>
+                            
+                            {isUserMenuOpen && (
+                                <div className="absolute right-0 mt-2 w-48 bg-slate-800 border border-slate-600 rounded-lg shadow-lg z-20">
+                                    <button
+                                        onClick={handleSignOut}
+                                        className="w-full px-4 py-2 text-left text-slate-200 hover:bg-slate-700 transition-colors"
+                                    >
+                                        Sign Out
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    ) : (
+                        <div className="flex gap-2">
+                            <button
+                                onClick={() => setIsLoginModalOpen(true)}
+                                className="px-3 md:px-4 py-2 bg-slate-700/80 border border-slate-600 rounded-lg text-slate-200 hover:bg-slate-600/80 transition-colors text-sm"
+                            >
+                                Sign In
+                            </button>
+                            <button
+                                onClick={() => setIsSignUpModalOpen(true)}
+                                className="px-3 md:px-4 py-2 bg-amber-600/80 border border-amber-500 rounded-lg text-white hover:bg-amber-700/80 transition-colors text-sm"
+                            >
+                                Sign Up
+                            </button>
+                        </div>
+                    )}
+                </div>
     </header>
 
             {/* Search Modal */}
@@ -244,6 +303,25 @@ const Topbar = () => {
                     </div>
                 </div>
             )}
+
+            {/* Auth Modals */}
+            <LoginModal
+                isOpen={isLoginModalOpen}
+                onClose={() => setIsLoginModalOpen(false)}
+                onSwitchToSignUp={() => {
+                    setIsLoginModalOpen(false);
+                    setIsSignUpModalOpen(true);
+                }}
+            />
+            
+            <SignUpModal
+                isOpen={isSignUpModalOpen}
+                onClose={() => setIsSignUpModalOpen(false)}
+                onSwitchToLogin={() => {
+                    setIsSignUpModalOpen(false);
+                    setIsLoginModalOpen(true);
+                }}
+            />
         </>
     );
 };

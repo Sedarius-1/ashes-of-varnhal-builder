@@ -9,8 +9,7 @@ interface AddWarbandModalProps {
   newWarbandFaction: Faction | null;
   setNewWarbandFaction: (f: Faction | null) => void;
   setShowAddWarbandModal: (show: boolean) => void;
-  setCampaignWarbands: (warbands: Warband[]) => void;
-  campaignWarbands: Warband[];
+  createNewWarband: (warband: Omit<Warband, 'id'>) => Promise<Warband>;
 }
 
 const AddWarbandModal: React.FC<AddWarbandModalProps> = ({
@@ -19,8 +18,7 @@ const AddWarbandModal: React.FC<AddWarbandModalProps> = ({
   newWarbandFaction,
   setNewWarbandFaction,
   setShowAddWarbandModal,
-  setCampaignWarbands,
-  campaignWarbands
+  createNewWarband
 }) => {
   if (!show) return null;
   return (
@@ -58,19 +56,24 @@ const AddWarbandModal: React.FC<AddWarbandModalProps> = ({
           </div>
           <div className="flex gap-4 pt-4">
             <button
-              onClick={() => {
+              onClick={async () => {
                 const name = (document.getElementById('warband-name') as HTMLInputElement).value;
                 const cp = parseInt((document.getElementById('warband-cp') as HTMLInputElement).value) || 500;
                 if (name.trim() && newWarbandFaction) {
-                  const newWarband: Warband = {
-                    name: name.trim(),
-                    faction: newWarbandFaction,
-                    units: [],
-                    cp: cp
-                  };
-                  setCampaignWarbands([...campaignWarbands, newWarband]);
-                  setShowAddWarbandModal(false);
-                  setNewWarbandFaction(null);
+                  try {
+                    const newWarband: Omit<Warband, 'id'> = {
+                      name: name.trim(),
+                      faction: newWarbandFaction,
+                      units: [],
+                      cp: cp
+                    };
+                    await createNewWarband(newWarband);
+                    setShowAddWarbandModal(false);
+                    setNewWarbandFaction(null);
+                  } catch (error) {
+                    console.error('Failed to create warband:', error);
+                    alert('Failed to create warband. Please try again.');
+                  }
                 }
               }}
               disabled={!newWarbandFaction}

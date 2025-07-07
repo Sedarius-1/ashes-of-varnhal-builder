@@ -20,8 +20,11 @@ import WeaponModal from '../components/campaign/WeaponModal';
 import LevelUpModal from '../components/campaign/LevelUpModal';
 import UnitDetailsModal from '../components/campaign/UnitDetailsModal';
 import { downloadWarbandPDF } from '../utils/pdfGenerator';
+import { useAuth } from '../contexts/AuthContext';
+import { getWarbands, createWarband, updateWarband, deleteWarband } from '../firebase/firestore';
 
 export default function CampaignsPage() {
+  const { user } = useAuth();
   
   // Campaign tracking state
   const [campaignWarbands, setCampaignWarbands] = useState<Warband[]>([]);
@@ -44,6 +47,8 @@ export default function CampaignsPage() {
   const [opponentName, setOpponentName] = useState("");
   const [enemyCP, setEnemyCP] = useState("");
   const [enemyFaction, setEnemyFaction] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -51,22 +56,71 @@ export default function CampaignsPage() {
   const unitDefs: Record<Faction, Omit<Unit, 'id' | 'cost' | 'selectedWeapons'>[]> = unitsJson as Record<Faction, Omit<Unit, 'id' | 'cost' | 'selectedWeapons'>[]>;
   const weaponsData: Record<Faction, Weapon[]> = weaponsJson as Record<Faction, Weapon[]>;
 
-  // Load campaign data from localStorage on component mount
+  // Load warbands from Firestore when user is authenticated
   useEffect(() => {
-    const savedCampaigns = localStorage.getItem('campaignWarbands');
-    if (savedCampaigns) {
-      try {
-        setCampaignWarbands(JSON.parse(savedCampaigns));
-      } catch (error) {
-        console.error('Failed to load campaign data:', error);
-      }
+    if (user) {
+      loadWarbands();
+    } else {
+      setCampaignWarbands([]);
     }
-  }, []);
+  }, [user]);
 
-  // Save campaign data to localStorage whenever it changes
-  useEffect(() => {
-    localStorage.setItem('campaignWarbands', JSON.stringify(campaignWarbands));
-  }, [campaignWarbands]);
+  const loadWarbands = async () => {
+    if (!user) return;
+    
+    setLoading(true);
+    setError(null);
+    
+    try {
+      const warbands = await getWarbands(user.uid);
+      setCampaignWarbands(warbands);
+    } catch (error) {
+      console.error('Failed to load warbands:', error);
+      setError('Failed to load warbands. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Save warband changes to Firestore
+  const saveWarband = async (warband: Warband) => {
+    if (!user || !warband.id) return;
+    
+    try {
+      await updateWarband(warband.id, warband);
+    } catch (error) {
+      console.error('Failed to save warband:', error);
+      setError('Failed to save warband. Please try again.');
+    }
+  };
+
+  // Create new warband in Firestore
+  const createNewWarband = async (warband: Omit<Warband, 'id'>): Promise<Warband> => {
+    if (!user) throw new Error('User not authenticated');
+    
+    try {
+      const newWarband = await createWarband(warband, user.uid);
+      setCampaignWarbands(prev => [...prev, newWarband]);
+      return newWarband;
+    } catch (error) {
+      console.error('Failed to create warband:', error);
+      setError('Failed to create warband. Please try again.');
+      throw error;
+    }
+  };
+
+  // Delete warband from Firestore
+  const deleteWarbandFromFirestore = async (warbandId: string) => {
+    if (!user) return;
+    
+    try {
+      await deleteWarband(warbandId);
+      setCampaignWarbands(prev => prev.filter(w => w.id !== warbandId));
+    } catch (error) {
+      console.error('Failed to delete warband:', error);
+      setError('Failed to delete warband. Please try again.');
+    }
+  };
 
   // Helper functions
   const calculateLevel = (xp: number): number => {
@@ -88,7 +142,7 @@ export default function CampaignsPage() {
     return isUnitDead(unit);
   };
 
-  const addUnitToWarband = (warbandIndex: number, unit: Unit) => {
+  const addUnitToWarband = async (warbandIndex: number, unit: Unit) => {
     const newWarbands = [...campaignWarbands];
     const warband = newWarbands[warbandIndex];
     const unitCost = unit.cost || unit.baseCost || 0;
@@ -103,6 +157,11 @@ export default function CampaignsPage() {
       });
       warband.cp -= unitCost;
       setCampaignWarbands(newWarbands);
+      
+      // Save to Firestore
+      if (warband.id) {
+        await saveWarband(warband);
+      }
       return true;
     }
     return false;
@@ -282,6 +341,27 @@ export default function CampaignsPage() {
             Warband Tracker
           </h2>
           
+          {/* Loading and Error States */}
+          {loading && (
+            <div className="text-center py-8 bg-slate-800/60 rounded-xl border border-slate-600 mb-6">
+              <div className="text-slate-400 text-lg mb-2">Loading warbands...</div>
+              <div className="animate-spin text-amber-400 text-2xl">⚔️</div>
+            </div>
+          )}
+          
+          {error && (
+            <div className="bg-red-900/50 border border-red-700/50 text-red-300 px-4 py-3 rounded-lg mb-6">
+              <div className="font-bold mb-1">Error</div>
+              <div>{error}</div>
+              <button
+                onClick={() => setError(null)}
+                className="text-red-400 hover:text-red-300 text-sm mt-2"
+              >
+                Dismiss
+              </button>
+            </div>
+          )}
+
           {/* Warband Selection */}
           <div className="mb-6 sm:mb-8">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-2 sm:gap-0">
@@ -354,7 +434,12 @@ export default function CampaignsPage() {
               </div>
             </div>
             
-            {campaignWarbands.length === 0 ? (
+            {!user ? (
+              <div className="text-center py-8 sm:py-12 bg-slate-800/60 rounded-xl border border-slate-600">
+                <p className="text-slate-400 text-base sm:text-lg mb-2 sm:mb-4">Please sign in to manage your warbands</p>
+                <p className="text-slate-500 text-sm sm:text-base">Your warbands will be saved to the cloud</p>
+              </div>
+            ) : campaignWarbands.length === 0 ? (
               <div className="text-center py-8 sm:py-12 bg-slate-800/60 rounded-xl border border-slate-600">
                 <p className="text-slate-400 text-base sm:text-lg mb-2 sm:mb-4">No warbands in campaign yet</p>
                 <p className="text-slate-500 text-sm sm:text-base">Add a warband to start tracking your campaign progress</p>
@@ -488,8 +573,7 @@ export default function CampaignsPage() {
           newWarbandFaction={newWarbandFaction}
           setNewWarbandFaction={setNewWarbandFaction}
           setShowAddWarbandModal={setShowAddWarbandModal}
-          setCampaignWarbands={setCampaignWarbands}
-          campaignWarbands={campaignWarbands}
+          createNewWarband={createNewWarband}
         />
 
         {/* Add Unit Modal */}
