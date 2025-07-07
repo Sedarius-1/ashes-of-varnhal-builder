@@ -19,8 +19,7 @@ export default function CookieConsent({ onConsent }: { onConsent: () => void }) 
     const consent = localStorage.getItem(COOKIE_KEY);
     if (!consent) setVisible(true);
     else if (consent === 'granted') {
-      updateAnalyticsConsent(true);
-      onConsent();
+      updateAnalyticsConsent(true).then(onConsent);
     }
     else if (consent === 'denied') {
       updateAnalyticsConsent(false);
@@ -31,8 +30,7 @@ export default function CookieConsent({ onConsent }: { onConsent: () => void }) 
   const handleAccept = () => {
     localStorage.setItem(COOKIE_KEY, 'granted');
     setVisible(false);
-    updateAnalyticsConsent(true);
-    onConsent();
+    updateAnalyticsConsent(true).then(onConsent);
   };
 
   const handleDecline = () => {
