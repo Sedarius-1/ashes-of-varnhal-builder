@@ -12,19 +12,22 @@ const AnalyticsListener = () => {
     setConsent(localStorage.getItem(COOKIE_KEY));
   }, []);
 
-  useEffect(() => {
-    if (consent === 'granted') {
-      initGA();
+  // Helper to send pageview only when gtag is ready
+  const sendPageviewWhenReady = (url: string) => {
+    if (typeof window.gtag === 'function') {
+      pageview(url);
+    } else {
+      setTimeout(() => sendPageviewWhenReady(url), 200);
     }
-    // If denied, do not init analytics
-  }, [consent]);
+  };
 
   useEffect(() => {
     if (consent === 'granted') {
-      pageview(location.pathname + location.search);
+      initGA();
+      sendPageviewWhenReady(location.pathname + location.search);
     }
-    // If denied, do not send pageview
-  }, [location, consent]);
+    // If denied, do not init analytics or send pageview
+  }, [consent, location]);
 
   return null;
 };
