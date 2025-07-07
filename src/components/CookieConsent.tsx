@@ -1,5 +1,10 @@
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
+
 import { useState, useEffect } from 'react';
-import { updateAnalyticsConsent } from '../utils/analytics';
 
 const COOKIE_KEY = 'analytics_consent';
 
@@ -12,6 +17,14 @@ function clearAllCookies() {
   });
 }
 
+function pushConsentToDataLayer(granted: boolean) {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'consent_update',
+    analytics_storage: granted ? 'granted' : 'denied',
+  });
+}
+
 export default function CookieConsent({ onConsent }: { onConsent: () => void }) {
   const [visible, setVisible] = useState(false);
 
@@ -19,10 +32,11 @@ export default function CookieConsent({ onConsent }: { onConsent: () => void }) 
     const consent = localStorage.getItem(COOKIE_KEY);
     if (!consent) setVisible(true);
     else if (consent === 'granted') {
-      updateAnalyticsConsent(true).then(onConsent);
+      pushConsentToDataLayer(true);
+      onConsent();
     }
     else if (consent === 'denied') {
-      updateAnalyticsConsent(false);
+      pushConsentToDataLayer(false);
       clearAllCookies();
     }
   }, [onConsent]);
@@ -30,13 +44,14 @@ export default function CookieConsent({ onConsent }: { onConsent: () => void }) 
   const handleAccept = () => {
     localStorage.setItem(COOKIE_KEY, 'granted');
     setVisible(false);
-    updateAnalyticsConsent(true).then(onConsent);
+    pushConsentToDataLayer(true);
+    onConsent();
   };
 
   const handleDecline = () => {
     localStorage.setItem(COOKIE_KEY, 'denied');
     setVisible(false);
-    updateAnalyticsConsent(false);
+    pushConsentToDataLayer(false);
     clearAllCookies();
   };
 

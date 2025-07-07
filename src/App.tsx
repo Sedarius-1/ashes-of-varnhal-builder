@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AnalyticsListener from './components/AnalyticsListener';
 import CookieConsent from './components/CookieConsent';
 
 import Layout from './components/Layout';
@@ -26,7 +25,6 @@ function App() {
         <AuthProvider>
             <Router basename="/">
                 <CookieConsent onConsent={() => {}} />
-                <AnalyticsListener />
                 <ScrollToTop />
                 <Layout>
                     <Routes>
