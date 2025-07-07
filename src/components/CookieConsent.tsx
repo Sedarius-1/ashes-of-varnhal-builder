@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { updateAnalyticsConsent } from '../utils/analytics';
 
 const COOKIE_KEY = 'analytics_consent';
 
@@ -17,19 +18,27 @@ export default function CookieConsent({ onConsent }: { onConsent: () => void }) 
   useEffect(() => {
     const consent = localStorage.getItem(COOKIE_KEY);
     if (!consent) setVisible(true);
-    else if (consent === 'granted') onConsent();
-    else if (consent === 'denied') clearAllCookies();
+    else if (consent === 'granted') {
+      updateAnalyticsConsent(true);
+      onConsent();
+    }
+    else if (consent === 'denied') {
+      updateAnalyticsConsent(false);
+      clearAllCookies();
+    }
   }, [onConsent]);
 
   const handleAccept = () => {
     localStorage.setItem(COOKIE_KEY, 'granted');
     setVisible(false);
+    updateAnalyticsConsent(true);
     onConsent();
   };
 
   const handleDecline = () => {
     localStorage.setItem(COOKIE_KEY, 'denied');
     setVisible(false);
+    updateAnalyticsConsent(false);
     clearAllCookies();
   };
 

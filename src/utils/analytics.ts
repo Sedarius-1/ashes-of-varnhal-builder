@@ -30,6 +30,9 @@ export function initGA() {
   script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
   document.head.appendChild(script);
 
+  // Set default consent to denied until user makes a choice
+  window.gtag('consent', 'default', { analytics_storage: 'denied' });
+
   window.gtag('js', new Date());
   window.gtag('config', GA_MEASUREMENT_ID);
 }
@@ -41,5 +44,15 @@ export function pageview(url: string) {
   }
   window.gtag('event', 'page_view', {
     page_path: url,
+  });
+}
+
+export function updateAnalyticsConsent(granted: boolean) {
+  if (!window.gtag) {
+    console.warn('window.gtag is not defined when trying to update consent!');
+    return;
+  }
+  window.gtag('consent', 'update', {
+    analytics_storage: granted ? 'granted' : 'denied',
   });
 } 
