@@ -33,8 +33,23 @@ jobs:
     - name: Build
       run: npm run build
 
+    - name: Debug build output
+      run: |
+        echo "Build directory contents:"
+        ls -la dist/
+        echo "Checking for index.html:"
+        cat dist/index.html | head -10
+
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GH_PAGES_TOKEN }}
-        publish_dir: ./dist 
+        publish_dir: ./dist
+        force_orphan: true
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+        commit_message: 'Deploy to GitHub Pages'
+
+    - name: Debug deployment
+      run: |
+        echo "Deployment completed. Check the gh-pages branch for the deployed files." 
