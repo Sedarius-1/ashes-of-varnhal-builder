@@ -186,3 +186,9 @@ dist/
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+env.example
+.gitignore
+.gitignore
+FIREBASE_SETUP.md
+.gitignore
+DEPLOYMENT_GUIDE.md
