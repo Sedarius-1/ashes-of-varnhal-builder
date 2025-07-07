@@ -24,7 +24,7 @@ import { AuthProvider } from './contexts/AuthContext';
 function App() {
     return (
         <AuthProvider>
-            <Router basename={process.env.NODE_ENV === 'production' ? '/ashes-of-varnhal-builder' : '/'}>
+            <Router basename="/">
                 <ScrollToTop />
                 <Layout>
                     <Routes>
