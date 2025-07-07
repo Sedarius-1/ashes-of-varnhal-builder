@@ -34,11 +34,16 @@ function useAnalyticsPageView() {
   }, [location]);
 }
 
+function AnalyticsListener() {
+  useAnalyticsPageView();
+  return null;
+}
+
 function App() {
-    useAnalyticsPageView();
     return (
         <AuthProvider>
             <Router basename="/">
+                <AnalyticsListener />
                 <CookieConsent onConsent={() => {}} />
                 <ScrollToTop />
                 <Layout>
