@@ -1,5 +1,6 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import CookieConsent from './components/CookieConsent';
+import { useEffect } from 'react';
 
 import Layout from './components/Layout';
 import ScrollToTop from './components/ScrollToTop';
@@ -20,7 +21,21 @@ import TurnAndActionsPage from './pages/TurnAndActionsPage';
 import FactionRulesPage from './pages/FactionRulesPage';
 import { AuthProvider } from './contexts/AuthContext';
 
+function useAnalyticsPageView() {
+  const location = useLocation();
+  useEffect(() => {
+    if (localStorage.getItem('analytics_consent') === 'granted') {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'pageview',
+        page_path: location.pathname + location.search,
+      });
+    }
+  }, [location]);
+}
+
 function App() {
+    useAnalyticsPageView();
     return (
         <AuthProvider>
             <Router basename="/">
