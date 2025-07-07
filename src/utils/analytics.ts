@@ -42,6 +42,7 @@ export function pageview(url: string) {
     console.warn('window.gtag is not defined when trying to send pageview!');
     return;
   }
+  console.log('Sending pageview for:', url);
   window.gtag('event', 'page_view', {
     page_path: url,
   });
@@ -58,6 +59,7 @@ function waitForGtag(callback: () => void, retries = 10) {
 }
 
 export function updateAnalyticsConsent(granted: boolean) {
+  console.log('Updating analytics consent to:', granted ? 'granted' : 'denied');
   waitForGtag(() => {
     window.gtag('consent', 'update', {
       analytics_storage: granted ? 'granted' : 'denied',
