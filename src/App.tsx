@@ -1,5 +1,5 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import AnalyticsListener from './components/AnalyticsListener';
 
 import Layout from './components/Layout';
 import ScrollToTop from './components/ScrollToTop';
@@ -19,22 +19,12 @@ import CampaignRulesPage from './pages/CampaignRulesPage';
 import TurnAndActionsPage from './pages/TurnAndActionsPage';
 import FactionRulesPage from './pages/FactionRulesPage';
 import { AuthProvider } from './contexts/AuthContext';
-import { initGA, pageview } from './utils/analytics';
 
 function App() {
-    const location = useLocation();
-
-    useEffect(() => {
-        initGA();
-    }, []);
-
-    useEffect(() => {
-        pageview(location.pathname + location.search);
-    }, [location]);
-
     return (
         <AuthProvider>
             <Router basename="/">
+                <AnalyticsListener />
                 <ScrollToTop />
                 <Layout>
                     <Routes>
