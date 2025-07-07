@@ -116,6 +116,10 @@ export default function CampaignsPage() {
     try {
       await deleteWarband(warbandId);
       setCampaignWarbands(prev => prev.filter(w => w.id !== warbandId));
+      // Reset selection if the deleted warband was selected
+      if (selectedWarbandIndex >= campaignWarbands.length - 1) {
+        setSelectedWarbandIndex(Math.max(0, campaignWarbands.length - 2));
+      }
     } catch (error) {
       console.error('Failed to delete warband:', error);
       setError('Failed to delete warband. Please try again.');
@@ -450,13 +454,27 @@ export default function CampaignsPage() {
                   <div
                     key={index}
                     onClick={() => setSelectedWarbandIndex(index)}
-                    className={`p-3 sm:p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 ${
+                    className={`p-3 sm:p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 relative group ${
                       selectedWarbandIndex === index
                         ? 'border-violet-500 bg-violet-900/20'
                         : 'border-slate-600 bg-slate-800/60 hover:border-slate-500 hover:bg-slate-700/60'
                     }`}
                   >
-                    <h4 className="font-black text-slate-200 mb-1 sm:mb-2 text-base sm:text-lg">{warband.name}</h4>
+                    {/* Delete button */}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation(); // Prevent selecting the warband when clicking delete
+                        if (warband.id && confirm(`Are you sure you want to delete "${warband.name}"? This action cannot be undone.`)) {
+                          deleteWarbandFromFirestore(warband.id);
+                        }
+                      }}
+                      className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-red-600 hover:bg-red-700 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold"
+                      title="Delete warband"
+                    >
+                      ×
+                    </button>
+                    
+                    <h4 className="font-black text-slate-200 mb-1 sm:mb-2 text-base sm:text-lg pr-8">{warband.name}</h4>
                     <p className="text-slate-400 text-xs sm:text-sm">{warband.faction}</p>
                     <div className="mt-1 sm:mt-2 flex justify-between text-xs sm:text-sm">
                       <span className="text-slate-400">Units: {warband.units.length}</span>
@@ -527,6 +545,17 @@ export default function CampaignsPage() {
                     className="px-3 py-2 sm:px-4 sm:py-2 bg-gradient-to-r from-emerald-600 to-teal-700 text-white font-black rounded-lg hover:from-emerald-700 hover:to-teal-800 transition-all duration-200 text-xs sm:text-base"
                   >
                     + Add Unit
+                  </button>
+                  <button
+                    onClick={() => {
+                      const warband = campaignWarbands[selectedWarbandIndex];
+                      if (warband.id && confirm(`Are you sure you want to delete "${warband.name}"? This action cannot be undone.`)) {
+                        deleteWarbandFromFirestore(warband.id);
+                      }
+                    }}
+                    className="px-3 py-2 sm:px-4 sm:py-2 bg-gradient-to-r from-red-600 to-red-700 text-white font-black rounded-lg hover:from-red-700 hover:to-red-800 transition-all duration-200 text-xs sm:text-base"
+                  >
+                    🗑️ Delete Warband
                   </button>
                 </div>
               </div>
